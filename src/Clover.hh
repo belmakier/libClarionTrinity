@@ -40,6 +40,10 @@ namespace ClarionTrinity {
       CloverID = id;      
     }
     void AddHit(const PIXIE::Measurement &meas, int cryst, const ClarionConf &conf) {
+      if (nHits >= MAX_HITS_PER_CLOVER) {
+        std::cout << "Error! More than " << MAX_HITS_PER_CLOVER << " hits in Clover ID " << CloverID << std::endl;
+        return;
+      }
       if (cryst <= 3) {
         hits[nHits].Set(meas, CloverID, cryst, conf);
         ++nHits;

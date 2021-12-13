@@ -92,6 +92,11 @@ namespace ClarionTrinity {
     //Process Hits -> Gammas (addback) here
     for (int j=0; j<clarion.nClovers; ++j) {
       clarion.clovers[j].MakeGammas(clarion.conf);
+      if (clarion.clovers[j].nHits == MAX_HITS_PER_CLOVER) {
+        for (int k=0; k<clarion.clovers[j].nHits; ++k) {
+          //clarion.clovers[j].hits[k].Print();
+        }
+      }
     }
 
     return e;

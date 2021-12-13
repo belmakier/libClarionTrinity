@@ -25,6 +25,14 @@ namespace ClarionTrinity {
     ClarionHit() {};
     ClarionHit(const PIXIE::Measurement &meas, int id, int cryst, const ClarionConf &conf);
     void Set(const PIXIE::Measurement &meas, int id, int cryst, const ClarionConf &conf);
+    void Print() { 
+      std::cout << "Clover ID: " << CloverID << std::endl;
+      std::cout << "Crystal ID: " << CrystalID << std::endl;
+      std::cout << "Raw Energy: " << RawEnergy << std::endl;
+      std::cout << "Timestamp: " << timestamp << std::endl;
+      std::cout << "Pileup: " << PileUp << std::endl;
+      std::cout << "Out of Range: " << OutOfRange << std::endl;
+    } 
   };
 }
 

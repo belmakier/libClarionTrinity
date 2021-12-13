@@ -29,5 +29,3 @@ namespace ClarionTrinity {
     Energy = conf.gain[id][cryst]*(RawEnergy + PIXIE::Reader::Dither()) + conf.offset[id][cryst];
   }
 }
-
-

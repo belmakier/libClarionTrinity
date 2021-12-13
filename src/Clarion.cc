@@ -1,4 +1,4 @@
-#include <fstream>
+ #include <fstream>
 
 #include "Clarion.hh"
 
@@ -15,7 +15,7 @@ namespace ClarionTrinity {
     
     std::cout << conffile << std::endl;
     std::ifstream file(conffile.c_str());
-    std::string line;
+    std::string line; 
 
     int n = 0;
     while (std::getline(file, line)) {
@@ -30,7 +30,7 @@ namespace ClarionTrinity {
         ss >> Cr[n][i] >> Sl[n][i] >> Ch[n][i];
         CloverIDMap[Cr[n][i]][Sl[n][i]][Ch[n][i]] = CloverID[n];
         CrystalMap[Cr[n][i]][Sl[n][i]][Ch[n][i]] = i;
-      }
+      } 
 
       n += 1;
     }
@@ -64,6 +64,26 @@ namespace ClarionTrinity {
     }
   }
 
+  void ClarionConf::ReadAngleMap(std::string mapfile) {
+    std::cout << mapfile << std::endl;
+    std::ifstream file(mapfile.c_str());
+    std::string line;
+
+    int n = 0;
+    while (std::getline(file, line)) {
+      if (line.size() == 0) { continue; }
+      if (line[0] == '#') { continue; }
+      if (line[0] == ';') { continue; }
+
+      std::stringstream ss(line);
+
+      int id, i;
+      ss >> id >> i;
+      ss >> theta[id][i] >> phi[id][i];
+    }
+  }
+
+
   void ClarionConf::Print() {
     std::cout << "Clarion configuration: " << std::endl;
     for (int i=0; i<nClovers; ++i) {
@@ -79,5 +99,14 @@ namespace ClarionTrinity {
         printf("%i  %i     %5.4f    %5.4f\n", CloverID[i], j, offset[CloverID[i]][j], gain[CloverID[i]][j]);
       }
     }
+    std::cout << "Clarion angles: " << std::endl;
+    for (int i=0; i<nClovers; ++i) {
+      for (int j=0; j<6; ++j) {
+        printf("%i  %i     %5.4f    %5.4f\n", CloverID[i], j, theta[CloverID[i]][j], phi[CloverID[i]][j]);
+      }
+    }
+    
   }
+
+  
 }

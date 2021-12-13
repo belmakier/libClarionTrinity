@@ -22,8 +22,6 @@ namespace ClarionTrinity {
     double theta[MAX_CLOVERS][5];
     double phi[MAX_CLOVERS][5];
 
-    double dither = 0.0;
-
     bool AddBack = true;
     double BGOVetoTime = 500; //in ns
     double EnThresh = 30; //keV
@@ -33,10 +31,9 @@ namespace ClarionTrinity {
     ClarionConf(std::string conffile);
 
     void ReadCal(std::string calfile);
+    void ReadAngleMap(std::string mapfile);
 
     void Print();
-
-    //double Dither() { dither += 0.1; if (dither >= 1.0) { dither = 0.0; } return dither; }
   };
 
   class Clarion {
@@ -50,6 +47,7 @@ namespace ClarionTrinity {
     Clarion() {};
     Clarion(std::string conffile) : conf(conffile) {};
 
+    void ReadAngleMap(std::string mapfile) { conf.ReadAngleMap(mapfile); }
     void PrintConf() { conf.Print(); }
   };
 }

@@ -18,6 +18,10 @@ namespace ClarionTrinity {
 
     double offset[MAX_CLOVERS * 4][8];
     double gain[MAX_CLOVERS * 4][8];
+
+    double theta[MAX_CLOVERS][5];
+    double phi[MAX_CLOVERS][5];
+
     double dither = 0.0;
 
     bool AddBack = true;
@@ -32,7 +36,7 @@ namespace ClarionTrinity {
 
     void Print();
 
-    double Dither() { dither += 0.1; if (dither >= 1.0) { dither = 0.0; } return dither; }
+    //double Dither() { dither += 0.1; if (dither >= 1.0) { dither = 0.0; } return dither; }
   };
 
   class Clarion {

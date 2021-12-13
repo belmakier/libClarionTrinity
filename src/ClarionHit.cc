@@ -1,6 +1,8 @@
 #include "ClarionHit.hh"
 #include "Clarion.hh"
 
+#include <libpixie/reader.hh>
+
 namespace ClarionTrinity {
   ClarionHit::ClarionHit(const PIXIE::Measurement &meas, int id, int cryst, const ClarionConf &conf) : CloverID(id), CrystalID(cryst){
     RawEnergy = meas.eventEnergy;
@@ -11,7 +13,7 @@ namespace ClarionTrinity {
     Suppress = false;
 
     //calibration here?
-    Energy = conf.gain[id][cryst]*(RawEnergy + conf.dither) + conf.offset[id][cryst];
+    Energy = conf.gain[id][cryst]*(RawEnergy + PIXIE::Reader::Dither()) + conf.offset[id][cryst];
   }
 
   void ClarionHit::Set(const PIXIE::Measurement &meas, int id, int cryst, const ClarionConf &conf) {
@@ -24,7 +26,7 @@ namespace ClarionTrinity {
     OutOfRange = meas.outOfRange;
     Suppress = false;
 
-    Energy = conf.gain[id][cryst]*(RawEnergy + conf.dither) + conf.offset[id][cryst];
+    Energy = conf.gain[id][cryst]*(RawEnergy + PIXIE::Reader::Dither()) + conf.offset[id][cryst];
   }
 }
 

@@ -101,7 +101,7 @@ namespace ClarionTrinity {
     }
     std::cout << "Clarion angles: " << std::endl;
     for (int i=0; i<nClovers; ++i) {
-      for (int j=0; j<6; ++j) {
+      for (int j=0; j<5; ++j) {
         printf("%i  %i     %5.4f    %5.4f\n", CloverID[i], j, theta[CloverID[i]][j], phi[CloverID[i]][j]);
       }
     }

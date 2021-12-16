@@ -7,15 +7,20 @@ namespace ClarionTrinity {
     slot1 = meas.slotID;
     chan1 = meas.channelNumber;
     fired1 = 1;
-    energy1 = meas.trace_meas[0].datum;
-    peak1 = meas.trace_meas[1].datum;
-    tail1 = meas.trace_meas[2].datum;
-    //tau1 = meas.trace_meas[3];
-    background1 = meas.trace_meas[3].datum;
-    postbackground1 = meas.trace_meas[4].datum;
+    //energy1 = meas.trace_meas[0].datum;
+    //peak1 = meas.trace_meas[1].datum;
+    //tail1 = meas.trace_meas[2].datum;
+    //background1 = meas.trace_meas[3].datum;
+    //postbackground1 = meas.trace_meas[4].datum;
+
+    energy1 = (meas.QDCSums[2] + meas.QDCSums[3] + meas.QDCSums[4] + meas.QDCSums[5] + meas.QDCSums[6]) - (meas.QDCSums[0] + meas.QDCSums[1])*115./60.;
+    peak1 = meas.QDCSums[3] - (meas.QDCSums[0] + meas.QDCSums[1])*20./60.;
+    tail1 = meas.QDCSums[5] - (meas.QDCSums[0] + meas.QDCSums[1])*55./60.;
+    background1 = meas.QDCSums[0] + meas.QDCSums[1];
+    postbackground1 = meas.QDCSums[7];
     time1 = meas.eventTime;
     traceLength1 = meas.traceLength;
-    ffTrig1 = meas.trace_meas[5].datum;
+    //ffTrig1 = meas.trace_meas[5].datum;
     pu1 = meas.finishCode;
   }
 
@@ -24,15 +29,22 @@ namespace ClarionTrinity {
     slot2 = meas.slotID;
     chan2 = meas.channelNumber;
     fired2 = 1;
-    energy2 = meas.trace_meas[0].datum;
-    peak2 = meas.trace_meas[1].datum;
-    tail2 = meas.trace_meas[2].datum;
+    //energy2 = meas.trace_meas[0].datum;
+    //peak2 = meas.trace_meas[1].datum;
+    //tail2 = meas.trace_meas[2].datum;
     //tau1 = meas.trace_meas[3];
-    background2 = meas.trace_meas[3].datum;
-    postbackground2 = meas.trace_meas[4].datum;
+    //background2 = meas.trace_meas[3].datum;
+    //postbackground2 = meas.trace_meas[4].datum;
+
+    energy2 = (meas.QDCSums[2] + meas.QDCSums[3] + meas.QDCSums[4] + meas.QDCSums[5] + meas.QDCSums[6]) - (meas.QDCSums[0] + meas.QDCSums[1])*115./60.;
+    peak2 = meas.QDCSums[3] - (meas.QDCSums[0] + meas.QDCSums[1])*20./60.;
+    tail2 = meas.QDCSums[5] - (meas.QDCSums[0] + meas.QDCSums[1])*55./60.;
+    background2 = meas.QDCSums[0] + meas.QDCSums[1];
+    postbackground2 = meas.QDCSums[7];
+
     time2 = meas.eventTime;
     traceLength2 = meas.traceLength;
-    ffTrig2 = meas.trace_meas[5].datum;
+    //ffTrig2 = meas.trace_meas[5].datum;
     pu2 = meas.finishCode;
   }
 

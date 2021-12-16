@@ -27,6 +27,7 @@ namespace ClarionTrinity {
         if (mult == 0) { //if the first hit to get this far, make gamma based off it
           gammas[mult].Set(hits[i], i);
           ++mult;
+          ++nGammas;
           gam = &(gammas[mult-1]);
         }
         else {
@@ -43,9 +44,14 @@ namespace ClarionTrinity {
             }
           }
           else {
+            if (mult >= MAX_GAMMAS) { 
+              std::cout << "Warning! More than " << MAX_GAMMAS << " gammas" << std::endl;
+              continue;
+            }
             //new gamma
             gammas[mult].Set(hits[i], i);
             ++mult;
+            ++nGammas;
             gam = &(gammas[mult-1]);
           }
         }

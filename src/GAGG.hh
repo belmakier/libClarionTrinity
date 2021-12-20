@@ -27,7 +27,6 @@ namespace ClarionTrinity {
     int iMeas1;
     int background1;
     int postbackground1;
-    int ffTrig1;
     int pu1;
 
     unsigned long long int time2;
@@ -40,7 +39,6 @@ namespace ClarionTrinity {
     int iMeas2;
     int background2;
     int postbackground2;
-    int ffTrig2;
     int pu2;
 
     float peak2_cal;
@@ -56,8 +54,8 @@ namespace ClarionTrinity {
 
     GAGG() {GaggID = -1; fired1 = 0; fired2 = 0; valid = 0; };
     //void Set(PIXIE::Event e, int cr1, int sl1, int ch1, int cr2, int sl2, int ch2);
-    void Set1(const PIXIE::Measurement &meas);
-    void Set2(const PIXIE::Measurement &meas);
+    void Set1(const PIXIE::Measurement &meas, const TrinityConf &conf);
+    void Set2(const PIXIE::Measurement &meas, const TrinityConf &conf);
     void Set(const TrinityConf &conf);
     void Reset(int ID) {GaggID = ID, fired1 = 0; fired2 = 0; valid = 0; } 
   };

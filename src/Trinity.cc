@@ -62,6 +62,51 @@ namespace ClarionTrinity {
     }
   }
 
+  void TrinityConf::ReadQDCParams(std::string paramfile) {
+    std::cout << paramfile << std::endl;
+    std::ifstream file(paramfile.c_str());
+    std::string line;
+
+    int n = 0;
+    while (std::getline(file, line)) {
+      if (line.size() == 0) { continue; }
+      if (line[0] == '#') { continue; }
+      if (line[0] == ';') { continue; }
+
+      std::stringstream ss(line);
+
+      int i;
+      float w;
+      std::string t;
+      ss >> i >> w >> t;
+      QDCWidth[i] = w;
+      if (t == "E") {
+        QDCType[i] = Window::kEnergy;
+        energyWidth += w;
+      }
+      else if (t == "P") {
+        QDCType[i] = Window::kPeak;
+        energyWidth += w;
+        peakWidth += w;
+      }
+      else if (t == "T") {
+        QDCType[i] = Window::kTail;
+        energyWidth += w;
+        tailWidth += w;
+      }
+      else if (t == "B") {
+        QDCType[i] = Window::kBackground;
+        backWidth += w;
+      }
+      else if (t == "PB") {
+        QDCType[i] = Window::kPostBackground;
+      }
+      else if (t == "O") {
+        QDCType[i] = Window::kOther;
+      }        
+    }
+  }
+
   
   void TrinityConf::Print() {
     for (int i=0; i<nCrystals; ++i) {

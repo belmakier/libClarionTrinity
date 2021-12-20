@@ -1,7 +1,15 @@
-FLAGS = -std=c++14 -I`root-config --incdir` -I$(HOME)/.local/include/ -O3 -g #-mmacos-version-min=11.4
+OSYS = $(shell uname)
+
+ifeq ($(OSYS),Darwin)
+	FLAGS = -std=c++14 -I`root-config --incdir` -I$(HOME)/.local/include/ -O3 -g -mmacos-version-min=11.4
+	CXX = clang++
+endif
+ifeq ($(OSYS),Linux)
+	FLAGS = -std=c++14 -I`root-config --incdir` -I$(HOME)/.local/include/ -O3 -g
+	CXX = g++
+endif
+
 LDFLAGS = -L$(HOME)/.local/lib/ -lpixie
-CXX = g++
-#CXX = clang++
 
 all : libClarionTrinity
 

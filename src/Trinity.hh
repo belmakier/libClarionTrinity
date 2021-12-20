@@ -5,6 +5,20 @@
 #include "Definitions.hh"
 
 namespace ClarionTrinity {
+  enum class PIDType {
+    kTrace,
+    kQDC
+  };
+
+  enum class Window {
+    kEnergy,
+    kPeak,
+    kTail,
+    kBackground,
+    kPostBackground,
+    kOther
+  };
+  
   class TrinityConf {
   public: 
     int nCrystals; //number of crystals
@@ -30,10 +44,20 @@ namespace ClarionTrinity {
     float backConsistency;
     bool rejectPU;
 
+    PIDType pidType;
+    //QDC parameters
+    float QDCWidth[8];
+    float peakWidth;
+    float tailWidth;
+    float energyWidth;
+    float backWidth;    
+    Window QDCType[8];
+
     TrinityConf() : energySimilarity(1e6), peakSimilarity(1e6), tailSimilarity(1e6), backConsistency(1e6) {}
     TrinityConf(std::string conffile);
 
     void ReadAngleMap(std::string mapfile);
+    void ReadQDCParams(std::string paramfile);
 
     void Print();
   };
@@ -50,6 +74,7 @@ namespace ClarionTrinity {
     Trinity(std::string conffile) : conf(conffile) { };
 
     void ReadAngleMap(std::string mapfile) { conf.ReadAngleMap(mapfile); }
+    void ReadQDCParams(std::string paramfile) { conf.ReadQDCParams(paramfile); }
     void PrintConf() { conf.Print(); }
   };
 }

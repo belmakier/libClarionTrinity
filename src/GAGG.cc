@@ -2,49 +2,91 @@
 #include "Trinity.hh"
 
 namespace ClarionTrinity {
-  void GAGG::Set1(const PIXIE::Measurement &meas) {
+  void GAGG::Set1(const PIXIE::Measurement &meas, const TrinityConf &conf) {
     crate1 = meas.crateID;
     slot1 = meas.slotID;
     chan1 = meas.channelNumber;
     fired1 = 1;
-    //energy1 = meas.trace_meas[0].datum;
-    //peak1 = meas.trace_meas[1].datum;
-    //tail1 = meas.trace_meas[2].datum;
-    //background1 = meas.trace_meas[3].datum;
-    //postbackground1 = meas.trace_meas[4].datum;
-
-    energy1 = (meas.QDCSums[2] + meas.QDCSums[3] + meas.QDCSums[4] + meas.QDCSums[5] + meas.QDCSums[6]) - (meas.QDCSums[0] + meas.QDCSums[1])*115./60.;
-    peak1 = meas.QDCSums[3] - (meas.QDCSums[0] + meas.QDCSums[1])*20./60.;
-    tail1 = meas.QDCSums[5] - (meas.QDCSums[0] + meas.QDCSums[1])*55./60.;
-    background1 = meas.QDCSums[0] + meas.QDCSums[1];
-    postbackground1 = meas.QDCSums[7];
+    if (conf.pidType == PIDType::kTrace) {
+      energy1 = meas.trace_meas[0].datum;
+      peak1 = meas.trace_meas[1].datum;
+      tail1 = meas.trace_meas[2].datum;
+      background1 = meas.trace_meas[3].datum;
+      postbackground1 = meas.trace_meas[4].datum;
+    }
+    else if (conf.pidType == PIDType::kQDC) {
+      background1 = 0;
+      energy1 = 0;
+      peak1 = 0;
+      tail1 = 0;
+      postbackground1 = 0;
+      for (int i=0; i<8; ++i) {
+        if (conf.QDCType[i] == Window::kEnergy) {
+          energy1 += meas.QDCSums[i];
+        }
+        else if (conf.QDCType[i] == Window::kPeak) {
+          peak1 += meas.QDCSums[i];
+        }
+        else if (conf.QDCType[i] == Window::kBackground) {
+          background1 += meas.QDCSums[i];
+        }
+        else if (conf.QDCType[i] == Window::kTail) {
+          tail1 += meas.QDCSums[i];
+        }
+        else if (conf.QDCType[i] == Window::kPostBackground) {
+          postbackground1 += meas.QDCSums[i];
+        }
+      }
+      energy1 = energy1 - conf.energyWidth/conf.backWidth * background1;
+      peak1 = peak1 - conf.peakWidth/conf.backWidth * background1;
+      tail1 = tail1 - conf.tailWidth/conf.backWidth * background1;            
+    }
     time1 = meas.eventTime;
     traceLength1 = meas.traceLength;
-    //ffTrig1 = meas.trace_meas[5].datum;
     pu1 = meas.finishCode;
   }
 
-  void GAGG::Set2(const PIXIE::Measurement &meas) {
+  void GAGG::Set2(const PIXIE::Measurement &meas, const TrinityConf &conf) {
     crate2 = meas.crateID;
     slot2 = meas.slotID;
     chan2 = meas.channelNumber;
     fired2 = 1;
-    //energy2 = meas.trace_meas[0].datum;
-    //peak2 = meas.trace_meas[1].datum;
-    //tail2 = meas.trace_meas[2].datum;
-    //tau1 = meas.trace_meas[3];
-    //background2 = meas.trace_meas[3].datum;
-    //postbackground2 = meas.trace_meas[4].datum;
-
-    energy2 = (meas.QDCSums[2] + meas.QDCSums[3] + meas.QDCSums[4] + meas.QDCSums[5] + meas.QDCSums[6]) - (meas.QDCSums[0] + meas.QDCSums[1])*115./60.;
-    peak2 = meas.QDCSums[3] - (meas.QDCSums[0] + meas.QDCSums[1])*20./60.;
-    tail2 = meas.QDCSums[5] - (meas.QDCSums[0] + meas.QDCSums[1])*55./60.;
-    background2 = meas.QDCSums[0] + meas.QDCSums[1];
-    postbackground2 = meas.QDCSums[7];
-
+    if (conf.pidType == PIDType::kTrace) {
+      energy2 = meas.trace_meas[0].datum;
+      peak2 = meas.trace_meas[1].datum;
+      tail2 = meas.trace_meas[2].datum;
+      background2 = meas.trace_meas[3].datum;
+      postbackground2 = meas.trace_meas[4].datum;
+    }
+    else if (conf.pidType == PIDType::kQDC) {
+      background2 = 0;
+      energy2 = 0;
+      peak2 = 0;
+      tail2 = 0;
+      postbackground2 = 0;
+      for (int i=0; i<8; ++i) {
+        if (conf.QDCType[i] == Window::kEnergy) {
+          energy2 += meas.QDCSums[i];
+        }
+        else if (conf.QDCType[i] == Window::kPeak) {
+          peak2 += meas.QDCSums[i];
+        }
+        else if (conf.QDCType[i] == Window::kBackground) {
+          background2 += meas.QDCSums[i];
+        }
+        else if (conf.QDCType[i] == Window::kTail) {
+          tail2 += meas.QDCSums[i];
+        }
+        else if (conf.QDCType[i] == Window::kPostBackground) {
+          postbackground2 += meas.QDCSums[i];
+        }
+      }
+      energy2 = energy2 - conf.energyWidth/conf.backWidth * background2;
+      peak2 = peak2 - conf.peakWidth/conf.backWidth * background2;
+      tail2 = tail2 - conf.tailWidth/conf.backWidth * background2;            
+    }
     time2 = meas.eventTime;
     traceLength2 = meas.traceLength;
-    //ffTrig2 = meas.trace_meas[5].datum;
     pu2 = meas.finishCode;
   }
 

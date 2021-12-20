@@ -33,6 +33,13 @@ namespace ClarionTrinity {
     void ReadCal(std::string calfile);
     void ReadAngleMap(std::string mapfile);
 
+    float AbsEff;
+    float EfficiencyCal[7];
+    
+    float Efficiency(const double &e) const;
+
+    void ReadEfficiencyCal(std::string calfile);
+      
     void Print();
   };
 
@@ -42,7 +49,9 @@ namespace ClarionTrinity {
     
     //std::vector<Clover> clovers;
     int nClovers;
+    int nHits;
     Clover clovers[MAX_CLOVERS];
+    ClarionHit *hits[MAX_HITS_PER_CLOVER*MAX_CLOVERS];
 
     Clarion() {};
     Clarion(std::string conffile) : conf(conffile) {};

@@ -61,7 +61,7 @@ namespace ClarionTrinity {
       //for each measurement, check if it's part of Clover
       int cloverID = clarion.conf.CloverIDMap[meas.crateID][meas.slotID][meas.channelNumber];
       int crystal = clarion.conf.CrystalMap[meas.crateID][meas.slotID][meas.channelNumber];
-      if (cloverID != -1) {            
+      if (cloverID != -1) {
         int exists = 0;
         for (int k=0; k<clarion.nClovers; ++k) { //iterate through existing Clovers
           if (clarion.clovers[k].CloverID == cloverID) {
@@ -91,6 +91,7 @@ namespace ClarionTrinity {
     }
     //measurements finished processing
 
+    
     //validate GAGGs with both SiPM fired
     for (int j=0; j<trinity.nParts; ++j) {
       trinity.parts[j].Set(trinity.conf);
@@ -104,7 +105,7 @@ namespace ClarionTrinity {
       clarion.clovers[j].MakeGammas(clarion.conf);
       if (clarion.clovers[j].nHits == MAX_HITS_PER_CLOVER) {
         for (int k=0; k<clarion.clovers[j].nHits; ++k) {
-          //clarion.clovers[j].hits[k].Print();
+          clarion.clovers[j].hits[k].Print();
         }
       }
     }

@@ -30,13 +30,19 @@ namespace ClarionTrinity {
     int nBGOs;
     int nSideChans;
     int nGammas;
+    int nNonPrompt;
+    int nPileUp;
+    int nSuppress;
 
     Clover() : CloverID(-1) {};
     void Reset(int id) {
       nHits = 0;
       nBGOs = 0;
       nSideChans = 0;
-      mult = 0;
+      nGammas = 0;
+      nNonPrompt = 0;
+      nPileUp = 0;
+      nSuppress = 0;
       CloverID = id;      
     }
     void AddHit(const PIXIE::Measurement &meas, int cryst, const ClarionConf &conf) {

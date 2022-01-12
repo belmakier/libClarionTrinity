@@ -50,7 +50,7 @@ namespace ClarionTrinity {
     float Efficiency(const double &e, const int &ID) const;
 
     void ReadEfficiencyCal(std::string calfile);
-    void ReadEfficiencyCal(std::string calfile, const int &ID);
+    void ReadEffIDCal(std::string calfile);
       
     void Print();
   };

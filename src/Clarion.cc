@@ -161,23 +161,29 @@ namespace ClarionTrinity {
     EfficiencyCal[6] = g;
   }
 
-  void ClarionConf::ReadEfficiencyCal(std::string fn, const int &ID) {
+  void ClarionConf::ReadEffIDCal(std::string fn) {
     std::ifstream file(fn.c_str());
     std::string line;
     getline(file, line);
-    getline(file, line);
-    std::stringstream ss(line);
-    std::cout << line << std::endl;
-    float abseff, a, aerr, b, berr, c, cerr, d, derr, e, eerr, f, ferr, g, gerr;
-    ss >> abseff >> a >> aerr >> b >> berr >> c >> cerr >> d >> derr >> e >> eerr >> f >> ferr >> g >> gerr;
-    AbsEff_i[ID] = abseff;
-    EffCal_i[ID][0] = a;
-    EffCal_i[ID][1] = b;
-    EffCal_i[ID][2] = c;
-    EffCal_i[ID][3] = d;
-    EffCal_i[ID][4] = e;
-    EffCal_i[ID][5] = f;
-    EffCal_i[ID][6] = g;
+    while (std::getline(file, line)) {
+      if (line.size() == 0) { continue; }
+      if (line[0] == '#') { continue; }
+      if (line[0] == ';') { continue; }
+
+      std::stringstream ss(line);
+      std::cout << line << std::endl;
+      int ID; 
+      float abseff, relnorm, a, aerr, b, berr, c, cerr, d, derr, e, eerr, f, ferr, g, gerr;
+      ss >> ID >> abseff >> relnorm >> a >> aerr >> b >> berr >> c >> cerr >> d >> derr >> e >> eerr >> f >> ferr >> g >> gerr;
+      AbsEff_i[ID] = abseff;
+      EffCal_i[ID][0] = a;
+      EffCal_i[ID][1] = b;
+      EffCal_i[ID][2] = c;
+      EffCal_i[ID][3] = d;
+      EffCal_i[ID][4] = e;
+      EffCal_i[ID][5] = f;
+      EffCal_i[ID][6] = g;
+    }
   }
 
   float ClarionConf::Efficiency(const double &e) const {

@@ -42,10 +42,15 @@ namespace ClarionTrinity {
 
     float AbsEff;
     float EfficiencyCal[7];
+
+    float AbsEff_i[MAX_CLOVERS+1];
+    float EffCal_i[MAX_CLOVERS+1][7]; //per detector
     
     float Efficiency(const double &e) const;
+    float Efficiency(const double &e, const int &ID) const;
 
     void ReadEfficiencyCal(std::string calfile);
+    void ReadEfficiencyCal(std::string calfile, const int &ID);
       
     void Print();
   };

@@ -160,6 +160,25 @@ namespace ClarionTrinity {
     EfficiencyCal[6] = g;
   }
 
+  void ClarionConf::ReadEfficiencyCal(std::string fn, const int &ID) {
+    std::ifstream file(fn.c_str());
+    std::string line;
+    getline(file, line);
+    getline(file, line);
+    std::stringstream ss(line);
+    std::cout << line << std::endl;
+    float abseff, a, aerr, b, berr, c, cerr, d, derr, e, eerr, f, ferr, g, gerr;
+    ss >> abseff >> a >> aerr >> b >> berr >> c >> cerr >> d >> derr >> e >> eerr >> f >> ferr >> g >> gerr;
+    AbsEff_i[ID] = abseff;
+    EffCal_i[ID][0] = a;
+    EffCal_i[ID][1] = b;
+    EffCal_i[ID][2] = c;
+    EffCal_i[ID][3] = d;
+    EffCal_i[ID][4] = e;
+    EffCal_i[ID][5] = f;
+    EffCal_i[ID][6] = g;
+  }
+
   float ClarionConf::Efficiency(const double &e) const {
     double x = std::log(e/100.0);
     double y = std::log(e/1000.0);
@@ -167,6 +186,16 @@ namespace ClarionTrinity {
       std::pow((EfficiencyCal[3] + EfficiencyCal[4]*y + EfficiencyCal[5]*y*y), -EfficiencyCal[6]);
     eff = std::pow(eff, -1.0/EfficiencyCal[6]);
     eff = AbsEff*std::exp(eff);
+    return eff;
+  }
+
+  float ClarionConf::Efficiency(const double &e, const int &ID) const {
+    double x = std::log(e/100.0);
+    double y = std::log(e/1000.0);
+    float eff = std::pow((EffCal_i[ID][0] + EffCal_i[ID][1]*x + EffCal_i[ID][2]*x*x), -EffCal_i[ID][6]) +
+      std::pow((EffCal_i[ID][3] + EffCal_i[ID][4]*y + EffCal_i[ID][5]*y*y), -EffCal_i[ID][6]);
+    eff = std::pow(eff, -1.0/EffCal_i[ID][6]);
+    eff = AbsEff_i[ID]*std::exp(eff);
     return eff;
   }
 

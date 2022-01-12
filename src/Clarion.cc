@@ -1,4 +1,5 @@
- #include <fstream>
+#include <fstream>
+#include <cmath>
 
 #include "Clarion.hh"
 

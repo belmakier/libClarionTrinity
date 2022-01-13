@@ -36,9 +36,9 @@ namespace ClarionTrinity {
     ClarionConf() {};
     ClarionConf(std::string conffile);
 
-    void ReadCal(std::string calfile);
-    void ReadAbCal(std::string calfile);
-    void ReadAngleMap(std::string mapfile);
+    int ReadCal(std::string calfile);
+    int ReadAbCal(std::string calfile);
+    int ReadAngleMap(std::string mapfile);
 
     float AbsEff;
     float EfficiencyCal[7];
@@ -49,8 +49,8 @@ namespace ClarionTrinity {
     float Efficiency(const double &e) const;
     float Efficiency(const double &e, const int &ID) const;
 
-    void ReadEfficiencyCal(std::string calfile);
-    void ReadEffIDCal(std::string calfile);
+    int ReadEfficiencyCal(std::string calfile);
+    int ReadEffIDCal(std::string calfile);
       
     void Print();
   };
@@ -68,7 +68,7 @@ namespace ClarionTrinity {
     Clarion() {};
     Clarion(std::string conffile) : conf(conffile) {};
 
-    void ReadAngleMap(std::string mapfile) { conf.ReadAngleMap(mapfile); }
+    ReadAngleMap(std::string mapfile) { return conf.ReadAngleMap(mapfile); }
     void PrintConf() { conf.Print(); }
   };
 }

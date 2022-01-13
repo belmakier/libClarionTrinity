@@ -56,8 +56,8 @@ namespace ClarionTrinity {
     TrinityConf() : energySimilarity(1e6), peakSimilarity(1e6), tailSimilarity(1e6), backConsistency(1e6) {}
     TrinityConf(std::string conffile);
 
-    void ReadAngleMap(std::string mapfile);
-    void ReadQDCParams(std::string paramfile);
+    int ReadAngleMap(std::string mapfile);
+    int ReadQDCParams(std::string paramfile);
 
     void Print();
   };
@@ -73,8 +73,8 @@ namespace ClarionTrinity {
     Trinity() {};
     Trinity(std::string conffile) : conf(conffile) { };
 
-    void ReadAngleMap(std::string mapfile) { conf.ReadAngleMap(mapfile); }
-    void ReadQDCParams(std::string paramfile) { conf.ReadQDCParams(paramfile); }
+    int ReadAngleMap(std::string mapfile) { return conf.ReadAngleMap(mapfile); }
+    int ReadQDCParams(std::string paramfile) { return conf.ReadQDCParams(paramfile); }
     void PrintConf() { conf.Print(); }
   };
 }

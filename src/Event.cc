@@ -104,8 +104,9 @@ namespace ClarionTrinity {
     for (int j=0; j<clarion.nClovers; ++j) {
       clarion.clovers[j].MakeGammas(clarion.conf);
       if (clarion.clovers[j].nHits == MAX_HITS_PER_CLOVER) {
+        std::cout << "Warning! More than " << MAX_HITS_PER_CLOVER << " hits in a single Clover" << std::endl;
         for (int k=0; k<clarion.clovers[j].nHits; ++k) {
-          clarion.clovers[j].hits[k].Print();
+          //clarion.clovers[j].hits[k].Print();
         }
       }
     }

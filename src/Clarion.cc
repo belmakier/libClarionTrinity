@@ -20,6 +20,9 @@ namespace ClarionTrinity {
     
     std::cout << conffile << std::endl;
     std::ifstream file(conffile.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << conffile << " not open!" << std::endl;
+    }
     std::string line; 
 
     int n = 0;
@@ -57,9 +60,13 @@ namespace ClarionTrinity {
     }
   }
 
-  void ClarionConf::ReadCal(std::string calfile) {
+  int ClarionConf::ReadCal(std::string calfile) {
     std::cout << calfile << std::endl;
     std::ifstream file(calfile.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << calfile << " not open" << std::endl;
+      return -1;
+    }
     std::string line;
 
     int n = 0;
@@ -73,12 +80,18 @@ namespace ClarionTrinity {
       int id, i;
       ss >> id >> i;
       ss >> offset[id][i] >> gain[id][i];
+      ++n;
     }
+    return n;
   }
 
-  void ClarionConf::ReadAbCal(std::string calfile) {
+  int ClarionConf::ReadAbCal(std::string calfile) {
     std::cout << calfile << std::endl;
     std::ifstream file(calfile.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << calfile << " not open" << std::endl;
+      return -1;
+    }
     file.precision(9);
     std::string line;
 
@@ -101,12 +114,18 @@ namespace ClarionTrinity {
       gain_ab[id][i2][i] = gain;
 
       printf("%i    %i    %i    %15.14f     %15.14f\n", id, i, i2, offset_ab[id][i][i2], gain_ab[id][i][i2]);
+      ++n;
     }
+    return n;
   }
   
-  void ClarionConf::ReadAngleMap(std::string mapfile) {
+  int ClarionConf::ReadAngleMap(std::string mapfile) {
     std::cout << mapfile << std::endl;
     std::ifstream file(mapfile.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << mapfile << " not open" << std::endl;
+      return -1;
+    }
     std::string line;
 
     int n = 0;
@@ -124,14 +143,17 @@ namespace ClarionTrinity {
       if (pos[id] == 0) { //near
         theta[id][i] = thetan;
         phi[id][i] = phin;
+        ++n;
       }
       else if (pos[id] == 1) { //mid
         theta[id][i] = thetam;
         phi[id][i] = phim;
+        ++n;
       }
       else if (pos[id] == 2) { //far
         theta[id][i] = thetam;
         phi[id][i] = phim;
+        ++n;
       }
       else { //wherever you are
         std::cout << "Error: Invalid Clover position " << pos[id] << " - should be: " << std::endl;
@@ -140,10 +162,15 @@ namespace ClarionTrinity {
         std::cout << "    2: furthest" << std::endl;
       }
     }
+    return n;
   }
 
-  void ClarionConf::ReadEfficiencyCal(std::string fn) {
+  int ClarionConf::ReadEfficiencyCal(std::string fn) {
     std::ifstream file(fn.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << fn << " not open" << std::endl;
+      return -1;
+    }    
     std::string line;
     getline(file, line);
     getline(file, line);
@@ -159,17 +186,24 @@ namespace ClarionTrinity {
     EfficiencyCal[4] = e;
     EfficiencyCal[5] = f;
     EfficiencyCal[6] = g;
+    return 1;
   }
 
-  void ClarionConf::ReadEffIDCal(std::string fn) {
+  int ClarionConf::ReadEffIDCal(std::string fn) {
     std::ifstream file(fn.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << fn << " not open" << std::endl;
+      return -1;
+    }
     std::string line;
     getline(file, line);
+    int n = 0;
     while (std::getline(file, line)) {
       if (line.size() == 0) { continue; }
       if (line[0] == '#') { continue; }
       if (line[0] == ';') { continue; }
 
+      ++n;
       std::stringstream ss(line);
       std::cout << line << std::endl;
       int ID; 
@@ -184,6 +218,7 @@ namespace ClarionTrinity {
       EffCal_i[ID][5] = f;
       EffCal_i[ID][6] = g;
     }
+    return n;
   }
 
   float ClarionConf::Efficiency(const double &e) const {

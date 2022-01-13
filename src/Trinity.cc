@@ -20,6 +20,9 @@ namespace ClarionTrinity {
     
     std::cout << conffile << std::endl;
     std::ifstream file(conffile.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << conf << " not open" << std::endl;
+    }
     std::string line;
 
     nCrystals = 0;
@@ -43,9 +46,13 @@ namespace ClarionTrinity {
     }
   }
 
-  void TrinityConf::ReadAngleMap(std::string mapfile) {
+  int TrinityConf::ReadAngleMap(std::string mapfile) {
     std::cout << mapfile << std::endl;
     std::ifstream file(mapfile.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << mapfile << " not open" << std::endl;
+      return -1;
+    }
     std::string line;
 
     int n = 0;
@@ -59,12 +66,18 @@ namespace ClarionTrinity {
       int ring, xtl;
       ss >> ring >> xtl;
       ss >> theta[ring*100 + xtl] >> phi[ring*100 + xtl];
+      ++n;
     }
+    return n;
   }
 
-  void TrinityConf::ReadQDCParams(std::string paramfile) {
+  int TrinityConf::ReadQDCParams(std::string paramfile) {
     std::cout << paramfile << std::endl;
     std::ifstream file(paramfile.c_str());
+    if (!file.is_open()) {
+      std::cout << "Warning! " << paramfile << " not open" << std::endl;
+      return -1;
+    }
     std::string line;
 
     int n = 0;
@@ -83,28 +96,38 @@ namespace ClarionTrinity {
       if (t == "E") {
         QDCType[i] = Window::kEnergy;
         energyWidth += w;
+        ++n;
       }
       else if (t == "P") {
         QDCType[i] = Window::kPeak;
         energyWidth += w;
         peakWidth += w;
+        ++n;
       }
       else if (t == "T") {
         QDCType[i] = Window::kTail;
         energyWidth += w;
         tailWidth += w;
+        ++n;
       }
       else if (t == "B") {
         QDCType[i] = Window::kBackground;
         backWidth += w;
+        ++n;
       }
       else if (t == "PB") {
         QDCType[i] = Window::kPostBackground;
+        ++n;
       }
       else if (t == "O") {
         QDCType[i] = Window::kOther;
-      }        
+        ++n;
+      }
+      else {
+        std::cout << "Warning - invalid QDC type" << std::endl;
+      }      
     }
+    return n;
   }
 
   

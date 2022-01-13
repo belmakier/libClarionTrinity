@@ -101,42 +101,42 @@ namespace ClarionTrinity {
       tail = ((float)tail1 + tail2_cal)/2.0;
       energy = ((float)energy1 + energy2_cal)/2.0;
       tau = (tau1 + tau2)/2.0;
-      valid = 1;
+      clean = 1;
       //reject based on board PU detection
       if (conf.rejectPU) {
         if (pu1 == 1 || energy1 == 0) {
-          valid = 0;
+          clean = 0;
         }
         if (pu2 == 1 || energy2 == 0) {
-          valid = 0;
+          clean = 0;
         }
       }
 
       //reject based on energy, peak, tail, or background conditions
       if ((energy1 + energy2) == 0) {
-        valid = 0;
+        clean = 0;
       } 
       else if ((peak1 + peak2) == 0) {
-        valid = 0;
+        clean = 0;
       } 
       else if ((tail1 + tail2) == 0) {
-        valid = 0;
+        clean = 0;
       } 
       else if (std::abs((float)(energy1 - energy2)/(float)(energy1 + energy2)) > conf.energySimilarity) {
-        valid = 0; 
+        clean = 0; 
       }
       else if (std::abs((float)(peak1 - peak2)/(float)(peak1 + peak2)) > conf.peakSimilarity) {
-        valid = 0;
+        clean = 0;
       }  
       else if (std::abs((float)(tail1 - tail2)/(float)(tail1 + tail2 + 2000) ) > conf.tailSimilarity) {
-        valid = 0;
+        clean = 0;
       }  
 
       if (std::abs((float)(background1-postbackground1)/(float)(background1)) > conf.backConsistency) {
-        valid = 0;
+        clean = 0;
       }
       if (std::abs((float)(background2-postbackground2)/(float)(background2)) > conf.backConsistency) {
-        valid = 0;
+        clean = 0;
       }
     }
     else if (fired1 && !fired2) {
@@ -145,7 +145,7 @@ namespace ClarionTrinity {
       tail = tail1;
       energy = energy1;
       tau = tau1;
-      valid = 0; 
+      clean = 0; 
     }
     else if (!fired1 && fired2) {
       time = time2;
@@ -153,7 +153,7 @@ namespace ClarionTrinity {
       tail = tail2;
       energy = energy2;
       tau = tau2;
-      valid = 0; 
+      clean = 0; 
     }    
   }
 }

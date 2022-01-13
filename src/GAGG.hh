@@ -50,14 +50,14 @@ namespace ClarionTrinity {
     float tail;
     float energy;
     int tau;
-    int valid;
+    int clean;
 
-    GAGG() {GaggID = -1; fired1 = 0; fired2 = 0; valid = 0; };
+    GAGG() {GaggID = -1; fired1 = 0; fired2 = 0; clean = 0; };
     //void Set(PIXIE::Event e, int cr1, int sl1, int ch1, int cr2, int sl2, int ch2);
     void Set1(const PIXIE::Measurement &meas, const TrinityConf &conf);
     void Set2(const PIXIE::Measurement &meas, const TrinityConf &conf);
     void Set(const TrinityConf &conf);
-    void Reset(int ID) {GaggID = ID, fired1 = 0; fired2 = 0; valid = 0; } 
+    void Reset(int ID) {GaggID = ID, fired1 = 0; fired2 = 0; clean = 0; } 
   };
     
     

@@ -21,7 +21,7 @@ namespace ClarionTrinity {
     std::cout << conffile << std::endl;
     std::ifstream file(conffile.c_str());
     if (!file.is_open()) {
-      std::cout << "Warning! " << conf << " not open" << std::endl;
+      std::cout << "Warning! " << conffile << " not open" << std::endl;
     }
     std::string line;
 

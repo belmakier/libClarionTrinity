@@ -68,7 +68,7 @@ namespace ClarionTrinity {
     Clarion() {};
     Clarion(std::string conffile) : conf(conffile) {};
 
-    ReadAngleMap(std::string mapfile) { return conf.ReadAngleMap(mapfile); }
+    int ReadAngleMap(std::string mapfile) { return conf.ReadAngleMap(mapfile); }
     void PrintConf() { conf.Print(); }
   };
 }

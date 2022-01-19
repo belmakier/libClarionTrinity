@@ -7,14 +7,14 @@ namespace ClarionTrinity {
     slot1 = meas.slotID;
     chan1 = meas.channelNumber;
     fired1 = 1;
-    if (conf.pidType == PIDType::kTrace) {
+    if (conf.pidType[GaggID] == PIDType::kTrace) {
       energy1 = meas.trace_meas[0].datum;
       peak1 = meas.trace_meas[1].datum;
       tail1 = meas.trace_meas[2].datum;
       background1 = meas.trace_meas[3].datum;
       postbackground1 = meas.trace_meas[4].datum;
     }
-    else if (conf.pidType == PIDType::kQDC) {
+    else if (conf.pidType[GaggID] == PIDType::kQDC) {
       background1 = 0;
       energy1 = 0;
       peak1 = 0;
@@ -51,14 +51,14 @@ namespace ClarionTrinity {
     slot2 = meas.slotID;
     chan2 = meas.channelNumber;
     fired2 = 1;
-    if (conf.pidType == PIDType::kTrace) {
+    if (conf.pidType[GaggID] == PIDType::kTrace) {
       energy2 = meas.trace_meas[0].datum;
       peak2 = meas.trace_meas[1].datum;
       tail2 = meas.trace_meas[2].datum;
       background2 = meas.trace_meas[3].datum;
       postbackground2 = meas.trace_meas[4].datum;
     }
-    else if (conf.pidType == PIDType::kQDC) {
+    else if (conf.pidType[GaggID] == PIDType::kQDC) {
       background2 = 0;
       energy2 = 0;
       peak2 = 0;

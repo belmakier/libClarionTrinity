@@ -44,6 +44,10 @@ namespace ClarionTrinity {
       GaggSensorMap[Cr2[nCrystals]][Sl2[nCrystals]][Ch2[nCrystals]] = 2;
       nCrystals += 1;
     }
+
+    for (int i=0; i<MAX_GAGG_ID; ++i) {
+      pidType[i] = PIDType::kTrace; //trace by default
+    }
   }
 
   int TrinityConf::ReadAngleMap(std::string mapfile) {

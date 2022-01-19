@@ -44,7 +44,7 @@ namespace ClarionTrinity {
     float backConsistency;
     bool rejectPU;
 
-    PIDType pidType;
+    PIDType pidType[MAX_GAGG_ID];
     //QDC parameters
     float QDCWidth[8];
     float peakWidth;
@@ -58,6 +58,8 @@ namespace ClarionTrinity {
 
     int ReadAngleMap(std::string mapfile);
     int ReadQDCParams(std::string paramfile);
+    void SetPIDType(PIDType type) { for (int i=0; i<MAX_GAGG_ID; ++i) {pidType[i] = type; } }
+    void SetPIDType(PIDType type, int ID) { pidType[ID] = type; }
 
     void Print();
   };

@@ -9,6 +9,11 @@ namespace ClarionTrinity {
     nNonPrompt = 0;
     nSuppress = 0;
     Gamma *gam;
+    float xtl_ens[4]; //local copy for cross-talk correction
+    for (int xtl = 0; xtl<4; ++xtl) {
+      xtl_ens[xtl] = 0.0;
+    }
+
     for (int i=0; i<nHits; ++i) {
       long long int hitt = hits[i].timestamp; 
       for (int j=0; j<nBGOs; ++j) {
@@ -37,6 +42,7 @@ namespace ClarionTrinity {
       if (hits[i].CFDForce == 1) { continue; }
 
       if (hits[i].Energy > conf.EnThresh && hits[i].RawEnergy < conf.RawUpThresh) {
+        xtl_ens[hits[i].CrystalID] = hits[i].Energy;
         if (nGammas == 0) { //if the first hit to get this far, make gamma based off it
           gammas[nGammas].Set(hits[i], i);
           ++nGammas;
@@ -62,16 +68,25 @@ namespace ClarionTrinity {
               continue;
             }
             //old gamma is finished, apply correction
-            if (gam->nHits == 2) {
-              int id0 = hits[gam->HitInds[0]].CrystalID;
-              int id1 = hits[gam->HitInds[1]].CrystalID;
-              double gain = conf.gain_ab[CloverID][id0][id1];
-              double off = conf.offset_ab[CloverID][id0][id1]; 
-              gam->Energy = off + gain*gam->Energy;
+
+            gam->Energy = 0;
+            for (int hit_i=0; hit_i<gam->nHits; ++hit_i) {
+              if (xtl_ens[hits[gam->HitInds[hit_i]].CrystalID] > 0.0) {
+                for (int xtlj=0; xtlj<4; ++xtlj) {
+                  int xtl = hits[gam->HitInds[hit_i]].CrystalID;
+                  if (xtl == xtlj) { continue; }
+                  hits[gam->HitInds[hit_i]].Energy += conf.ct_cal[CloverID][xtl][xtlj]*xtl_ens[xtlj];
+                }
+                gam->Energy += hits[gam->HitInds[hit_i]].Energy;
+              }
             }
             
             //new gamma
             gammas[nGammas].Set(hits[i], i);
+            for (int xtl = 0; xtl<4; ++xtl) {
+              xtl_ens[xtl] = 0.0;
+            }
+            xtl_ens[hits[i].CrystalID] = hits[i].Energy;
             ++nGammas;
             gam = &(gammas[nGammas-1]);
           }
@@ -79,13 +94,18 @@ namespace ClarionTrinity {
       }
     }
     //final gamma finished,
+
     if (nGammas > 0) {
-      if (gam->nHits == 2) {
-        int id0 = hits[gam->HitInds[0]].CrystalID;
-        int id1 = hits[gam->HitInds[1]].CrystalID;
-        double gain = conf.gain_ab[CloverID][id0][id1];
-        double off = conf.offset_ab[CloverID][id0][id1]; 
-        gam->Energy = off + gain*gam->Energy;
+      gam->Energy = 0;
+      for (int hit_i=0; hit_i<gam->nHits; ++hit_i) {
+        if (xtl_ens[hits[gam->HitInds[hit_i]].CrystalID] > 0.0) {
+          for (int xtlj=0; xtlj<4; ++xtlj) {
+            int xtl = hits[gam->HitInds[hit_i]].CrystalID;
+            if (xtl == xtlj) { continue; }
+            hits[gam->HitInds[hit_i]].Energy += conf.ct_cal[CloverID][xtl][xtlj]*xtl_ens[xtlj];
+          }
+          gam->Energy += hits[gam->HitInds[hit_i]].Energy;
+        }                
       }
     }
   }

@@ -53,8 +53,7 @@ namespace ClarionTrinity {
       }
       for (int i=0; i<4; ++i) {
         for (int i2=0; i2<4; ++i2) {
-          offset_ab[id][i][i2] = 0.0;
-          gain_ab[id][i][i2] = 1.0;
+          ct_cal[id][i][i2] = 0.0;
         }
       }
     }
@@ -85,14 +84,14 @@ namespace ClarionTrinity {
     return n;
   }
 
-  int ClarionConf::ReadAbCal(std::string calfile) {
+  int ClarionConf::ReadCTCal(std::string calfile) {
     std::cout << calfile << std::endl;
     std::ifstream file(calfile.c_str());
     if (!file.is_open()) {
       std::cout << "Warning! " << calfile << " not open" << std::endl;
       return -1;
     }
-    file.precision(9);
+    file.precision(7);
     std::string line;
 
     int n = 0;
@@ -102,18 +101,14 @@ namespace ClarionTrinity {
       if (line[0] == ';') { continue; }
 
       std::stringstream ss(line);
-      ss.precision(9);
+      ss.precision(7);
       
       int id, i, i2;
-      double off, gain;
-      ss >> id >> i >> i2 >> off >> gain;
+      double gain;
+      ss >> id >> i >> i2 >> gain;
  
-      offset_ab[id][i][i2] = off;
-      gain_ab[id][i][i2] = gain;
-      offset_ab[id][i2][i] = off;
-      gain_ab[id][i2][i] = gain;
+      ct_cal[id][i][i2] = gain;
 
-      printf("%i    %i    %i    %15.14f     %15.14f\n", id, i, i2, offset_ab[id][i][i2], gain_ab[id][i][i2]);
       ++n;
     }
     return n;
@@ -256,13 +251,13 @@ namespace ClarionTrinity {
         printf("%i  %i     %5.4f    %5.4f\n", CloverID[i], j, offset[CloverID[i]][j], gain[CloverID[i]][j]);
       }
     }
-    std::cout << "Clarion Addback correction: " << std::endl;
+    std::cout << "Clarion CT correction: " << std::endl;
     for (int i=0; i<nClovers; ++i) {
-      for (int j=0; j<4; ++j) {
-        for (int k=j+1; k<4; ++k) {
-          printf("%i    %i    %i    %15.14f     %15.14f\n", CloverID[i], j, k, offset_ab[CloverID[i]][j][k], gain_ab[CloverID[i]][j][k]);
-        }
-      }
+      std::cout << "Clover " << CloverID[i] << std::endl;
+      printf("( 1.0000   %6.5f   %6.5f   %6.5f )\n", ct_cal[CloverID[i]][0][1], ct_cal[CloverID[i]][0][2], ct_cal[CloverID[i]][0][3]);
+      printf("( %6.5f   1.0000   %6.5f   %6.5f )\n", ct_cal[CloverID[i]][1][0], ct_cal[CloverID[i]][1][2], ct_cal[CloverID[i]][1][3]);
+      printf("( %6.5f   %6.5f   1.0000   %6.5f )\n", ct_cal[CloverID[i]][2][0], ct_cal[CloverID[i]][2][1], ct_cal[CloverID[i]][2][3]);
+      printf("( %6.5f   %6.5f   %6.5f  1.0000 )\n", ct_cal[CloverID[i]][3][0], ct_cal[CloverID[i]][3][1], ct_cal[CloverID[i]][3][2]);
     }
     std::cout << "Clarion angles: " << std::endl;
     for (int i=0; i<nClovers; ++i) {

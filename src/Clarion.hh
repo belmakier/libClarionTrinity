@@ -20,8 +20,7 @@ namespace ClarionTrinity {
     double offset[MAX_CLOVERS * 4][8];
     double gain[MAX_CLOVERS * 4][8];
     
-    double offset_ab[MAX_CLOVERS * 4][4][4];  //secondary correction
-    double gain_ab[MAX_CLOVERS * 4][4][4];    //when addback occurs
+    double ct_cal[MAX_CLOVERS][4][4];    //when addback occurs
 
     double theta[MAX_CLOVERS][5];
     double phi[MAX_CLOVERS][5];
@@ -37,7 +36,7 @@ namespace ClarionTrinity {
     ClarionConf(std::string conffile);
 
     int ReadCal(std::string calfile);
-    int ReadAbCal(std::string calfile);
+    int ReadCTCal(std::string calfile);
     int ReadAngleMap(std::string mapfile);
 
     float AbsEff;

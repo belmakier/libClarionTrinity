@@ -26,12 +26,14 @@ namespace ClarionTrinity {
         }
         else if (conf.QDCType[i] == Window::kPeak) {
           peak1 += meas.QDCSums[i];
+          energy1 += meas.QDCSums[i];
         }
         else if (conf.QDCType[i] == Window::kBackground) {
           background1 += meas.QDCSums[i];
         }
         else if (conf.QDCType[i] == Window::kTail) {
           tail1 += meas.QDCSums[i];
+          energy1 += meas.QDCSums[i];
         }
         else if (conf.QDCType[i] == Window::kPostBackground) {
           postbackground1 += meas.QDCSums[i];
@@ -44,6 +46,7 @@ namespace ClarionTrinity {
     time1 = meas.eventTime;
     traceLength1 = meas.traceLength;
     pu1 = meas.finishCode;
+    oor1 = meas.outOfRange;
   }
 
   void GAGG::Set2(const PIXIE::Measurement &meas, const TrinityConf &conf) {
@@ -70,12 +73,14 @@ namespace ClarionTrinity {
         }
         else if (conf.QDCType[i] == Window::kPeak) {
           peak2 += meas.QDCSums[i];
+          energy2 += meas.QDCSums[i];
         }
         else if (conf.QDCType[i] == Window::kBackground) {
           background2 += meas.QDCSums[i];
         }
         else if (conf.QDCType[i] == Window::kTail) {
           tail2 += meas.QDCSums[i];
+          energy2 += meas.QDCSums[i];
         }
         else if (conf.QDCType[i] == Window::kPostBackground) {
           postbackground2 += meas.QDCSums[i];
@@ -88,6 +93,7 @@ namespace ClarionTrinity {
     time2 = meas.eventTime;
     traceLength2 = meas.traceLength;
     pu2 = meas.finishCode;
+    oor2 = meas.outOfRange;
   }
 
   void GAGG::Set(const TrinityConf &conf) {
@@ -108,6 +114,11 @@ namespace ClarionTrinity {
           clean = 0;
         }
         if (pu2 == 1 || energy2 == 0) {
+          clean = 0;
+        }
+      }
+      if (conf.rejectOOR) {
+        if (oor1 == 1 || oor2 == 2) {
           clean = 0;
         }
       }

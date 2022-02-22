@@ -28,6 +28,7 @@ namespace ClarionTrinity {
     int background1;
     int postbackground1;
     int pu1;
+    int oor1;
 
     unsigned long long int time2;
     int peak2;
@@ -40,6 +41,7 @@ namespace ClarionTrinity {
     int background2;
     int postbackground2;
     int pu2;
+    int oor2;
 
     float peak2_cal;
     float tail2_cal;

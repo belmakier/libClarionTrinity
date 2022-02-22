@@ -8,7 +8,8 @@ namespace ClarionTrinity {
     peakSimilarity(1e6), 
     tailSimilarity(1e6),
     backConsistency(1e6),
-    rejectPU(true) {
+    rejectPU(true),
+    rejectOOR(true) {
     for (int i=0; i<CT_MAX_CRATES; ++i) {
       for (int j=0; j<CT_MAX_SLOTS_PER_CRATE; ++j) {
         for (int k=0; k<CT_MAX_CHANNELS_PER_BOARD; ++k) {

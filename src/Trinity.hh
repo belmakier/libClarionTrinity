@@ -43,6 +43,7 @@ namespace ClarionTrinity {
     float tailSimilarity;
     float backConsistency;
     bool rejectPU;
+    bool rejectOOR;
 
     PIDType pidType[MAX_GAGG_ID];
     //QDC parameters

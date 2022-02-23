@@ -1,78 +1,78 @@
 \hypertarget{_clarion_8hh_source}{}\doxysection{Clarion.\+hh}
 \label{_clarion_8hh_source}\index{src/Clarion.hh@{src/Clarion.hh}}
-
+\mbox{\hyperlink{_clarion_8hh}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CLARION\_TRINITY\_CLARION\_HH}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define CLARION\_TRINITY\_CLARION\_HH}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Clover.hh"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Definitions.hh"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_clover_8hh}{Clover.hh}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_definitions_8hh}{Definitions.hh}}"{}}}
 \DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }ClarionTrinity \{}
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_clarion_trinity}{ClarionTrinity}} \{}
 \DoxyCodeLine{8   \textcolor{keyword}{class }\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} \{}
 \DoxyCodeLine{9   \textcolor{keyword}{public}:}
-\DoxyCodeLine{10     \textcolor{keywordtype}{int} nClovers; \textcolor{comment}{//number of clovers}}
-\DoxyCodeLine{11     \textcolor{keywordtype}{int} CloverID[MAX\_CLOVERS * 4]; \textcolor{comment}{//don't know how big this should be: crystal ID's}}
-\DoxyCodeLine{12     \textcolor{keywordtype}{int} Cr[MAX\_CLOVERS][8]; \textcolor{comment}{//crate ID    -\/ these are all indexed by }}
-\DoxyCodeLine{13     \textcolor{keywordtype}{int} Sl[MAX\_CLOVERS][8]; \textcolor{comment}{//slot IDs    -\/ 0-\/3: crystals, 4-\/6: side channels, 7 : BGO}}
-\DoxyCodeLine{14     \textcolor{keywordtype}{int} Ch[MAX\_CLOVERS][8]; \textcolor{comment}{//channel IDs}}
-\DoxyCodeLine{15     \textcolor{keywordtype}{int} pos[MAX\_CLOVERS];}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a51dd393a07b2d39908ca44f8e67ddd18}{nClovers}}; \textcolor{comment}{//number of clovers}}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}} * 4]; \textcolor{comment}{//don't know how big this should be: crystal ID's}}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a2ea43e18ab3c24344d8fb6193256756f}{Cr}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}][8]; \textcolor{comment}{//crate ID    -\/ these are all indexed by }}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9a28a3e37b33397789e7aa2816906028}{Sl}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}][8]; \textcolor{comment}{//slot IDs    -\/ 0-\/3: crystals, 4-\/6: side channels, 7 : BGO}}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abf9dc073bf973ecb0bbfbf01e9141552}{Ch}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}][8]; \textcolor{comment}{//channel IDs}}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a30e31eafb194b5987de28a6fc2186b52}{pos}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}];}
 \DoxyCodeLine{16 }
-\DoxyCodeLine{17     \textcolor{keywordtype}{int} CloverIDMap[CT\_MAX\_CRATES][CT\_MAX\_SLOTS\_PER\_CRATE][CT\_MAX\_CHANNELS\_PER\_BOARD];}
-\DoxyCodeLine{18     \textcolor{keywordtype}{int} CrystalMap[CT\_MAX\_CRATES][CT\_MAX\_SLOTS\_PER\_CRATE][CT\_MAX\_CHANNELS\_PER\_BOARD];}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a7909f54089c2b48dc2d270ae86de1fd2}{CloverIDMap}}[\mbox{\hyperlink{_definitions_8hh_adec67c1f284e23b6ea07228f98950509}{CT\_MAX\_CRATES}}][\mbox{\hyperlink{_definitions_8hh_a429274a2f511d243e784c80e797c320d}{CT\_MAX\_SLOTS\_PER\_CRATE}}][\mbox{\hyperlink{_definitions_8hh_abea2635728b4dc3fda3464e86797055e}{CT\_MAX\_CHANNELS\_PER\_BOARD}}];}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6a2f49f926889e17dd925b052b5c34d5}{CrystalMap}}[\mbox{\hyperlink{_definitions_8hh_adec67c1f284e23b6ea07228f98950509}{CT\_MAX\_CRATES}}][\mbox{\hyperlink{_definitions_8hh_a429274a2f511d243e784c80e797c320d}{CT\_MAX\_SLOTS\_PER\_CRATE}}][\mbox{\hyperlink{_definitions_8hh_abea2635728b4dc3fda3464e86797055e}{CT\_MAX\_CHANNELS\_PER\_BOARD}}];}
 \DoxyCodeLine{19 }
-\DoxyCodeLine{20     \textcolor{keywordtype}{double} offset[MAX\_CLOVERS * 4][8];}
-\DoxyCodeLine{21     \textcolor{keywordtype}{double} gain[MAX\_CLOVERS * 4][8];}
+\DoxyCodeLine{20     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a33e20c9a6a8dc7a9073319b579dcf340}{offset}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}} * 4][8];}
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_af8e740d27419a6e936aa0658941a941a}{gain}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}} * 4][8];}
 \DoxyCodeLine{22     }
-\DoxyCodeLine{23     \textcolor{keywordtype}{double} ct\_cal[MAX\_CLOVERS][4][4];    \textcolor{comment}{//when addback occurs}}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}][4][4];    \textcolor{comment}{//when addback occurs}}
 \DoxyCodeLine{24 }
-\DoxyCodeLine{25     \textcolor{keywordtype}{double} theta[MAX\_CLOVERS][5];}
-\DoxyCodeLine{26     \textcolor{keywordtype}{double} phi[MAX\_CLOVERS][5];}
+\DoxyCodeLine{25     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aa9290326bf8272521ab618531ea72549}{theta}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}][5];}
+\DoxyCodeLine{26     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a407341f9fb3cfbcacf469c0f92a06aa7}{phi}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}][5];}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{28     \textcolor{keywordtype}{bool} AddBack = \textcolor{keyword}{true};}
-\DoxyCodeLine{29     \textcolor{keywordtype}{double} BGOVetoTime = 500; \textcolor{comment}{//in ns}}
-\DoxyCodeLine{30     \textcolor{keywordtype}{double} EnThresh = 30; \textcolor{comment}{//keV}}
-\DoxyCodeLine{31     \textcolor{keywordtype}{double} RawUpThresh = 60000; \textcolor{comment}{//ADC units}}
-\DoxyCodeLine{32     \textcolor{keywordtype}{double} RawBGOThresh = 20; \textcolor{comment}{//ADC units}}
-\DoxyCodeLine{33     \textcolor{keywordtype}{double} AddBackTDiff = 500; \textcolor{comment}{//in ns}}
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a1f0cc5be022752800c6af79fb95e80cf}{AddBack}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a5db3210e24dbb26f20440edb75f0f9f2}{BGOVetoTime}} = 500; \textcolor{comment}{//in ns}}
+\DoxyCodeLine{30     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6dd0eeb6586b02b23102adbe4ea0f77c}{EnThresh}} = 30; \textcolor{comment}{//keV}}
+\DoxyCodeLine{31     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abedb83b0c0b2e71f07f4cc219b6beaac}{RawUpThresh}} = 60000; \textcolor{comment}{//ADC units}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a3399a8752988129da60f556fa64414b9}{RawBGOThresh}} = 20; \textcolor{comment}{//ADC units}}
+\DoxyCodeLine{33     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a46e30562bd0f1d599803ad01000539e6}{AddBackTDiff}} = 500; \textcolor{comment}{//in ns}}
 \DoxyCodeLine{34     }
-\DoxyCodeLine{35     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}}() \{\};}
-\DoxyCodeLine{36     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}}(std::string conffile);}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a62dd4f85ff46585c8243fb10cd4c4bec}{ClarionConf}}() \{\};}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a62dd4f85ff46585c8243fb10cd4c4bec}{ClarionConf}}(std::string conffile);}
 \DoxyCodeLine{37 }
-\DoxyCodeLine{38     \textcolor{keywordtype}{int} ReadCal(std::string calfile);}
-\DoxyCodeLine{39     \textcolor{keywordtype}{int} ReadCTCal(std::string calfile);}
-\DoxyCodeLine{40     \textcolor{keywordtype}{int} ReadAngleMap(std::string mapfile);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a34479170253281a38cf401e122be4ac3}{ReadCal}}(std::string calfile);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_ae4b07b86fb318a7532d8b14211ec75f3}{ReadCTCal}}(std::string calfile);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9f908ee273f852dcace35bb512e816d6}{ReadAngleMap}}(std::string mapfile);}
 \DoxyCodeLine{41 }
-\DoxyCodeLine{42     \textcolor{keywordtype}{float} AbsEff;}
-\DoxyCodeLine{43     \textcolor{keywordtype}{float} EfficiencyCal[7];}
+\DoxyCodeLine{42     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_afd6ea49600c249835c91a37fe8a41f5d}{AbsEff}};}
+\DoxyCodeLine{43     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[7];}
 \DoxyCodeLine{44 }
-\DoxyCodeLine{45     \textcolor{keywordtype}{float} AbsEff\_i[MAX\_CLOVERS+1];}
-\DoxyCodeLine{46     \textcolor{keywordtype}{float} EffCal\_i[MAX\_CLOVERS+1][7]; \textcolor{comment}{//per detector}}
+\DoxyCodeLine{45     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_ab9c20a58cedde4cd3352a73f7da63366}{AbsEff\_i}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}+1];}
+\DoxyCodeLine{46     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}+1][7]; \textcolor{comment}{//per detector}}
 \DoxyCodeLine{47     }
-\DoxyCodeLine{48     \textcolor{keywordtype}{float} Efficiency(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&e) \textcolor{keyword}{const};}
-\DoxyCodeLine{49     \textcolor{keywordtype}{float} Efficiency(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&e, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&ID) \textcolor{keyword}{const};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6968fe5981637f212b8ac9040b713515}{Efficiency}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&e) \textcolor{keyword}{const};}
+\DoxyCodeLine{49     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6968fe5981637f212b8ac9040b713515}{Efficiency}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&e, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&ID) \textcolor{keyword}{const};}
 \DoxyCodeLine{50 }
-\DoxyCodeLine{51     \textcolor{keywordtype}{int} ReadEfficiencyCal(std::string calfile);}
-\DoxyCodeLine{52     \textcolor{keywordtype}{int} ReadEffIDCal(std::string calfile);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a14dd6f6267272158e3e23fdb385be329}{ReadEfficiencyCal}}(std::string calfile);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a8408bd6cb5275df3b9080425404682ed}{ReadEffIDCal}}(std::string calfile);}
 \DoxyCodeLine{53       }
-\DoxyCodeLine{54     \textcolor{keywordtype}{void} Print();}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aeb3ea889acdaaa023d1bbb98189c350d}{Print}}();}
 \DoxyCodeLine{55   \};}
 \DoxyCodeLine{56 }
 \DoxyCodeLine{57   \textcolor{keyword}{class }\mbox{\hyperlink{class_clarion_trinity_1_1_clarion}{Clarion}} \{}
 \DoxyCodeLine{58   \textcolor{keyword}{public}:}
-\DoxyCodeLine{59     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} conf;}
+\DoxyCodeLine{59     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}};}
 \DoxyCodeLine{60     }
 \DoxyCodeLine{61     \textcolor{comment}{//std::vector<Clover> clovers;}}
-\DoxyCodeLine{62     \textcolor{keywordtype}{int} nClovers;}
-\DoxyCodeLine{63     \textcolor{keywordtype}{int} nHits;}
-\DoxyCodeLine{64     \mbox{\hyperlink{class_clarion_trinity_1_1_clover}{Clover}} clovers[MAX\_CLOVERS];}
-\DoxyCodeLine{65     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit}{ClarionHit}} *hits[MAX\_HITS\_PER\_CLOVER*MAX\_CLOVERS];}
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}};}
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}};}
+\DoxyCodeLine{64     \mbox{\hyperlink{class_clarion_trinity_1_1_clover}{Clover}} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}];}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit}{ClarionHit}} *\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a6cf5301ed2fd82fd9ee3494383c30bc9}{hits}}[\mbox{\hyperlink{_definitions_8hh_a35cbe6ff6279f557840cb94f017e38cf}{MAX\_HITS\_PER\_CLOVER}}*\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}];}
 \DoxyCodeLine{66 }
-\DoxyCodeLine{67     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion}{Clarion}}() \{\};}
-\DoxyCodeLine{68     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion}{Clarion}}(std::string conffile) : conf(conffile) \{\};}
+\DoxyCodeLine{67     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afd613233c52dc1f5594f7530ad19a6bf}{Clarion}}() \{\};}
+\DoxyCodeLine{68     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a223b92e002355940c126a0b348414ac0}{Clarion}}(std::string conffile) : \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}}(conffile) \{\};}
 \DoxyCodeLine{69 }
-\DoxyCodeLine{70     \textcolor{keywordtype}{int} ReadAngleMap(std::string mapfile) \{ \textcolor{keywordflow}{return} conf.ReadAngleMap(mapfile); \}}
-\DoxyCodeLine{71     \textcolor{keywordtype}{void} PrintConf() \{ conf.Print(); \}}
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_af6269f4c707c58ed97efcc57e12c73ce}{ReadAngleMap}}(std::string mapfile) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9f908ee273f852dcace35bb512e816d6}{ReadAngleMap}}(mapfile); \}}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a18a6c3d70e5d368af8526302db281660}{PrintConf}}() \{ \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aeb3ea889acdaaa023d1bbb98189c350d}{Print}}(); \}}
 \DoxyCodeLine{72   \};}
 \DoxyCodeLine{73 \}}
 \DoxyCodeLine{74 }

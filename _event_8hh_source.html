@@ -69,30 +69,37 @@ $(function() {
   <div class="headertitle"><div class="title">Event.hh</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CLARION_TRINITY_EVENT_HH</span></div>
+<a href="_event_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CLARION_TRINITY_EVENT_HH</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CLARION_TRINITY_EVENT_HH</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Trinity.hh&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Clarion.hh&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_trinity_8hh.html">Trinity.hh</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_clarion_8hh.html">Clarion.hh</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;libpixie/event.hh&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;libpixie/reader.hh&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span>ClarionTrinity {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_clarion_trinity.html">ClarionTrinity</a> {</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_clarion_trinity_1_1_event.html">   11</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_clarion_trinity_1_1_event.html">Event</a> {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_clarion_trinity_1_1_clarion.html">Clarion</a> clarion;  <span class="comment">//clarion array</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_clarion_trinity_1_1_trinity.html">Trinity</a> trinity;  <span class="comment">//trinity array</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_clarion_trinity_1_1_event.html#a6720d9c9e1c5b96299ef1e336d037796">   13</a></span>    <a class="code hl_class" href="class_clarion_trinity_1_1_clarion.html">Clarion</a> <a class="code hl_variable" href="class_clarion_trinity_1_1_event.html#a6720d9c9e1c5b96299ef1e336d037796">clarion</a>;  <span class="comment">//clarion array</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_clarion_trinity_1_1_event.html#a172b834c203efe23df802f69a4ca5702">   14</a></span>    <a class="code hl_class" href="class_clarion_trinity_1_1_trinity.html">Trinity</a> <a class="code hl_variable" href="class_clarion_trinity_1_1_event.html#a172b834c203efe23df802f69a4ca5702">trinity</a>;  <span class="comment">//trinity array</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_clarion_trinity_1_1_event.html">Event</a>(<a class="code hl_class" href="class_clarion_trinity_1_1_clarion.html">Clarion</a> c, <a class="code hl_class" href="class_clarion_trinity_1_1_trinity.html">Trinity</a> t) { clarion = c; trinity = t; };</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">const</span> PIXIE::Event&amp; Set(<span class="keyword">const</span> PIXIE::Reader &amp;reader, <span class="keywordtype">int</span> eventInd); </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_clarion_trinity_1_1_event.html#a190ef64475ce1cd7d3da3fffbf85eeb8">   16</a></span>    <a class="code hl_function" href="class_clarion_trinity_1_1_event.html#a190ef64475ce1cd7d3da3fffbf85eeb8">Event</a>(<a class="code hl_class" href="class_clarion_trinity_1_1_clarion.html">Clarion</a> c, <a class="code hl_class" href="class_clarion_trinity_1_1_trinity.html">Trinity</a> t) { <a class="code hl_variable" href="class_clarion_trinity_1_1_event.html#a6720d9c9e1c5b96299ef1e336d037796">clarion</a> = c; <a class="code hl_variable" href="class_clarion_trinity_1_1_event.html#a172b834c203efe23df802f69a4ca5702">trinity</a> = t; };</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">const</span> PIXIE::Event&amp; <a class="code hl_function" href="class_clarion_trinity_1_1_event.html#ac7554f6e6282fc1b58d221dd72c77f21">Set</a>(<span class="keyword">const</span> PIXIE::Reader &amp;reader, <span class="keywordtype">int</span> eventInd); </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  };</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_clarion_8hh_html"><div class="ttname"><a href="_clarion_8hh.html">Clarion.hh</a></div></div>
+<div class="ttc" id="a_trinity_8hh_html"><div class="ttname"><a href="_trinity_8hh.html">Trinity.hh</a></div></div>
 <div class="ttc" id="aclass_clarion_trinity_1_1_clarion_html"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion.html">ClarionTrinity::Clarion</a></div><div class="ttdef"><b>Definition:</b> Clarion.hh:57</div></div>
 <div class="ttc" id="aclass_clarion_trinity_1_1_event_html"><div class="ttname"><a href="class_clarion_trinity_1_1_event.html">ClarionTrinity::Event</a></div><div class="ttdef"><b>Definition:</b> Event.hh:11</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_event_html_a172b834c203efe23df802f69a4ca5702"><div class="ttname"><a href="class_clarion_trinity_1_1_event.html#a172b834c203efe23df802f69a4ca5702">ClarionTrinity::Event::trinity</a></div><div class="ttdeci">Trinity trinity</div><div class="ttdef"><b>Definition:</b> Event.hh:14</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_event_html_a190ef64475ce1cd7d3da3fffbf85eeb8"><div class="ttname"><a href="class_clarion_trinity_1_1_event.html#a190ef64475ce1cd7d3da3fffbf85eeb8">ClarionTrinity::Event::Event</a></div><div class="ttdeci">Event(Clarion c, Trinity t)</div><div class="ttdef"><b>Definition:</b> Event.hh:16</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_event_html_a6720d9c9e1c5b96299ef1e336d037796"><div class="ttname"><a href="class_clarion_trinity_1_1_event.html#a6720d9c9e1c5b96299ef1e336d037796">ClarionTrinity::Event::clarion</a></div><div class="ttdeci">Clarion clarion</div><div class="ttdef"><b>Definition:</b> Event.hh:13</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_event_html_ac7554f6e6282fc1b58d221dd72c77f21"><div class="ttname"><a href="class_clarion_trinity_1_1_event.html#ac7554f6e6282fc1b58d221dd72c77f21">ClarionTrinity::Event::Set</a></div><div class="ttdeci">const PIXIE::Event &amp; Set(const PIXIE::Reader &amp;reader, int eventInd)</div><div class="ttdef"><b>Definition:</b> Event.cc:7</div></div>
 <div class="ttc" id="aclass_clarion_trinity_1_1_trinity_html"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity.html">ClarionTrinity::Trinity</a></div><div class="ttdef"><b>Definition:</b> Trinity.hh:68</div></div>
+<div class="ttc" id="anamespace_clarion_trinity_html"><div class="ttname"><a href="namespace_clarion_trinity.html">ClarionTrinity</a></div><div class="ttdef"><b>Definition:</b> Clarion.cc:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -45,12 +45,32 @@ bool \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd
 \doxysubsubsection{\texorpdfstring{ClarionHit()}{ClarionHit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Clarion\+Trinity\+::\+Clarion\+Hit\+::\+Clarion\+Hit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{\};}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{class_clarion_trinity_1_1_clarion_hit_a47a8dc40c71f7147165c6bac43e34b35}\label{class_clarion_trinity_1_1_clarion_hit_a47a8dc40c71f7147165c6bac43e34b35}} 
 \index{ClarionTrinity::ClarionHit@{ClarionTrinity::ClarionHit}!ClarionHit@{ClarionHit}}
 \index{ClarionHit@{ClarionHit}!ClarionTrinity::ClarionHit@{ClarionTrinity::ClarionHit}}
 \doxysubsubsection{\texorpdfstring{ClarionHit()}{ClarionHit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily Clarion\+Trinity\+::\+Clarion\+Hit\+::\+Clarion\+Hit (\begin{DoxyParamCaption}\item[{const PIXIE\+::\+Measurement \&}]{meas,  }\item[{int}]{id,  }\item[{int}]{cryst,  }\item[{const \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{Clarion\+Conf}} \&}]{conf }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7                                                                                                  : \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a032ab3809375524bd99403ee6c14df01}{CloverID}}(\textcolor{keywordtype}{id}), \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}}(cryst)\{}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} = meas.eventEnergy;}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}} = meas.eventTime;}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a3fad5645b9df15722632600fb7431eed}{PileUp}} = meas.finishCode;}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a1699e46a3a65f442e476238fa20375d3}{CFDForce}} = meas.CFDForce;}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_ac412c71b94e038cd1637517017519dde}{OutOfRange}} = meas.outOfRange;}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd9d4896d554a3b}{Suppress}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{comment}{//calibration here?}}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}} = conf.gain[id][cryst]*(\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} + PIXIE::Reader::Dither()) + conf.offset[\textcolor{keywordtype}{id}][cryst];}
+\DoxyCodeLine{17   \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
@@ -60,12 +80,40 @@ bool \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd
 \doxysubsubsection{\texorpdfstring{Print()}{Print()}}
 {\footnotesize\ttfamily void Clarion\+Trinity\+::\+Clarion\+Hit\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                  \{ }
+\DoxyCodeLine{29       std::cout << \textcolor{stringliteral}{"{}Clover ID: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a032ab3809375524bd99403ee6c14df01}{CloverID}} << std::endl;}
+\DoxyCodeLine{30       std::cout << \textcolor{stringliteral}{"{}Crystal ID: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}} << std::endl;}
+\DoxyCodeLine{31       std::cout << \textcolor{stringliteral}{"{}Raw Energy: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} << std::endl;}
+\DoxyCodeLine{32       std::cout << \textcolor{stringliteral}{"{}Timestamp: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}} << std::endl;}
+\DoxyCodeLine{33       std::cout << \textcolor{stringliteral}{"{}Pileup: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a3fad5645b9df15722632600fb7431eed}{PileUp}} << std::endl;}
+\DoxyCodeLine{34       std::cout << \textcolor{stringliteral}{"{}Out of Range: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_ac412c71b94e038cd1637517017519dde}{OutOfRange}} << std::endl;}
+\DoxyCodeLine{35     \} }
+
+\end{DoxyCode}
 \mbox{\Hypertarget{class_clarion_trinity_1_1_clarion_hit_a2d87f05cb6693ffc60d8ef1eb628f563}\label{class_clarion_trinity_1_1_clarion_hit_a2d87f05cb6693ffc60d8ef1eb628f563}} 
 \index{ClarionTrinity::ClarionHit@{ClarionTrinity::ClarionHit}!Set@{Set}}
 \index{Set@{Set}!ClarionTrinity::ClarionHit@{ClarionTrinity::ClarionHit}}
 \doxysubsubsection{\texorpdfstring{Set()}{Set()}}
 {\footnotesize\ttfamily void Clarion\+Trinity\+::\+Clarion\+Hit\+::\+Set (\begin{DoxyParamCaption}\item[{const PIXIE\+::\+Measurement \&}]{meas,  }\item[{int}]{id,  }\item[{int}]{cryst,  }\item[{const \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{Clarion\+Conf}} \&}]{conf }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                                                                                \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a032ab3809375524bd99403ee6c14df01}{CloverID}} = id;}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}} = cryst;}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} = meas.eventEnergy;}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}} = meas.eventTime;}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a3fad5645b9df15722632600fb7431eed}{PileUp}} = meas.finishCode;}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a1699e46a3a65f442e476238fa20375d3}{CFDForce}} = meas.CFDForce;}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_ac412c71b94e038cd1637517017519dde}{OutOfRange}} = meas.outOfRange;}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd9d4896d554a3b}{Suppress}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}} = conf.gain[id][cryst]*(\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} + PIXIE::Reader::Dither()) + conf.offset[\textcolor{keywordtype}{id}][cryst];}
+\DoxyCodeLine{30   \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Data Documentation}

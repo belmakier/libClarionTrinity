@@ -139,7 +139,9 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   37</span>: <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">CloverID</a>(-1) {};</div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_af38181501c56ac727350125cc3a795e4"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">ClarionTrinity::Clover::CloverID</a></div><div class="ttdeci">int CloverID</div><div class="ttdef"><b>Definition:</b> Clover.hh:15</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -182,7 +184,36 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   48</span>                                                                                  {</div>
+<div class="line"><span class="lineno">   49</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a0216f6e2d941d3aa1aecfc7e48acd469">nHits</a> &gt;= <a class="code hl_define" href="_definitions_8hh.html#a35cbe6ff6279f557840cb94f017e38cf">MAX_HITS_PER_CLOVER</a>) {</div>
+<div class="line"><span class="lineno">   50</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Error! More than &quot;</span> &lt;&lt; <a class="code hl_define" href="_definitions_8hh.html#a35cbe6ff6279f557840cb94f017e38cf">MAX_HITS_PER_CLOVER</a> &lt;&lt; <span class="stringliteral">&quot; hits in Clover ID &quot;</span> &lt;&lt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">CloverID</a> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   52</span>      }</div>
+<div class="line"><span class="lineno">   53</span>      <span class="keywordflow">if</span> (cryst &lt;= 3) {</div>
+<div class="line"><span class="lineno">   54</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a0216f6e2d941d3aa1aecfc7e48acd469">nHits</a>].<a class="code hl_function" href="class_clarion_trinity_1_1_clarion_hit.html#a2d87f05cb6693ffc60d8ef1eb628f563">Set</a>(meas, <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">CloverID</a>, cryst, conf);</div>
+<div class="line"><span class="lineno">   55</span>        ++<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a0216f6e2d941d3aa1aecfc7e48acd469">nHits</a>;</div>
+<div class="line"><span class="lineno">   56</span>        <span class="comment">//hits.emplace_back(meas, CloverID, cryst, conf);</span></div>
+<div class="line"><span class="lineno">   57</span>      }</div>
+<div class="line"><span class="lineno">   58</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (4 &lt;= cryst &amp;&amp; cryst &lt;= 6) {</div>
+<div class="line"><span class="lineno">   59</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a0fa7c94bcde946c3e99a4d688fd5a975">sidechans</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a20b1e9092614e5a107744c04a3b21ffc">nSideChans</a>].<a class="code hl_function" href="class_clarion_trinity_1_1_clarion_hit.html#a2d87f05cb6693ffc60d8ef1eb628f563">Set</a>(meas, <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">CloverID</a>, cryst, conf);</div>
+<div class="line"><span class="lineno">   60</span>        ++<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a20b1e9092614e5a107744c04a3b21ffc">nSideChans</a>;</div>
+<div class="line"><span class="lineno">   61</span>        <span class="comment">//sidechans.emplace_back(meas, CloverID, cryst, conf);</span></div>
+<div class="line"><span class="lineno">   62</span>      }</div>
+<div class="line"><span class="lineno">   63</span>      <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   64</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a74d3ebb98dd65cd7145acd5c7dd9be00">bgos</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a4660c20376e843e2c920faadb4d3a5f5">nBGOs</a>].<a class="code hl_function" href="class_clarion_trinity_1_1_clarion_hit.html#a2d87f05cb6693ffc60d8ef1eb628f563">Set</a>(meas, <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">CloverID</a>, cryst, conf);</div>
+<div class="line"><span class="lineno">   65</span>        ++<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a4660c20376e843e2c920faadb4d3a5f5">nBGOs</a>;</div>
+<div class="line"><span class="lineno">   66</span>        <span class="comment">//bgos.emplace_back(meas, CloverID, cryst, conf);</span></div>
+<div class="line"><span class="lineno">   67</span>      }        </div>
+<div class="line"><span class="lineno">   68</span>    }</div>
+<div class="ttc" id="a_definitions_8hh_html_a35cbe6ff6279f557840cb94f017e38cf"><div class="ttname"><a href="_definitions_8hh.html#a35cbe6ff6279f557840cb94f017e38cf">MAX_HITS_PER_CLOVER</a></div><div class="ttdeci">#define MAX_HITS_PER_CLOVER</div><div class="ttdef"><b>Definition:</b> Definitions.hh:9</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_hit_html_a2d87f05cb6693ffc60d8ef1eb628f563"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_hit.html#a2d87f05cb6693ffc60d8ef1eb628f563">ClarionTrinity::ClarionHit::Set</a></div><div class="ttdeci">void Set(const PIXIE::Measurement &amp;meas, int id, int cryst, const ClarionConf &amp;conf)</div><div class="ttdef"><b>Definition:</b> ClarionHit.cc:19</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a0216f6e2d941d3aa1aecfc7e48acd469"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a0216f6e2d941d3aa1aecfc7e48acd469">ClarionTrinity::Clover::nHits</a></div><div class="ttdeci">int nHits</div><div class="ttdef"><b>Definition:</b> Clover.hh:29</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a0fa7c94bcde946c3e99a4d688fd5a975"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a0fa7c94bcde946c3e99a4d688fd5a975">ClarionTrinity::Clover::sidechans</a></div><div class="ttdeci">ClarionHit sidechans[MAX_HITS_PER_CLOVER]</div><div class="ttdef"><b>Definition:</b> Clover.hh:26</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a20b1e9092614e5a107744c04a3b21ffc"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a20b1e9092614e5a107744c04a3b21ffc">ClarionTrinity::Clover::nSideChans</a></div><div class="ttdeci">int nSideChans</div><div class="ttdef"><b>Definition:</b> Clover.hh:31</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a4660c20376e843e2c920faadb4d3a5f5"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a4660c20376e843e2c920faadb4d3a5f5">ClarionTrinity::Clover::nBGOs</a></div><div class="ttdeci">int nBGOs</div><div class="ttdef"><b>Definition:</b> Clover.hh:30</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a74d3ebb98dd65cd7145acd5c7dd9be00"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a74d3ebb98dd65cd7145acd5c7dd9be00">ClarionTrinity::Clover::bgos</a></div><div class="ttdeci">ClarionHit bgos[MAX_HITS_PER_CLOVER]</div><div class="ttdef"><b>Definition:</b> Clover.hh:25</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_aacf73a3248488084f37a22b74ceeef07"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">ClarionTrinity::Clover::hits</a></div><div class="ttdeci">ClarionHit hits[MAX_HITS_PER_CLOVER]</div><div class="ttdef"><b>Definition:</b> Clover.hh:24</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5d4cafdf67823a83ac32b23f7f20cee2" name="a5d4cafdf67823a83ac32b23f7f20cee2"></a>
@@ -200,7 +231,126 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">    5</span>                                                 {</div>
+<div class="line"><span class="lineno">    6</span>    <span class="comment">//gammas.clear();</span></div>
+<div class="line"><span class="lineno">    7</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a> = 0;</div>
+<div class="line"><span class="lineno">    8</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a63aef441b557adc2c0971b4342e6f5c7">nPileUp</a> = 0;</div>
+<div class="line"><span class="lineno">    9</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a39885c4c0c7821c7338a2291a0cbfd46">nNonPrompt</a> = 0;</div>
+<div class="line"><span class="lineno">   10</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#ab101d8234f62c0bf211e6e01b95d02da">nSuppress</a> = 0;</div>
+<div class="line"><span class="lineno">   11</span>    Gamma *gam;</div>
+<div class="line"><span class="lineno">   12</span>    <span class="keywordtype">float</span> xtl_ens[4]; <span class="comment">//local copy for cross-talk correction</span></div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> xtl = 0; xtl&lt;4; ++xtl) {</div>
+<div class="line"><span class="lineno">   14</span>      xtl_ens[xtl] = 0.0;</div>
+<div class="line"><span class="lineno">   15</span>    }</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a0216f6e2d941d3aa1aecfc7e48acd469">nHits</a>; ++i) {</div>
+<div class="line"><span class="lineno">   18</span>      <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> hitt = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4afbb6165b23e9ee7c362e2c6170004c">timestamp</a>; </div>
+<div class="line"><span class="lineno">   19</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a4660c20376e843e2c920faadb4d3a5f5">nBGOs</a>; ++j) {</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> bgot = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a74d3ebb98dd65cd7145acd5c7dd9be00">bgos</a>[j].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4afbb6165b23e9ee7c362e2c6170004c">timestamp</a>;</div>
+<div class="line"><span class="lineno">   21</span>        <span class="keywordtype">double</span> tdiff = (hitt-bgot)/3276.8; <span class="comment">//ns</span></div>
+<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">if</span> (abs(tdiff) &lt; conf.BGOVetoTime) {</div>
+<div class="line"><span class="lineno">   23</span>          <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a74d3ebb98dd65cd7145acd5c7dd9be00">bgos</a>[j].PileUp == 1) {</div>
+<div class="line"><span class="lineno">   24</span>            <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4a93588a3deee9fcebd9d4896d554a3b">Suppress</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   25</span>            <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#ab101d8234f62c0bf211e6e01b95d02da">nSuppress</a> += 1;</div>
+<div class="line"><span class="lineno">   26</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   27</span>          }</div>
+<div class="line"><span class="lineno">   28</span>          <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a74d3ebb98dd65cd7145acd5c7dd9be00">bgos</a>[j].RawEnergy &gt; conf.RawBGOThresh &amp;&amp; <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a74d3ebb98dd65cd7145acd5c7dd9be00">bgos</a>[j].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#afbfaf6f8cfbeb7145a7805b62a29627c">RawEnergy</a> &lt; conf.RawUpThresh) {          </div>
+<div class="line"><span class="lineno">   29</span>            <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4a93588a3deee9fcebd9d4896d554a3b">Suppress</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   30</span>            <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#ab101d8234f62c0bf211e6e01b95d02da">nSuppress</a> += 1;</div>
+<div class="line"><span class="lineno">   31</span>          }</div>
+<div class="line"><span class="lineno">   32</span>        }</div>
+<div class="line"><span class="lineno">   33</span>      }    </div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>      <span class="comment">//probably increment some counter here</span></div>
+<div class="line"><span class="lineno">   36</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].Suppress == <span class="keyword">true</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   37</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].PileUp == 1 ) {</div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a63aef441b557adc2c0971b4342e6f5c7">nPileUp</a> += 1;</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   40</span>      }</div>
+<div class="line"><span class="lineno">   41</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].OutOfRange == 1) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   42</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].CFDForce == 1) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].Energy &gt; conf.EnThresh &amp;&amp; <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#afbfaf6f8cfbeb7145a7805b62a29627c">RawEnergy</a> &lt; conf.RawUpThresh) {</div>
+<div class="line"><span class="lineno">   45</span>        xtl_ens[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a60eaf082b4267a2f8a81a17ceddae74f">CrystalID</a>] = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">Energy</a>;</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a> == 0) { <span class="comment">//if the first hit to get this far, make gamma based off it</span></div>
+<div class="line"><span class="lineno">   47</span>          <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a05146299af61abeb23d20f7150b5559b">gammas</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a>].<a class="code hl_function" href="class_clarion_trinity_1_1_gamma.html#a07bda1b4975182830bcced723986fba5">Set</a>(<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i], i);</div>
+<div class="line"><span class="lineno">   48</span>          ++<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a>;</div>
+<div class="line"><span class="lineno">   49</span>          gam = &amp;(<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a05146299af61abeb23d20f7150b5559b">gammas</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a>-1]);</div>
+<div class="line"><span class="lineno">   50</span>        }</div>
+<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   52</span>          <span class="keywordtype">double</span> tdiff = (double)abs((<span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span>)gam-&gt;timestamp - (<span class="keywordtype">long</span> <span class="keywordtype">long</span> int)<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].timestamp)/3276.8;</div>
+<div class="line"><span class="lineno">   53</span>          <span class="keywordflow">if</span> (gam-&gt;timestamp == 0 || tdiff &lt; conf.AddBackTDiff) {  <span class="comment">// if inside the time window, </span></div>
+<div class="line"><span class="lineno">   54</span>            gam-&gt;Energy += <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">Energy</a>;                         <span class="comment">// add to existing gamma</span></div>
+<div class="line"><span class="lineno">   55</span>            gam-&gt;HitInds[gam-&gt;nHits] = i;</div>
+<div class="line"><span class="lineno">   56</span>            ++gam-&gt;nHits;</div>
+<div class="line"><span class="lineno">   57</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].Energy &gt; gam-&gt;MaxEn) {</div>
+<div class="line"><span class="lineno">   58</span>              gam-&gt;MaxEn = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">Energy</a>;</div>
+<div class="line"><span class="lineno">   59</span>              gam-&gt;MaxEnInd = i;</div>
+<div class="line"><span class="lineno">   60</span>              gam-&gt;timestamp = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4afbb6165b23e9ee7c362e2c6170004c">timestamp</a>;</div>
+<div class="line"><span class="lineno">   61</span>              gam-&gt;ctimestamp = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4afbb6165b23e9ee7c362e2c6170004c">timestamp</a>;</div>
+<div class="line"><span class="lineno">   62</span>            }</div>
+<div class="line"><span class="lineno">   63</span>          }</div>
+<div class="line"><span class="lineno">   64</span>          <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   65</span>            <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a39885c4c0c7821c7338a2291a0cbfd46">nNonPrompt</a> += 1;</div>
+<div class="line"><span class="lineno">   66</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a> &gt;= <a class="code hl_define" href="_definitions_8hh.html#a77429ef606473711c61865d8891110ce">MAX_GAMMAS</a>) { </div>
+<div class="line"><span class="lineno">   67</span>              std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! More than &quot;</span> &lt;&lt; <a class="code hl_define" href="_definitions_8hh.html#a77429ef606473711c61865d8891110ce">MAX_GAMMAS</a> &lt;&lt; <span class="stringliteral">&quot; gammas&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   68</span>              <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   69</span>            }</div>
+<div class="line"><span class="lineno">   70</span>            <span class="comment">//old gamma is finished, apply correction</span></div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>            gam-&gt;Energy = 0;</div>
+<div class="line"><span class="lineno">   73</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> hit_i=0; hit_i&lt;gam-&gt;nHits; ++hit_i) {</div>
+<div class="line"><span class="lineno">   74</span>              <span class="keywordflow">if</span> (xtl_ens[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[gam-&gt;HitInds[hit_i]].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a60eaf082b4267a2f8a81a17ceddae74f">CrystalID</a>] &gt; 0.0) {</div>
+<div class="line"><span class="lineno">   75</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> xtlj=0; xtlj&lt;4; ++xtlj) {</div>
+<div class="line"><span class="lineno">   76</span>                  <span class="keywordtype">int</span> xtl = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[gam-&gt;HitInds[hit_i]].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a60eaf082b4267a2f8a81a17ceddae74f">CrystalID</a>;</div>
+<div class="line"><span class="lineno">   77</span>                  <span class="keywordflow">if</span> (xtl == xtlj) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   78</span>                  <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[gam-&gt;HitInds[hit_i]].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">Energy</a> += conf.ct_cal[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">CloverID</a>][xtl][xtlj]*xtl_ens[xtlj];</div>
+<div class="line"><span class="lineno">   79</span>                }</div>
+<div class="line"><span class="lineno">   80</span>                gam-&gt;Energy += <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[gam-&gt;HitInds[hit_i]].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">Energy</a>;</div>
+<div class="line"><span class="lineno">   81</span>              }</div>
+<div class="line"><span class="lineno">   82</span>            }</div>
+<div class="line"><span class="lineno">   83</span>            </div>
+<div class="line"><span class="lineno">   84</span>            <span class="comment">//new gamma</span></div>
+<div class="line"><span class="lineno">   85</span>            <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a05146299af61abeb23d20f7150b5559b">gammas</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a>].<a class="code hl_function" href="class_clarion_trinity_1_1_gamma.html#a07bda1b4975182830bcced723986fba5">Set</a>(<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i], i);</div>
+<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> xtl = 0; xtl&lt;4; ++xtl) {</div>
+<div class="line"><span class="lineno">   87</span>              xtl_ens[xtl] = 0.0;</div>
+<div class="line"><span class="lineno">   88</span>            }</div>
+<div class="line"><span class="lineno">   89</span>            xtl_ens[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a60eaf082b4267a2f8a81a17ceddae74f">CrystalID</a>] = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[i].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">Energy</a>;</div>
+<div class="line"><span class="lineno">   90</span>            ++<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a>;</div>
+<div class="line"><span class="lineno">   91</span>            gam = &amp;(<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a05146299af61abeb23d20f7150b5559b">gammas</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a>-1]);</div>
+<div class="line"><span class="lineno">   92</span>          }</div>
+<div class="line"><span class="lineno">   93</span>        }</div>
+<div class="line"><span class="lineno">   94</span>      }</div>
+<div class="line"><span class="lineno">   95</span>    }</div>
+<div class="line"><span class="lineno">   96</span>    <span class="comment">//final gamma finished,</span></div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a> &gt; 0) {</div>
+<div class="line"><span class="lineno">   99</span>      gam-&gt;Energy = 0;</div>
+<div class="line"><span class="lineno">  100</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> hit_i=0; hit_i&lt;gam-&gt;nHits; ++hit_i) {</div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">if</span> (xtl_ens[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[gam-&gt;HitInds[hit_i]].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a60eaf082b4267a2f8a81a17ceddae74f">CrystalID</a>] &gt; 0.0) {</div>
+<div class="line"><span class="lineno">  102</span>          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> xtlj=0; xtlj&lt;4; ++xtlj) {</div>
+<div class="line"><span class="lineno">  103</span>            <span class="keywordtype">int</span> xtl = <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[gam-&gt;HitInds[hit_i]].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a60eaf082b4267a2f8a81a17ceddae74f">CrystalID</a>;</div>
+<div class="line"><span class="lineno">  104</span>            <span class="keywordflow">if</span> (xtl == xtlj) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  105</span>            <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[gam-&gt;HitInds[hit_i]].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">Energy</a> += conf.ct_cal[<a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">CloverID</a>][xtl][xtlj]*xtl_ens[xtlj];</div>
+<div class="line"><span class="lineno">  106</span>          }</div>
+<div class="line"><span class="lineno">  107</span>          gam-&gt;Energy += <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#aacf73a3248488084f37a22b74ceeef07">hits</a>[gam-&gt;HitInds[hit_i]].<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">Energy</a>;</div>
+<div class="line"><span class="lineno">  108</span>        }                </div>
+<div class="line"><span class="lineno">  109</span>      }</div>
+<div class="line"><span class="lineno">  110</span>    }</div>
+<div class="line"><span class="lineno">  111</span>  }</div>
+<div class="ttc" id="a_definitions_8hh_html_a77429ef606473711c61865d8891110ce"><div class="ttname"><a href="_definitions_8hh.html#a77429ef606473711c61865d8891110ce">MAX_GAMMAS</a></div><div class="ttdeci">#define MAX_GAMMAS</div><div class="ttdef"><b>Definition:</b> Definitions.hh:10</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_hit_html_a4a93588a3deee9fcebd9d4896d554a3b"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_hit.html#a4a93588a3deee9fcebd9d4896d554a3b">ClarionTrinity::ClarionHit::Suppress</a></div><div class="ttdeci">bool Suppress</div><div class="ttdef"><b>Definition:</b> ClarionHit.hh:23</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_hit_html_a4afbb6165b23e9ee7c362e2c6170004c"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_hit.html#a4afbb6165b23e9ee7c362e2c6170004c">ClarionTrinity::ClarionHit::timestamp</a></div><div class="ttdeci">unsigned long long int timestamp</div><div class="ttdef"><b>Definition:</b> ClarionHit.hh:17</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_hit_html_a4ce159d141f12d34d9d794992267c358"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_hit.html#a4ce159d141f12d34d9d794992267c358">ClarionTrinity::ClarionHit::Energy</a></div><div class="ttdeci">double Energy</div><div class="ttdef"><b>Definition:</b> ClarionHit.hh:15</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_hit_html_a60eaf082b4267a2f8a81a17ceddae74f"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_hit.html#a60eaf082b4267a2f8a81a17ceddae74f">ClarionTrinity::ClarionHit::CrystalID</a></div><div class="ttdeci">int CrystalID</div><div class="ttdef"><b>Definition:</b> ClarionHit.hh:12</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_hit_html_afbfaf6f8cfbeb7145a7805b62a29627c"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_hit.html#afbfaf6f8cfbeb7145a7805b62a29627c">ClarionTrinity::ClarionHit::RawEnergy</a></div><div class="ttdeci">double RawEnergy</div><div class="ttdef"><b>Definition:</b> ClarionHit.hh:14</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a011308a92b15fd4efbbde202fb1c2b52"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">ClarionTrinity::Clover::nGammas</a></div><div class="ttdeci">int nGammas</div><div class="ttdef"><b>Definition:</b> Clover.hh:32</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a05146299af61abeb23d20f7150b5559b"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a05146299af61abeb23d20f7150b5559b">ClarionTrinity::Clover::gammas</a></div><div class="ttdeci">Gamma gammas[MAX_GAMMAS]</div><div class="ttdef"><b>Definition:</b> Clover.hh:27</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a39885c4c0c7821c7338a2291a0cbfd46"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a39885c4c0c7821c7338a2291a0cbfd46">ClarionTrinity::Clover::nNonPrompt</a></div><div class="ttdeci">int nNonPrompt</div><div class="ttdef"><b>Definition:</b> Clover.hh:33</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_a63aef441b557adc2c0971b4342e6f5c7"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#a63aef441b557adc2c0971b4342e6f5c7">ClarionTrinity::Clover::nPileUp</a></div><div class="ttdeci">int nPileUp</div><div class="ttdef"><b>Definition:</b> Clover.hh:34</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clover_html_ab101d8234f62c0bf211e6e01b95d02da"><div class="ttname"><a href="class_clarion_trinity_1_1_clover.html#ab101d8234f62c0bf211e6e01b95d02da">ClarionTrinity::Clover::nSuppress</a></div><div class="ttdeci">int nSuppress</div><div class="ttdef"><b>Definition:</b> Clover.hh:35</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_gamma_html_a07bda1b4975182830bcced723986fba5"><div class="ttname"><a href="class_clarion_trinity_1_1_gamma.html#a07bda1b4975182830bcced723986fba5">ClarionTrinity::Gamma::Set</a></div><div class="ttdeci">void Set(const ClarionHit &amp;hit, int ind)</div><div class="ttdef"><b>Definition:</b> Gamma.cc:14</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af512d52113fa894294e550b81d839e8a" name="af512d52113fa894294e550b81d839e8a"></a>
@@ -226,7 +376,17 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                       {</div>
+<div class="line"><span class="lineno">   39</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a0216f6e2d941d3aa1aecfc7e48acd469">nHits</a> = 0;</div>
+<div class="line"><span class="lineno">   40</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a4660c20376e843e2c920faadb4d3a5f5">nBGOs</a> = 0;</div>
+<div class="line"><span class="lineno">   41</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a20b1e9092614e5a107744c04a3b21ffc">nSideChans</a> = 0;</div>
+<div class="line"><span class="lineno">   42</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a011308a92b15fd4efbbde202fb1c2b52">nGammas</a> = 0;</div>
+<div class="line"><span class="lineno">   43</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a39885c4c0c7821c7338a2291a0cbfd46">nNonPrompt</a> = 0;</div>
+<div class="line"><span class="lineno">   44</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#a63aef441b557adc2c0971b4342e6f5c7">nPileUp</a> = 0;</div>
+<div class="line"><span class="lineno">   45</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#ab101d8234f62c0bf211e6e01b95d02da">nSuppress</a> = 0;</div>
+<div class="line"><span class="lineno">   46</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clover.html#af38181501c56ac727350125cc3a795e4">CloverID</a> = id;      </div>
+<div class="line"><span class="lineno">   47</span>    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

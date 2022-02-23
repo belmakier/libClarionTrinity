@@ -171,7 +171,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   35</span>{};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="abaf27c1c05e9c1fb0f96b62a30a05f7a" name="abaf27c1c05e9c1fb0f96b62a30a05f7a"></a>
@@ -189,7 +190,76 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">    7</span>                                             {</div>
+<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="_definitions_8hh.html#adec67c1f284e23b6ea07228f98950509">CT_MAX_CRATES</a>; ++i) {</div>
+<div class="line"><span class="lineno">    9</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;<a class="code hl_define" href="_definitions_8hh.html#a429274a2f511d243e784c80e797c320d">CT_MAX_SLOTS_PER_CRATE</a>; ++j) {</div>
+<div class="line"><span class="lineno">   10</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k=0; k&lt;<a class="code hl_define" href="_definitions_8hh.html#abea2635728b4dc3fda3464e86797055e">CT_MAX_CHANNELS_PER_BOARD</a>; ++k) {</div>
+<div class="line"><span class="lineno">   11</span>          <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a7909f54089c2b48dc2d270ae86de1fd2">CloverIDMap</a>[i][j][k] = -1;</div>
+<div class="line"><span class="lineno">   12</span>          <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a6a2f49f926889e17dd925b052b5c34d5">CrystalMap</a>[i][j][k] = -1;</div>
+<div class="line"><span class="lineno">   13</span>        }</div>
+<div class="line"><span class="lineno">   14</span>      }</div>
+<div class="line"><span class="lineno">   15</span>    }</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="_definitions_8hh.html#a16d292a7f1b7d5db34673f0746f37920">MAX_CLOVERS</a>; ++i) {</div>
+<div class="line"><span class="lineno">   18</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52">pos</a>[i] = 0; <span class="comment">//default furthest in</span></div>
+<div class="line"><span class="lineno">   19</span>    }</div>
+<div class="line"><span class="lineno">   20</span>    </div>
+<div class="line"><span class="lineno">   21</span>    std::cout &lt;&lt; conffile &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   22</span>    std::ifstream file(conffile.c_str());</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">   24</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; conffile &lt;&lt; <span class="stringliteral">&quot; not open!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   25</span>    }</div>
+<div class="line"><span class="lineno">   26</span>    std::string line; </div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">while</span> (std::getline(file, line)) {</div>
+<div class="line"><span class="lineno">   30</span>      <span class="keywordflow">if</span> (line.size() == 0) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   31</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;#&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   32</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;;&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>      std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>      ss &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[n];</div>
+<div class="line"><span class="lineno">   37</span>      ss &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52">pos</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[n]];</div>
+<div class="line"><span class="lineno">   38</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;8; ++i) {</div>
+<div class="line"><span class="lineno">   39</span>        ss &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a2ea43e18ab3c24344d8fb6193256756f">Cr</a>[n][i] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a9a28a3e37b33397789e7aa2816906028">Sl</a>[n][i] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abf9dc073bf973ecb0bbfbf01e9141552">Ch</a>[n][i];</div>
+<div class="line"><span class="lineno">   40</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a7909f54089c2b48dc2d270ae86de1fd2">CloverIDMap</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a2ea43e18ab3c24344d8fb6193256756f">Cr</a>[n][i]][<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a9a28a3e37b33397789e7aa2816906028">Sl</a>[n][i]][<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abf9dc073bf973ecb0bbfbf01e9141552">Ch</a>[n][i]] = <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[n];</div>
+<div class="line"><span class="lineno">   41</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a6a2f49f926889e17dd925b052b5c34d5">CrystalMap</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a2ea43e18ab3c24344d8fb6193256756f">Cr</a>[n][i]][<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a9a28a3e37b33397789e7aa2816906028">Sl</a>[n][i]][<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abf9dc073bf973ecb0bbfbf01e9141552">Ch</a>[n][i]] = i;</div>
+<div class="line"><span class="lineno">   42</span>      } </div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>      n += 1;</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a51dd393a07b2d39908ca44f8e67ddd18">nClovers</a> = n;</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a51dd393a07b2d39908ca44f8e67ddd18">nClovers</a>; ++j) {</div>
+<div class="line"><span class="lineno">   49</span>      <span class="keywordtype">int</span> <span class="keywordtype">id</span> = <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[j];</div>
+<div class="line"><span class="lineno">   50</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;8; ++i) {</div>
+<div class="line"><span class="lineno">   51</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#af8e740d27419a6e936aa0658941a941a">gain</a>[id][i] = 1.0;</div>
+<div class="line"><span class="lineno">   52</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a33e20c9a6a8dc7a9073319b579dcf340">offset</a>[id][i] = 0.0;        </div>
+<div class="line"><span class="lineno">   53</span>      }</div>
+<div class="line"><span class="lineno">   54</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;4; ++i) {</div>
+<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i2=0; i2&lt;4; ++i2) {</div>
+<div class="line"><span class="lineno">   56</span>          <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[id][i][i2] = 0.0;</div>
+<div class="line"><span class="lineno">   57</span>        }</div>
+<div class="line"><span class="lineno">   58</span>      }</div>
+<div class="line"><span class="lineno">   59</span>    }</div>
+<div class="line"><span class="lineno">   60</span>  }</div>
+<div class="ttc" id="a_definitions_8hh_html_a16d292a7f1b7d5db34673f0746f37920"><div class="ttname"><a href="_definitions_8hh.html#a16d292a7f1b7d5db34673f0746f37920">MAX_CLOVERS</a></div><div class="ttdeci">#define MAX_CLOVERS</div><div class="ttdef"><b>Definition:</b> Definitions.hh:11</div></div>
+<div class="ttc" id="a_definitions_8hh_html_a429274a2f511d243e784c80e797c320d"><div class="ttname"><a href="_definitions_8hh.html#a429274a2f511d243e784c80e797c320d">CT_MAX_SLOTS_PER_CRATE</a></div><div class="ttdeci">#define CT_MAX_SLOTS_PER_CRATE</div><div class="ttdef"><b>Definition:</b> Definitions.hh:7</div></div>
+<div class="ttc" id="a_definitions_8hh_html_abea2635728b4dc3fda3464e86797055e"><div class="ttname"><a href="_definitions_8hh.html#abea2635728b4dc3fda3464e86797055e">CT_MAX_CHANNELS_PER_BOARD</a></div><div class="ttdeci">#define CT_MAX_CHANNELS_PER_BOARD</div><div class="ttdef"><b>Definition:</b> Definitions.hh:8</div></div>
+<div class="ttc" id="a_definitions_8hh_html_adec67c1f284e23b6ea07228f98950509"><div class="ttname"><a href="_definitions_8hh.html#adec67c1f284e23b6ea07228f98950509">CT_MAX_CRATES</a></div><div class="ttdeci">#define CT_MAX_CRATES</div><div class="ttdef"><b>Definition:</b> Definitions.hh:6</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a01efb76d46e6e3e653595befe10aa2fd"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ClarionTrinity::ClarionConf::ct_cal</a></div><div class="ttdeci">double ct_cal[MAX_CLOVERS][4][4]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:23</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a2ea43e18ab3c24344d8fb6193256756f"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a2ea43e18ab3c24344d8fb6193256756f">ClarionTrinity::ClarionConf::Cr</a></div><div class="ttdeci">int Cr[MAX_CLOVERS][8]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:12</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a30e31eafb194b5987de28a6fc2186b52"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52">ClarionTrinity::ClarionConf::pos</a></div><div class="ttdeci">int pos[MAX_CLOVERS]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:15</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a32b4c8998d428c03e31c6d863e3c0bf5"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">ClarionTrinity::ClarionConf::CloverID</a></div><div class="ttdeci">int CloverID[MAX_CLOVERS *4]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:11</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a33e20c9a6a8dc7a9073319b579dcf340"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a33e20c9a6a8dc7a9073319b579dcf340">ClarionTrinity::ClarionConf::offset</a></div><div class="ttdeci">double offset[MAX_CLOVERS *4][8]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:20</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a51dd393a07b2d39908ca44f8e67ddd18"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a51dd393a07b2d39908ca44f8e67ddd18">ClarionTrinity::ClarionConf::nClovers</a></div><div class="ttdeci">int nClovers</div><div class="ttdef"><b>Definition:</b> Clarion.hh:10</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a6a2f49f926889e17dd925b052b5c34d5"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a6a2f49f926889e17dd925b052b5c34d5">ClarionTrinity::ClarionConf::CrystalMap</a></div><div class="ttdeci">int CrystalMap[CT_MAX_CRATES][CT_MAX_SLOTS_PER_CRATE][CT_MAX_CHANNELS_PER_BOARD]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:18</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a7909f54089c2b48dc2d270ae86de1fd2"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a7909f54089c2b48dc2d270ae86de1fd2">ClarionTrinity::ClarionConf::CloverIDMap</a></div><div class="ttdeci">int CloverIDMap[CT_MAX_CRATES][CT_MAX_SLOTS_PER_CRATE][CT_MAX_CHANNELS_PER_BOARD]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:17</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a9a28a3e37b33397789e7aa2816906028"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a9a28a3e37b33397789e7aa2816906028">ClarionTrinity::ClarionConf::Sl</a></div><div class="ttdeci">int Sl[MAX_CLOVERS][8]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:13</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_abf9dc073bf973ecb0bbfbf01e9141552"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#abf9dc073bf973ecb0bbfbf01e9141552">ClarionTrinity::ClarionConf::Ch</a></div><div class="ttdeci">int Ch[MAX_CLOVERS][8]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:14</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_af8e740d27419a6e936aa0658941a941a"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#af8e740d27419a6e936aa0658941a941a">ClarionTrinity::ClarionConf::gain</a></div><div class="ttdeci">double gain[MAX_CLOVERS *4][8]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:21</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -208,7 +278,18 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  219</span>                                                     {</div>
+<div class="line"><span class="lineno">  220</span>    <span class="keywordtype">double</span> x = std::log(e/100.0);</div>
+<div class="line"><span class="lineno">  221</span>    <span class="keywordtype">double</span> y = std::log(e/1000.0);</div>
+<div class="line"><span class="lineno">  222</span>    <span class="keywordtype">float</span> eff = std::pow((<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[0] + <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[1]*x + <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[2]*x*x), -<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[6]) +</div>
+<div class="line"><span class="lineno">  223</span>      std::pow((<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[3] + <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[4]*y + <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[5]*y*y), -<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[6]);</div>
+<div class="line"><span class="lineno">  224</span>    eff = std::pow(eff, -1.0/<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[6]);</div>
+<div class="line"><span class="lineno">  225</span>    eff = <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#afd6ea49600c249835c91a37fe8a41f5d">AbsEff</a>*std::exp(eff);</div>
+<div class="line"><span class="lineno">  226</span>    <span class="keywordflow">return</span> eff;</div>
+<div class="line"><span class="lineno">  227</span>  }</div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_abba3a15c85b3491739f25846f9ee7d24"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">ClarionTrinity::ClarionConf::EfficiencyCal</a></div><div class="ttdeci">float EfficiencyCal[7]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:43</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_afd6ea49600c249835c91a37fe8a41f5d"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#afd6ea49600c249835c91a37fe8a41f5d">ClarionTrinity::ClarionConf::AbsEff</a></div><div class="ttdeci">float AbsEff</div><div class="ttdef"><b>Definition:</b> Clarion.hh:42</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aec8d8d6d47371b1a100cc32964f2f9cb" name="aec8d8d6d47371b1a100cc32964f2f9cb"></a>
@@ -236,7 +317,18 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  229</span>                                                                    {</div>
+<div class="line"><span class="lineno">  230</span>    <span class="keywordtype">double</span> x = std::log(e/100.0);</div>
+<div class="line"><span class="lineno">  231</span>    <span class="keywordtype">double</span> y = std::log(e/1000.0);</div>
+<div class="line"><span class="lineno">  232</span>    <span class="keywordtype">float</span> eff = std::pow((<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][0] + <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][1]*x + <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][2]*x*x), -<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][6]) +</div>
+<div class="line"><span class="lineno">  233</span>      std::pow((<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][3] + <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][4]*y + <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][5]*y*y), -<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][6]);</div>
+<div class="line"><span class="lineno">  234</span>    eff = std::pow(eff, -1.0/<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][6]);</div>
+<div class="line"><span class="lineno">  235</span>    eff = <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#ab9c20a58cedde4cd3352a73f7da63366">AbsEff_i</a>[ID]*std::exp(eff);</div>
+<div class="line"><span class="lineno">  236</span>    <span class="keywordflow">return</span> eff;</div>
+<div class="line"><span class="lineno">  237</span>  }</div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a76b5d5ebce850a1513fcd6671f613b94"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">ClarionTrinity::ClarionConf::EffCal_i</a></div><div class="ttdeci">float EffCal_i[MAX_CLOVERS+1][7]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:46</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_ab9c20a58cedde4cd3352a73f7da63366"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#ab9c20a58cedde4cd3352a73f7da63366">ClarionTrinity::ClarionConf::AbsEff_i</a></div><div class="ttdeci">float AbsEff_i[MAX_CLOVERS+1]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:45</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aeb3ea889acdaaa023d1bbb98189c350d" name="aeb3ea889acdaaa023d1bbb98189c350d"></a>
@@ -253,7 +345,40 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  239</span>                          {</div>
+<div class="line"><span class="lineno">  240</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Clarion configuration: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  241</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a51dd393a07b2d39908ca44f8e67ddd18">nClovers</a>; ++i) {</div>
+<div class="line"><span class="lineno">  242</span>      printf(<span class="stringliteral">&quot;%i   &quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]);</div>
+<div class="line"><span class="lineno">  243</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;8; ++j) {</div>
+<div class="line"><span class="lineno">  244</span>        printf(<span class="stringliteral">&quot;%i.%i.%i   &quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a2ea43e18ab3c24344d8fb6193256756f">Cr</a>[i][j],<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a9a28a3e37b33397789e7aa2816906028">Sl</a>[i][j],<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abf9dc073bf973ecb0bbfbf01e9141552">Ch</a>[i][j]);</div>
+<div class="line"><span class="lineno">  245</span>      }</div>
+<div class="line"><span class="lineno">  246</span>      printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  247</span>    }</div>
+<div class="line"><span class="lineno">  248</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Clarion calibration: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  249</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a51dd393a07b2d39908ca44f8e67ddd18">nClovers</a>; ++i) {</div>
+<div class="line"><span class="lineno">  250</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;8; ++j) {</div>
+<div class="line"><span class="lineno">  251</span>        printf(<span class="stringliteral">&quot;%i  %i     %5.4f    %5.4f\n&quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i], j, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a33e20c9a6a8dc7a9073319b579dcf340">offset</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][j], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#af8e740d27419a6e936aa0658941a941a">gain</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][j]);</div>
+<div class="line"><span class="lineno">  252</span>      }</div>
+<div class="line"><span class="lineno">  253</span>    }</div>
+<div class="line"><span class="lineno">  254</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Clarion CT correction: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  255</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a51dd393a07b2d39908ca44f8e67ddd18">nClovers</a>; ++i) {</div>
+<div class="line"><span class="lineno">  256</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Clover &quot;</span> &lt;&lt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i] &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  257</span>      printf(<span class="stringliteral">&quot;( 1.0000   %6.5f   %6.5f   %6.5f )\n&quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][0][1], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][0][2], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][0][3]);</div>
+<div class="line"><span class="lineno">  258</span>      printf(<span class="stringliteral">&quot;( %6.5f   1.0000   %6.5f   %6.5f )\n&quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][1][0], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][1][2], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][1][3]);</div>
+<div class="line"><span class="lineno">  259</span>      printf(<span class="stringliteral">&quot;( %6.5f   %6.5f   1.0000   %6.5f )\n&quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][2][0], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][2][1], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][2][3]);</div>
+<div class="line"><span class="lineno">  260</span>      printf(<span class="stringliteral">&quot;( %6.5f   %6.5f   %6.5f  1.0000 )\n&quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][3][0], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][3][1], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][3][2]);</div>
+<div class="line"><span class="lineno">  261</span>    }</div>
+<div class="line"><span class="lineno">  262</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Clarion angles: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  263</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a51dd393a07b2d39908ca44f8e67ddd18">nClovers</a>; ++i) {</div>
+<div class="line"><span class="lineno">  264</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;5; ++j) {</div>
+<div class="line"><span class="lineno">  265</span>        printf(<span class="stringliteral">&quot;%i  %i     %5.4f    %5.4f\n&quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i], j, <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#aa9290326bf8272521ab618531ea72549">theta</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][j], <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a407341f9fb3cfbcacf469c0f92a06aa7">phi</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a32b4c8998d428c03e31c6d863e3c0bf5">CloverID</a>[i]][j]);</div>
+<div class="line"><span class="lineno">  266</span>      }</div>
+<div class="line"><span class="lineno">  267</span>    }</div>
+<div class="line"><span class="lineno">  268</span>    </div>
+<div class="line"><span class="lineno">  269</span>  }</div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_a407341f9fb3cfbcacf469c0f92a06aa7"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#a407341f9fb3cfbcacf469c0f92a06aa7">ClarionTrinity::ClarionConf::phi</a></div><div class="ttdeci">double phi[MAX_CLOVERS][5]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:26</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_clarion_conf_html_aa9290326bf8272521ab618531ea72549"><div class="ttname"><a href="class_clarion_trinity_1_1_clarion_conf.html#aa9290326bf8272521ab618531ea72549">ClarionTrinity::ClarionConf::theta</a></div><div class="ttdeci">double theta[MAX_CLOVERS][5]</div><div class="ttdef"><b>Definition:</b> Clarion.hh:25</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9f908ee273f852dcace35bb512e816d6" name="a9f908ee273f852dcace35bb512e816d6"></a>
@@ -271,7 +396,52 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  117</span>                                                 {</div>
+<div class="line"><span class="lineno">  118</span>    std::cout &lt;&lt; mapfile &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  119</span>    std::ifstream file(mapfile.c_str());</div>
+<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">  121</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; mapfile &lt;&lt; <span class="stringliteral">&quot; not open&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  122</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
+<div class="line"><span class="lineno">  124</span>    std::string line;</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">while</span> (std::getline(file, line)) {</div>
+<div class="line"><span class="lineno">  128</span>      <span class="keywordflow">if</span> (line.size() == 0) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  129</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;#&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  130</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;;&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  131</span> </div>
+<div class="line"><span class="lineno">  132</span>      std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>      <span class="keywordtype">int</span> id, i;</div>
+<div class="line"><span class="lineno">  135</span>      <span class="keywordtype">double</span> phin, phim, phif, thetan, thetam, thetaf;</div>
+<div class="line"><span class="lineno">  136</span>      ss &gt;&gt; <span class="keywordtype">id</span> &gt;&gt; i &gt;&gt; thetan &gt;&gt; phin &gt;&gt; thetam &gt;&gt; phim &gt;&gt; thetaf &gt;&gt; phif;</div>
+<div class="line"><span class="lineno">  137</span> </div>
+<div class="line"><span class="lineno">  138</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52">pos</a>[<span class="keywordtype">id</span>] == 0) { <span class="comment">//near</span></div>
+<div class="line"><span class="lineno">  139</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#aa9290326bf8272521ab618531ea72549">theta</a>[id][i] = thetan;</div>
+<div class="line"><span class="lineno">  140</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a407341f9fb3cfbcacf469c0f92a06aa7">phi</a>[id][i] = phin;</div>
+<div class="line"><span class="lineno">  141</span>        ++n;</div>
+<div class="line"><span class="lineno">  142</span>      }</div>
+<div class="line"><span class="lineno">  143</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52">pos</a>[<span class="keywordtype">id</span>] == 1) { <span class="comment">//mid</span></div>
+<div class="line"><span class="lineno">  144</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#aa9290326bf8272521ab618531ea72549">theta</a>[id][i] = thetam;</div>
+<div class="line"><span class="lineno">  145</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a407341f9fb3cfbcacf469c0f92a06aa7">phi</a>[id][i] = phim;</div>
+<div class="line"><span class="lineno">  146</span>        ++n;</div>
+<div class="line"><span class="lineno">  147</span>      }</div>
+<div class="line"><span class="lineno">  148</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52">pos</a>[<span class="keywordtype">id</span>] == 2) { <span class="comment">//far</span></div>
+<div class="line"><span class="lineno">  149</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#aa9290326bf8272521ab618531ea72549">theta</a>[id][i] = thetam;</div>
+<div class="line"><span class="lineno">  150</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a407341f9fb3cfbcacf469c0f92a06aa7">phi</a>[id][i] = phim;</div>
+<div class="line"><span class="lineno">  151</span>        ++n;</div>
+<div class="line"><span class="lineno">  152</span>      }</div>
+<div class="line"><span class="lineno">  153</span>      <span class="keywordflow">else</span> { <span class="comment">//wherever you are</span></div>
+<div class="line"><span class="lineno">  154</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Error: Invalid Clover position &quot;</span> &lt;&lt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52">pos</a>[id] &lt;&lt; <span class="stringliteral">&quot; - should be: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  155</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;    0: nearest&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  156</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;    1: middle&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  157</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;    2: furthest&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  158</span>      }</div>
+<div class="line"><span class="lineno">  159</span>    }</div>
+<div class="line"><span class="lineno">  160</span>    <span class="keywordflow">return</span> n;</div>
+<div class="line"><span class="lineno">  161</span>  }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a34479170253281a38cf401e122be4ac3" name="a34479170253281a38cf401e122be4ac3"></a>
@@ -289,7 +459,31 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   62</span>                                            {</div>
+<div class="line"><span class="lineno">   63</span>    std::cout &lt;&lt; calfile &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   64</span>    std::ifstream file(calfile.c_str());</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">   66</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; calfile &lt;&lt; <span class="stringliteral">&quot; not open&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   67</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   68</span>    }</div>
+<div class="line"><span class="lineno">   69</span>    std::string line;</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">while</span> (std::getline(file, line)) {</div>
+<div class="line"><span class="lineno">   73</span>      <span class="keywordflow">if</span> (line.size() == 0) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   74</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;#&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   75</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;;&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>      std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>      <span class="keywordtype">int</span> id, i;</div>
+<div class="line"><span class="lineno">   80</span>      ss &gt;&gt; <span class="keywordtype">id</span> &gt;&gt; i;</div>
+<div class="line"><span class="lineno">   81</span>      ss &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a33e20c9a6a8dc7a9073319b579dcf340">offset</a>[id][i] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#af8e740d27419a6e936aa0658941a941a">gain</a>[id][i];</div>
+<div class="line"><span class="lineno">   82</span>      ++n;</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">return</span> n;</div>
+<div class="line"><span class="lineno">   85</span>  }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae4b07b86fb318a7532d8b14211ec75f3" name="ae4b07b86fb318a7532d8b14211ec75f3"></a>
@@ -307,7 +501,36 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   87</span>                                              {</div>
+<div class="line"><span class="lineno">   88</span>    std::cout &lt;&lt; calfile &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   89</span>    std::ifstream file(calfile.c_str());</div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">   91</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; calfile &lt;&lt; <span class="stringliteral">&quot; not open&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   92</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
+<div class="line"><span class="lineno">   94</span>    file.precision(7);</div>
+<div class="line"><span class="lineno">   95</span>    std::string line;</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">while</span> (std::getline(file, line)) {</div>
+<div class="line"><span class="lineno">   99</span>      <span class="keywordflow">if</span> (line.size() == 0) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  100</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;#&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  101</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;;&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>      std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">  104</span>      ss.precision(7);</div>
+<div class="line"><span class="lineno">  105</span>      </div>
+<div class="line"><span class="lineno">  106</span>      <span class="keywordtype">int</span> id, i, i2;</div>
+<div class="line"><span class="lineno">  107</span>      <span class="keywordtype">double</span> <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#af8e740d27419a6e936aa0658941a941a">gain</a>;</div>
+<div class="line"><span class="lineno">  108</span>      ss &gt;&gt; <span class="keywordtype">id</span> &gt;&gt; i &gt;&gt; i2 &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#af8e740d27419a6e936aa0658941a941a">gain</a>;</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a01efb76d46e6e3e653595befe10aa2fd">ct_cal</a>[id][i][i2] = <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#af8e740d27419a6e936aa0658941a941a">gain</a>;</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>      ++n;</div>
+<div class="line"><span class="lineno">  113</span>    }</div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">return</span> n;</div>
+<div class="line"><span class="lineno">  115</span>  }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a14dd6f6267272158e3e23fdb385be329" name="a14dd6f6267272158e3e23fdb385be329"></a>
@@ -325,7 +548,30 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  163</span>                                                 {</div>
+<div class="line"><span class="lineno">  164</span>    std::ifstream file(fn.c_str());</div>
+<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">  166</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; fn &lt;&lt; <span class="stringliteral">&quot; not open&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  167</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  168</span>    }    </div>
+<div class="line"><span class="lineno">  169</span>    std::string line;</div>
+<div class="line"><span class="lineno">  170</span>    getline(file, line);</div>
+<div class="line"><span class="lineno">  171</span>    getline(file, line);</div>
+<div class="line"><span class="lineno">  172</span>    std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">  173</span>    std::cout &lt;&lt; line &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordtype">float</span> abseff, a, aerr, b, berr, c, cerr, d, derr, e, eerr, f, ferr, g, gerr;</div>
+<div class="line"><span class="lineno">  175</span>    ss &gt;&gt; abseff &gt;&gt; a &gt;&gt; aerr &gt;&gt; b &gt;&gt; berr &gt;&gt; c &gt;&gt; cerr &gt;&gt; d &gt;&gt; derr &gt;&gt; e &gt;&gt; eerr &gt;&gt; f &gt;&gt; ferr &gt;&gt; g &gt;&gt; gerr;</div>
+<div class="line"><span class="lineno">  176</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#afd6ea49600c249835c91a37fe8a41f5d">AbsEff</a> = abseff;</div>
+<div class="line"><span class="lineno">  177</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[0] = a;</div>
+<div class="line"><span class="lineno">  178</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[1] = b;</div>
+<div class="line"><span class="lineno">  179</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[2] = c;</div>
+<div class="line"><span class="lineno">  180</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[3] = d;</div>
+<div class="line"><span class="lineno">  181</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[4] = e;</div>
+<div class="line"><span class="lineno">  182</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[5] = f;</div>
+<div class="line"><span class="lineno">  183</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#abba3a15c85b3491739f25846f9ee7d24">EfficiencyCal</a>[6] = g;</div>
+<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  185</span>  }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8408bd6cb5275df3b9080425404682ed" name="a8408bd6cb5275df3b9080425404682ed"></a>
@@ -343,7 +589,38 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  187</span>                                            {</div>
+<div class="line"><span class="lineno">  188</span>    std::ifstream file(fn.c_str());</div>
+<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">  190</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; fn &lt;&lt; <span class="stringliteral">&quot; not open&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  191</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  192</span>    }</div>
+<div class="line"><span class="lineno">  193</span>    std::string line;</div>
+<div class="line"><span class="lineno">  194</span>    getline(file, line);</div>
+<div class="line"><span class="lineno">  195</span>    <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><span class="lineno">  196</span>    <span class="keywordflow">while</span> (std::getline(file, line)) {</div>
+<div class="line"><span class="lineno">  197</span>      <span class="keywordflow">if</span> (line.size() == 0) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  198</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;#&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  199</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;;&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">  200</span> </div>
+<div class="line"><span class="lineno">  201</span>      ++n;</div>
+<div class="line"><span class="lineno">  202</span>      std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">  203</span>      std::cout &lt;&lt; line &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  204</span>      <span class="keywordtype">int</span> ID; </div>
+<div class="line"><span class="lineno">  205</span>      <span class="keywordtype">float</span> abseff, relnorm, a, aerr, b, berr, c, cerr, d, derr, e, eerr, f, ferr, g, gerr;</div>
+<div class="line"><span class="lineno">  206</span>      ss &gt;&gt; ID &gt;&gt; abseff &gt;&gt; relnorm &gt;&gt; a &gt;&gt; aerr &gt;&gt; b &gt;&gt; berr &gt;&gt; c &gt;&gt; cerr &gt;&gt; d &gt;&gt; derr &gt;&gt; e &gt;&gt; eerr &gt;&gt; f &gt;&gt; ferr &gt;&gt; g &gt;&gt; gerr;</div>
+<div class="line"><span class="lineno">  207</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#ab9c20a58cedde4cd3352a73f7da63366">AbsEff_i</a>[ID] = abseff;</div>
+<div class="line"><span class="lineno">  208</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][0] = a;</div>
+<div class="line"><span class="lineno">  209</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][1] = b;</div>
+<div class="line"><span class="lineno">  210</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][2] = c;</div>
+<div class="line"><span class="lineno">  211</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][3] = d;</div>
+<div class="line"><span class="lineno">  212</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][4] = e;</div>
+<div class="line"><span class="lineno">  213</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][5] = f;</div>
+<div class="line"><span class="lineno">  214</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_clarion_conf.html#a76b5d5ebce850a1513fcd6671f613b94">EffCal_i</a>[ID][6] = g;</div>
+<div class="line"><span class="lineno">  215</span>    }</div>
+<div class="line"><span class="lineno">  216</span>    <span class="keywordflow">return</span> n;</div>
+<div class="line"><span class="lineno">  217</span>  }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

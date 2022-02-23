@@ -110,6 +110,11 @@ int \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25
 {\footnotesize\ttfamily Clarion\+Trinity\+::\+GAGG\+::\+GAGG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \{\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}} = -\/1; \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a5ae41dfcb957696207f26a3538404f98}{fired1}} = 0; \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_abae408a12fd7b2a2424c21d67c9e3714}{fired2}} = 0; \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0; \};}
+
+\end{DoxyCode}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_clarion_trinity_1_1_g_a_g_g_a146068e3288a7b2a52c15b39163949bf}\label{class_clarion_trinity_1_1_g_a_g_g_a146068e3288a7b2a52c15b39163949bf}} 
@@ -118,24 +123,204 @@ int \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25
 \doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
 {\footnotesize\ttfamily void Clarion\+Trinity\+::\+GAGG\+::\+Reset (\begin{DoxyParamCaption}\item[{int}]{ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}} = ID, \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a5ae41dfcb957696207f26a3538404f98}{fired1}} = 0; \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_abae408a12fd7b2a2424c21d67c9e3714}{fired2}} = 0; \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0; \} }
+
+\end{DoxyCode}
 \mbox{\Hypertarget{class_clarion_trinity_1_1_g_a_g_g_a7ba07f3e790a1f041bed0e51d6fb782e}\label{class_clarion_trinity_1_1_g_a_g_g_a7ba07f3e790a1f041bed0e51d6fb782e}} 
 \index{ClarionTrinity::GAGG@{ClarionTrinity::GAGG}!Set@{Set}}
 \index{Set@{Set}!ClarionTrinity::GAGG@{ClarionTrinity::GAGG}}
 \doxysubsubsection{\texorpdfstring{Set()}{Set()}}
 {\footnotesize\ttfamily void Clarion\+Trinity\+::\+GAGG\+::\+Set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_clarion_trinity_1_1_trinity_conf}{Trinity\+Conf}} \&}]{conf }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                         \{}
+\DoxyCodeLine{100     \textcolor{keywordtype}{float} gain = conf.gain[\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}}];}
+\DoxyCodeLine{101     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a978b591c1b0c335aa9b7759334c49535}{peak2\_cal}} = (float)\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}}*gain;}
+\DoxyCodeLine{102     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a69d2de9652a2f65a420be96858f308ff}{tail2\_cal}} = (float)\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}}*gain;}
+\DoxyCodeLine{103     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a3cf7af4fcd9a5d98bf7511475f346c2e}{energy2\_cal}} = (float)\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}}*gain;}
+\DoxyCodeLine{104     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a5ae41dfcb957696207f26a3538404f98}{fired1}} \&\& \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_abae408a12fd7b2a2424c21d67c9e3714}{fired2}}) \{}
+\DoxyCodeLine{105       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a85d5f479e270d47204c61f9a15be6282}{time}} = (\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a47e1f6bdff1aa4bdb45de9757a231518}{time1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ab0b02526a667e9e44cae30d848ce3992}{time2}})/2;}
+\DoxyCodeLine{106       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a34c7707bcf08fa9270c7ccfce1ef2b07}{peak}} = ((float)\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a978b591c1b0c335aa9b7759334c49535}{peak2\_cal}})/2.0;}
+\DoxyCodeLine{107       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adcc5cd41ac70feb20ff4424f21140e14}{tail}} = ((float)\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a69d2de9652a2f65a420be96858f308ff}{tail2\_cal}})/2.0;}
+\DoxyCodeLine{108       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a8f2849f3ee89ba1e44d29fba52d71a47}{energy}} = ((float)\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a3cf7af4fcd9a5d98bf7511475f346c2e}{energy2\_cal}})/2.0;}
+\DoxyCodeLine{109       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ad63d3f9b351fa04342ae129a6414c7ae}{tau}} = (\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_afb4eeff8b3aa5096132640d420e1fd6d}{tau1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a716c6f45c15bb46b24c3b9b383893315}{tau2}})/2.0;}
+\DoxyCodeLine{110       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 1;}
+\DoxyCodeLine{111       \textcolor{comment}{//reject based on board PU detection}}
+\DoxyCodeLine{112       \textcolor{keywordflow}{if} (conf.rejectPU) \{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a64e7d629b22a138ab1797a0bc51e94c7}{pu1}} == 1 || \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} == 0) \{}
+\DoxyCodeLine{114           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{115         \}}
+\DoxyCodeLine{116         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_afd3bc1069faab75401a91616c552f25a}{pu2}} == 1 || \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}} == 0) \{}
+\DoxyCodeLine{117           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{118         \}}
+\DoxyCodeLine{119       \}}
+\DoxyCodeLine{120       \textcolor{keywordflow}{if} (conf.rejectOOR) \{}
+\DoxyCodeLine{121         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a837394861c763bc184ebcfb7793762a0}{oor1}} == 1 || \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aaf5c3f702b56a0b90f7fc2d32ff8edfb}{oor2}} == 2) \{}
+\DoxyCodeLine{122           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{123         \}}
+\DoxyCodeLine{124       \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126       \textcolor{comment}{//reject based on energy, peak, tail, or background conditions}}
+\DoxyCodeLine{127       \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}}) == 0) \{}
+\DoxyCodeLine{128         \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{129       \} }
+\DoxyCodeLine{130       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}}) == 0) \{}
+\DoxyCodeLine{131         \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{132       \} }
+\DoxyCodeLine{133       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}}) == 0) \{}
+\DoxyCodeLine{134         \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{135       \} }
+\DoxyCodeLine{136       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (std::abs((\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} -\/ \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}})/(\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}})) > conf.energySimilarity) \{}
+\DoxyCodeLine{137         \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0; }
+\DoxyCodeLine{138       \}}
+\DoxyCodeLine{139       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (std::abs((\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} -\/ \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}})/(\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}})) > conf.peakSimilarity) \{}
+\DoxyCodeLine{140         \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{141       \}  }
+\DoxyCodeLine{142       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (std::abs((\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} -\/ \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}})/(\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} + \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}} + 2000) ) > conf.tailSimilarity) \{}
+\DoxyCodeLine{143         \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{144       \}  }
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146       \textcolor{keywordflow}{if} (std::abs((\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a0d637fe0070f9fe160be2b30004d66ca}{background1}}-\/\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ac3bac204c7b884c048f8fb5ec299cb64}{postbackground1}})/(\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a0d637fe0070f9fe160be2b30004d66ca}{background1}})) > conf.backConsistency) \{}
+\DoxyCodeLine{147         \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{148       \}}
+\DoxyCodeLine{149       \textcolor{keywordflow}{if} (std::abs((\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a1a65987dddd10b86044907047b7dd43f}{background2}}-\/\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_af56dae658f8575d443ac37b692597392}{postbackground2}})/(\textcolor{keywordtype}{float})(\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a1a65987dddd10b86044907047b7dd43f}{background2}})) > conf.backConsistency) \{}
+\DoxyCodeLine{150         \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0;}
+\DoxyCodeLine{151       \}}
+\DoxyCodeLine{152     \}}
+\DoxyCodeLine{153     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a5ae41dfcb957696207f26a3538404f98}{fired1}} \&\& !\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_abae408a12fd7b2a2424c21d67c9e3714}{fired2}}) \{}
+\DoxyCodeLine{154       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a85d5f479e270d47204c61f9a15be6282}{time}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a47e1f6bdff1aa4bdb45de9757a231518}{time1}};}
+\DoxyCodeLine{155       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a34c7707bcf08fa9270c7ccfce1ef2b07}{peak}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}};}
+\DoxyCodeLine{156       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adcc5cd41ac70feb20ff4424f21140e14}{tail}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}};}
+\DoxyCodeLine{157       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a8f2849f3ee89ba1e44d29fba52d71a47}{energy}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}};}
+\DoxyCodeLine{158       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ad63d3f9b351fa04342ae129a6414c7ae}{tau}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_afb4eeff8b3aa5096132640d420e1fd6d}{tau1}};}
+\DoxyCodeLine{159       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0; }
+\DoxyCodeLine{160     \}}
+\DoxyCodeLine{161     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a5ae41dfcb957696207f26a3538404f98}{fired1}} \&\& \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_abae408a12fd7b2a2424c21d67c9e3714}{fired2}}) \{}
+\DoxyCodeLine{162       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a85d5f479e270d47204c61f9a15be6282}{time}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ab0b02526a667e9e44cae30d848ce3992}{time2}};}
+\DoxyCodeLine{163       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a34c7707bcf08fa9270c7ccfce1ef2b07}{peak}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}};}
+\DoxyCodeLine{164       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adcc5cd41ac70feb20ff4424f21140e14}{tail}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}};}
+\DoxyCodeLine{165       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a8f2849f3ee89ba1e44d29fba52d71a47}{energy}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}};}
+\DoxyCodeLine{166       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ad63d3f9b351fa04342ae129a6414c7ae}{tau}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a716c6f45c15bb46b24c3b9b383893315}{tau2}};}
+\DoxyCodeLine{167       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a67322bb781f35b570f447d25eff42fce}{clean}} = 0; }
+\DoxyCodeLine{168     \}    }
+\DoxyCodeLine{169   \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{class_clarion_trinity_1_1_g_a_g_g_a47a4025e30e7beaa6038f2a64caab68d}\label{class_clarion_trinity_1_1_g_a_g_g_a47a4025e30e7beaa6038f2a64caab68d}} 
 \index{ClarionTrinity::GAGG@{ClarionTrinity::GAGG}!Set1@{Set1}}
 \index{Set1@{Set1}!ClarionTrinity::GAGG@{ClarionTrinity::GAGG}}
 \doxysubsubsection{\texorpdfstring{Set1()}{Set1()}}
 {\footnotesize\ttfamily void Clarion\+Trinity\+::\+GAGG\+::\+Set1 (\begin{DoxyParamCaption}\item[{const PIXIE\+::\+Measurement \&}]{meas,  }\item[{const \mbox{\hyperlink{class_clarion_trinity_1_1_trinity_conf}{Trinity\+Conf}} \&}]{conf }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                                                                        \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_af97154e69f5f695832ab5458e35799bc}{crate1}} = meas.crateID;}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a37d089a16651235d2da4f2b49b90f282}{slot1}} = meas.slotID;}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a397313aeab5c4f0afac8c98c000c48e7}{chan1}} = meas.channelNumber;}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a5ae41dfcb957696207f26a3538404f98}{fired1}} = 1;}
+\DoxyCodeLine{10     \textcolor{keywordflow}{if} (conf.pidType[\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}}] == \mbox{\hyperlink{namespace_clarion_trinity_a7c83a444c39e936ce54e3c5629211e46afa21506cd249f400de4a974b5a0c8e0e}{PIDType::kTrace}}) \{}
+\DoxyCodeLine{11       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} = meas.trace\_meas[0].datum;}
+\DoxyCodeLine{12       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} = meas.trace\_meas[1].datum;}
+\DoxyCodeLine{13       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} = meas.trace\_meas[2].datum;}
+\DoxyCodeLine{14       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a0d637fe0070f9fe160be2b30004d66ca}{background1}} = meas.trace\_meas[3].datum;}
+\DoxyCodeLine{15       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ac3bac204c7b884c048f8fb5ec299cb64}{postbackground1}} = meas.trace\_meas[4].datum;}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.pidType[\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}}] == \mbox{\hyperlink{namespace_clarion_trinity_a7c83a444c39e936ce54e3c5629211e46a46e32470178842b7a6a9e5e63c7c2219}{PIDType::kQDC}}) \{}
+\DoxyCodeLine{18       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a0d637fe0070f9fe160be2b30004d66ca}{background1}} = 0;}
+\DoxyCodeLine{19       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} = 0;}
+\DoxyCodeLine{20       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} = 0;}
+\DoxyCodeLine{21       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} = 0;}
+\DoxyCodeLine{22       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ac3bac204c7b884c048f8fb5ec299cb64}{postbackground1}} = 0;}
+\DoxyCodeLine{23       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<8; ++i) \{}
+\DoxyCodeLine{24         \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1a75875d8f396064e1c6372f35ca85e6cb}{Window::kEnergy}}) \{}
+\DoxyCodeLine{25           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} += meas.QDCSums[i];}
+\DoxyCodeLine{26         \}}
+\DoxyCodeLine{27         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1aa2d86d95b9f6fc114ea83102b1d7f7a8}{Window::kPeak}}) \{}
+\DoxyCodeLine{28           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} += meas.QDCSums[i];}
+\DoxyCodeLine{29           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} += meas.QDCSums[i];}
+\DoxyCodeLine{30         \}}
+\DoxyCodeLine{31         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1a7c58afb43537a264dcd68e698a7b8e3b}{Window::kBackground}}) \{}
+\DoxyCodeLine{32           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a0d637fe0070f9fe160be2b30004d66ca}{background1}} += meas.QDCSums[i];}
+\DoxyCodeLine{33         \}}
+\DoxyCodeLine{34         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1aa416286e40d212a7a7593eaeac925b04}{Window::kTail}}) \{}
+\DoxyCodeLine{35           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} += meas.QDCSums[i];}
+\DoxyCodeLine{36           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} += meas.QDCSums[i];}
+\DoxyCodeLine{37         \}}
+\DoxyCodeLine{38         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1a799590dc1fda632eb45117e7e24ccd28}{Window::kPostBackground}}) \{}
+\DoxyCodeLine{39           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ac3bac204c7b884c048f8fb5ec299cb64}{postbackground1}} += meas.QDCSums[i];}
+\DoxyCodeLine{40         \}}
+\DoxyCodeLine{41       \}}
+\DoxyCodeLine{42       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_adeab1f1c2114c8ffbe4c6c89dd249334}{energy1}} -\/ conf.energyWidth/conf.backWidth * \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a0d637fe0070f9fe160be2b30004d66ca}{background1}};}
+\DoxyCodeLine{43       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a9e0e3d7680b569e480c7221c5e56b3f2}{peak1}} -\/ conf.peakWidth/conf.backWidth * \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a0d637fe0070f9fe160be2b30004d66ca}{background1}};}
+\DoxyCodeLine{44       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a353b4619520f0ec3edc9d548790bbe73}{tail1}} -\/ conf.tailWidth/conf.backWidth * \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a0d637fe0070f9fe160be2b30004d66ca}{background1}};            }
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a47e1f6bdff1aa4bdb45de9757a231518}{time1}} = meas.eventTime;}
+\DoxyCodeLine{47     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aae530a5ab5e7af5ff3a4a6c3cff7c138}{traceLength1}} = meas.traceLength;}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a64e7d629b22a138ab1797a0bc51e94c7}{pu1}} = meas.finishCode;}
+\DoxyCodeLine{49     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a837394861c763bc184ebcfb7793762a0}{oor1}} = meas.outOfRange;}
+\DoxyCodeLine{50   \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{class_clarion_trinity_1_1_g_a_g_g_ab658d52a95a519cd3ac8b65631ad0666}\label{class_clarion_trinity_1_1_g_a_g_g_ab658d52a95a519cd3ac8b65631ad0666}} 
 \index{ClarionTrinity::GAGG@{ClarionTrinity::GAGG}!Set2@{Set2}}
 \index{Set2@{Set2}!ClarionTrinity::GAGG@{ClarionTrinity::GAGG}}
 \doxysubsubsection{\texorpdfstring{Set2()}{Set2()}}
 {\footnotesize\ttfamily void Clarion\+Trinity\+::\+GAGG\+::\+Set2 (\begin{DoxyParamCaption}\item[{const PIXIE\+::\+Measurement \&}]{meas,  }\item[{const \mbox{\hyperlink{class_clarion_trinity_1_1_trinity_conf}{Trinity\+Conf}} \&}]{conf }\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                                                                        \{}
+\DoxyCodeLine{53     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_af0e3d5efc07f52b3346483f73d03142d}{crate2}} = meas.crateID;}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a21ebec9d4b263c3455124a58fd73b657}{slot2}} = meas.slotID;}
+\DoxyCodeLine{55     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a51b8b9eb322605f7748b304237f3b7fd}{chan2}} = meas.channelNumber;}
+\DoxyCodeLine{56     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_abae408a12fd7b2a2424c21d67c9e3714}{fired2}} = 1;}
+\DoxyCodeLine{57     \textcolor{keywordflow}{if} (conf.pidType[\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}}] == \mbox{\hyperlink{namespace_clarion_trinity_a7c83a444c39e936ce54e3c5629211e46afa21506cd249f400de4a974b5a0c8e0e}{PIDType::kTrace}}) \{}
+\DoxyCodeLine{58       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}} = meas.trace\_meas[0].datum;}
+\DoxyCodeLine{59       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}} = meas.trace\_meas[1].datum;}
+\DoxyCodeLine{60       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}} = meas.trace\_meas[2].datum;}
+\DoxyCodeLine{61       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a1a65987dddd10b86044907047b7dd43f}{background2}} = meas.trace\_meas[3].datum;}
+\DoxyCodeLine{62       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_af56dae658f8575d443ac37b692597392}{postbackground2}} = meas.trace\_meas[4].datum;}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.pidType[\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}}] == \mbox{\hyperlink{namespace_clarion_trinity_a7c83a444c39e936ce54e3c5629211e46a46e32470178842b7a6a9e5e63c7c2219}{PIDType::kQDC}}) \{}
+\DoxyCodeLine{65       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a1a65987dddd10b86044907047b7dd43f}{background2}} = 0;}
+\DoxyCodeLine{66       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}} = 0;}
+\DoxyCodeLine{67       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}} = 0;}
+\DoxyCodeLine{68       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}} = 0;}
+\DoxyCodeLine{69       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_af56dae658f8575d443ac37b692597392}{postbackground2}} = 0;}
+\DoxyCodeLine{70       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<8; ++i) \{}
+\DoxyCodeLine{71         \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1a75875d8f396064e1c6372f35ca85e6cb}{Window::kEnergy}}) \{}
+\DoxyCodeLine{72           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}} += meas.QDCSums[i];}
+\DoxyCodeLine{73         \}}
+\DoxyCodeLine{74         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1aa2d86d95b9f6fc114ea83102b1d7f7a8}{Window::kPeak}}) \{}
+\DoxyCodeLine{75           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}} += meas.QDCSums[i];}
+\DoxyCodeLine{76           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}} += meas.QDCSums[i];}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1a7c58afb43537a264dcd68e698a7b8e3b}{Window::kBackground}}) \{}
+\DoxyCodeLine{79           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a1a65987dddd10b86044907047b7dd43f}{background2}} += meas.QDCSums[i];}
+\DoxyCodeLine{80         \}}
+\DoxyCodeLine{81         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1aa416286e40d212a7a7593eaeac925b04}{Window::kTail}}) \{}
+\DoxyCodeLine{82           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}} += meas.QDCSums[i];}
+\DoxyCodeLine{83           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}} += meas.QDCSums[i];}
+\DoxyCodeLine{84         \}}
+\DoxyCodeLine{85         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (conf.QDCType[i] == \mbox{\hyperlink{namespace_clarion_trinity_a5c8af5339e341db2321e8434de631fb1a799590dc1fda632eb45117e7e24ccd28}{Window::kPostBackground}}) \{}
+\DoxyCodeLine{86           \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_af56dae658f8575d443ac37b692597392}{postbackground2}} += meas.QDCSums[i];}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88       \}}
+\DoxyCodeLine{89       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aec82ca9403f2d88be593a8b737b61a7d}{energy2}} -\/ conf.energyWidth/conf.backWidth * \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a1a65987dddd10b86044907047b7dd43f}{background2}};}
+\DoxyCodeLine{90       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aedcd10dadcfe660e8ee5c4107f62980d}{peak2}} -\/ conf.peakWidth/conf.backWidth * \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a1a65987dddd10b86044907047b7dd43f}{background2}};}
+\DoxyCodeLine{91       \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}} = \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a245198cd2a7049b7220f6464cc98e3f5}{tail2}} -\/ conf.tailWidth/conf.backWidth * \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a1a65987dddd10b86044907047b7dd43f}{background2}};            }
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ab0b02526a667e9e44cae30d848ce3992}{time2}} = meas.eventTime;}
+\DoxyCodeLine{94     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a75f4da1fc3ae707a6bfbd4b9efb72267}{traceLength2}} = meas.traceLength;}
+\DoxyCodeLine{95     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_afd3bc1069faab75401a91616c552f25a}{pu2}} = meas.finishCode;}
+\DoxyCodeLine{96     \mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_aaf5c3f702b56a0b90f7fc2d32ff8edfb}{oor2}} = meas.outOfRange;}
+\DoxyCodeLine{97   \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Data Documentation}

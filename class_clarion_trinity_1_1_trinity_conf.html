@@ -171,7 +171,12 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   57</span>: <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a382c4d11c9fc4a885851fdc15e35855e">energySimilarity</a>(1e6), <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a523ff26ba1e83b4c7e879a1b5751553a">peakSimilarity</a>(1e6), <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#aba1063e222642321a7003e24596a3877">tailSimilarity</a>(1e6), <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#ac99675332e940b2d5c47ecb26e2145b6">backConsistency</a>(1e6) {}</div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a382c4d11c9fc4a885851fdc15e35855e"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a382c4d11c9fc4a885851fdc15e35855e">ClarionTrinity::TrinityConf::energySimilarity</a></div><div class="ttdeci">float energySimilarity</div><div class="ttdef"><b>Definition:</b> Trinity.hh:41</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a523ff26ba1e83b4c7e879a1b5751553a"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a523ff26ba1e83b4c7e879a1b5751553a">ClarionTrinity::TrinityConf::peakSimilarity</a></div><div class="ttdeci">float peakSimilarity</div><div class="ttdef"><b>Definition:</b> Trinity.hh:42</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_aba1063e222642321a7003e24596a3877"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#aba1063e222642321a7003e24596a3877">ClarionTrinity::TrinityConf::tailSimilarity</a></div><div class="ttdeci">float tailSimilarity</div><div class="ttdef"><b>Definition:</b> Trinity.hh:43</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_ac99675332e940b2d5c47ecb26e2145b6"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#ac99675332e940b2d5c47ecb26e2145b6">ClarionTrinity::TrinityConf::backConsistency</a></div><div class="ttdeci">float backConsistency</div><div class="ttdef"><b>Definition:</b> Trinity.hh:44</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ac17b5040107444e49fa07ba456b01cfb" name="ac17b5040107444e49fa07ba456b01cfb"></a>
@@ -189,7 +194,73 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">    6</span>                                             : </div>
+<div class="line"><span class="lineno">    7</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a382c4d11c9fc4a885851fdc15e35855e">energySimilarity</a>(1e6), </div>
+<div class="line"><span class="lineno">    8</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a523ff26ba1e83b4c7e879a1b5751553a">peakSimilarity</a>(1e6), </div>
+<div class="line"><span class="lineno">    9</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#aba1063e222642321a7003e24596a3877">tailSimilarity</a>(1e6),</div>
+<div class="line"><span class="lineno">   10</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#ac99675332e940b2d5c47ecb26e2145b6">backConsistency</a>(1e6),</div>
+<div class="line"><span class="lineno">   11</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a6f37d2092f8636efe144f683a718aad0">rejectPU</a>(<span class="keyword">true</span>),</div>
+<div class="line"><span class="lineno">   12</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a2a2e2508450d0be1a38fa2f21ff59c01">rejectOOR</a>(<span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="_definitions_8hh.html#adec67c1f284e23b6ea07228f98950509">CT_MAX_CRATES</a>; ++i) {</div>
+<div class="line"><span class="lineno">   14</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;<a class="code hl_define" href="_definitions_8hh.html#a429274a2f511d243e784c80e797c320d">CT_MAX_SLOTS_PER_CRATE</a>; ++j) {</div>
+<div class="line"><span class="lineno">   15</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k=0; k&lt;<a class="code hl_define" href="_definitions_8hh.html#abea2635728b4dc3fda3464e86797055e">CT_MAX_CHANNELS_PER_BOARD</a>; ++k) {</div>
+<div class="line"><span class="lineno">   16</span>          <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0f17347ac111807f29b1b8e2d032e3ef">GaggIDMap</a>[i][j][k] = -1;</div>
+<div class="line"><span class="lineno">   17</span>          <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a7091acef6941879396d1ff6cd3bfe9e3">GaggSensorMap</a>[i][j][k] = -1;</div>
+<div class="line"><span class="lineno">   18</span>        }</div>
+<div class="line"><span class="lineno">   19</span>      }</div>
+<div class="line"><span class="lineno">   20</span>    }</div>
+<div class="line"><span class="lineno">   21</span>    </div>
+<div class="line"><span class="lineno">   22</span>    std::cout &lt;&lt; conffile &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   23</span>    std::ifstream file(conffile.c_str());</div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">   25</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; conffile &lt;&lt; <span class="stringliteral">&quot; not open&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span>    std::string line;</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a> = 0;</div>
+<div class="line"><span class="lineno">   30</span>    std::getline(file, line);</div>
+<div class="line"><span class="lineno">   31</span>    std::cout &lt;&lt; line &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">while</span> (std::getline(file, line)) {</div>
+<div class="line"><span class="lineno">   33</span>      std::cout &lt;&lt; line &lt;&lt; std::endl; </div>
+<div class="line"><span class="lineno">   34</span>      <span class="keywordflow">if</span> (line.size() == 0) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   35</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;#&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   36</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;;&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>      std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>      ss &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#adf3423c3aa296accf27d2682fad5893f">GaggID</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a117e4290fcc7007f4ad412643e0416ae">Cr1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a29f0630002a8e75524226a234a7c0808">Sl1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#ab11c45331aecc87cde2ac4cc601193a5">Ch1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>] &gt;&gt;</div>
+<div class="line"><span class="lineno">   41</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a96f74a133671dc694d7dab594e9767f0">Cr2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a87ae6bf8e66187fb2656774695b61797">Sl2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#afbba7ebcbb96e91da2042bf0ee4bb557">Ch2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0ad7f8a2ede944bcfb009bea120b900f">gain</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#adf3423c3aa296accf27d2682fad5893f">GaggID</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]];</div>
+<div class="line"><span class="lineno">   42</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0f17347ac111807f29b1b8e2d032e3ef">GaggIDMap</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a117e4290fcc7007f4ad412643e0416ae">Cr1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]][<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a29f0630002a8e75524226a234a7c0808">Sl1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]][<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#ab11c45331aecc87cde2ac4cc601193a5">Ch1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]] = <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#adf3423c3aa296accf27d2682fad5893f">GaggID</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>];</div>
+<div class="line"><span class="lineno">   43</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0f17347ac111807f29b1b8e2d032e3ef">GaggIDMap</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a96f74a133671dc694d7dab594e9767f0">Cr2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]][<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a87ae6bf8e66187fb2656774695b61797">Sl2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]][<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#afbba7ebcbb96e91da2042bf0ee4bb557">Ch2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]] = <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#adf3423c3aa296accf27d2682fad5893f">GaggID</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>];</div>
+<div class="line"><span class="lineno">   44</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a7091acef6941879396d1ff6cd3bfe9e3">GaggSensorMap</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a117e4290fcc7007f4ad412643e0416ae">Cr1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]][<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a29f0630002a8e75524226a234a7c0808">Sl1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]][<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#ab11c45331aecc87cde2ac4cc601193a5">Ch1</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]] = 1;</div>
+<div class="line"><span class="lineno">   45</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a7091acef6941879396d1ff6cd3bfe9e3">GaggSensorMap</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a96f74a133671dc694d7dab594e9767f0">Cr2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]][<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a87ae6bf8e66187fb2656774695b61797">Sl2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]][<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#afbba7ebcbb96e91da2042bf0ee4bb557">Ch2</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>]] = 2;</div>
+<div class="line"><span class="lineno">   46</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a> += 1;</div>
+<div class="line"><span class="lineno">   47</span>    }</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="_definitions_8hh.html#af2033d3fa60b992e36c8241c55cd9d59">MAX_GAGG_ID</a>; ++i) {</div>
+<div class="line"><span class="lineno">   50</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a6948422a9d062877c244355e6f64489e">pidType</a>[i] = <a class="code hl_enumvalue" href="namespace_clarion_trinity.html#a7c83a444c39e936ce54e3c5629211e46afa21506cd249f400de4a974b5a0c8e0e">PIDType::kTrace</a>; <span class="comment">//trace by default</span></div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span>  }</div>
+<div class="ttc" id="a_definitions_8hh_html_a429274a2f511d243e784c80e797c320d"><div class="ttname"><a href="_definitions_8hh.html#a429274a2f511d243e784c80e797c320d">CT_MAX_SLOTS_PER_CRATE</a></div><div class="ttdeci">#define CT_MAX_SLOTS_PER_CRATE</div><div class="ttdef"><b>Definition:</b> Definitions.hh:7</div></div>
+<div class="ttc" id="a_definitions_8hh_html_abea2635728b4dc3fda3464e86797055e"><div class="ttname"><a href="_definitions_8hh.html#abea2635728b4dc3fda3464e86797055e">CT_MAX_CHANNELS_PER_BOARD</a></div><div class="ttdeci">#define CT_MAX_CHANNELS_PER_BOARD</div><div class="ttdef"><b>Definition:</b> Definitions.hh:8</div></div>
+<div class="ttc" id="a_definitions_8hh_html_adec67c1f284e23b6ea07228f98950509"><div class="ttname"><a href="_definitions_8hh.html#adec67c1f284e23b6ea07228f98950509">CT_MAX_CRATES</a></div><div class="ttdeci">#define CT_MAX_CRATES</div><div class="ttdef"><b>Definition:</b> Definitions.hh:6</div></div>
+<div class="ttc" id="a_definitions_8hh_html_af2033d3fa60b992e36c8241c55cd9d59"><div class="ttname"><a href="_definitions_8hh.html#af2033d3fa60b992e36c8241c55cd9d59">MAX_GAGG_ID</a></div><div class="ttdeci">#define MAX_GAGG_ID</div><div class="ttdef"><b>Definition:</b> Definitions.hh:5</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a0ad7f8a2ede944bcfb009bea120b900f"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a0ad7f8a2ede944bcfb009bea120b900f">ClarionTrinity::TrinityConf::gain</a></div><div class="ttdeci">float gain[MAX_GAGG_ID]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:36</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a0f17347ac111807f29b1b8e2d032e3ef"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a0f17347ac111807f29b1b8e2d032e3ef">ClarionTrinity::TrinityConf::GaggIDMap</a></div><div class="ttdeci">int GaggIDMap[CT_MAX_CRATES][CT_MAX_SLOTS_PER_CRATE][CT_MAX_CHANNELS_PER_BOARD]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:33</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a1048098f9f5aaf4f14f0bfbd87e9ca14"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">ClarionTrinity::TrinityConf::nCrystals</a></div><div class="ttdeci">int nCrystals</div><div class="ttdef"><b>Definition:</b> Trinity.hh:24</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a117e4290fcc7007f4ad412643e0416ae"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a117e4290fcc7007f4ad412643e0416ae">ClarionTrinity::TrinityConf::Cr1</a></div><div class="ttdeci">int Cr1[MAX_GAGG_CRYSTALS]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:26</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a29f0630002a8e75524226a234a7c0808"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a29f0630002a8e75524226a234a7c0808">ClarionTrinity::TrinityConf::Sl1</a></div><div class="ttdeci">int Sl1[MAX_GAGG_CRYSTALS]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:28</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a2a2e2508450d0be1a38fa2f21ff59c01"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a2a2e2508450d0be1a38fa2f21ff59c01">ClarionTrinity::TrinityConf::rejectOOR</a></div><div class="ttdeci">bool rejectOOR</div><div class="ttdef"><b>Definition:</b> Trinity.hh:46</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a6948422a9d062877c244355e6f64489e"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a6948422a9d062877c244355e6f64489e">ClarionTrinity::TrinityConf::pidType</a></div><div class="ttdeci">PIDType pidType[MAX_GAGG_ID]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:48</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a6f37d2092f8636efe144f683a718aad0"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a6f37d2092f8636efe144f683a718aad0">ClarionTrinity::TrinityConf::rejectPU</a></div><div class="ttdeci">bool rejectPU</div><div class="ttdef"><b>Definition:</b> Trinity.hh:45</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a7091acef6941879396d1ff6cd3bfe9e3"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a7091acef6941879396d1ff6cd3bfe9e3">ClarionTrinity::TrinityConf::GaggSensorMap</a></div><div class="ttdeci">int GaggSensorMap[CT_MAX_CRATES][CT_MAX_SLOTS_PER_CRATE][CT_MAX_CHANNELS_PER_BOARD]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:34</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a87ae6bf8e66187fb2656774695b61797"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a87ae6bf8e66187fb2656774695b61797">ClarionTrinity::TrinityConf::Sl2</a></div><div class="ttdeci">int Sl2[MAX_GAGG_CRYSTALS]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:29</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a96f74a133671dc694d7dab594e9767f0"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a96f74a133671dc694d7dab594e9767f0">ClarionTrinity::TrinityConf::Cr2</a></div><div class="ttdeci">int Cr2[MAX_GAGG_CRYSTALS]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:27</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_ab11c45331aecc87cde2ac4cc601193a5"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#ab11c45331aecc87cde2ac4cc601193a5">ClarionTrinity::TrinityConf::Ch1</a></div><div class="ttdeci">int Ch1[MAX_GAGG_CRYSTALS]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:30</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_adf3423c3aa296accf27d2682fad5893f"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#adf3423c3aa296accf27d2682fad5893f">ClarionTrinity::TrinityConf::GaggID</a></div><div class="ttdeci">int GaggID[MAX_GAGG_CRYSTALS]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:25</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_afbba7ebcbb96e91da2042bf0ee4bb557"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#afbba7ebcbb96e91da2042bf0ee4bb557">ClarionTrinity::TrinityConf::Ch2</a></div><div class="ttdeci">int Ch2[MAX_GAGG_CRYSTALS]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:31</div></div>
+<div class="ttc" id="anamespace_clarion_trinity_html_a7c83a444c39e936ce54e3c5629211e46afa21506cd249f400de4a974b5a0c8e0e"><div class="ttname"><a href="namespace_clarion_trinity.html#a7c83a444c39e936ce54e3c5629211e46afa21506cd249f400de4a974b5a0c8e0e">ClarionTrinity::PIDType::kTrace</a></div><div class="ttdeci">@ kTrace</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -207,7 +278,14 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  139</span>                          {</div>
+<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1048098f9f5aaf4f14f0bfbd87e9ca14">nCrystals</a>; ++i) {</div>
+<div class="line"><span class="lineno">  141</span>      printf(<span class="stringliteral">&quot;%i    %i.%i.%i     %i.%i.%i   %5.4f    %5.4f\n&quot;</span>, <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#adf3423c3aa296accf27d2682fad5893f">GaggID</a>[i], <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a117e4290fcc7007f4ad412643e0416ae">Cr1</a>[i],<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a29f0630002a8e75524226a234a7c0808">Sl1</a>[i],<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#ab11c45331aecc87cde2ac4cc601193a5">Ch1</a>[i], <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a96f74a133671dc694d7dab594e9767f0">Cr2</a>[i],<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a87ae6bf8e66187fb2656774695b61797">Sl2</a>[i],<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#afbba7ebcbb96e91da2042bf0ee4bb557">Ch2</a>[i], <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a726f248f1c4bbddba6e4529fb3a8ff1f">theta</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#adf3423c3aa296accf27d2682fad5893f">GaggID</a>[i]], <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#af84dc5c8a0b5ef1e68832707b46b6b95">phi</a>[<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#adf3423c3aa296accf27d2682fad5893f">GaggID</a>[i]]);</div>
+<div class="line"><span class="lineno">  142</span>    }</div>
+<div class="line"><span class="lineno">  143</span>  }</div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a726f248f1c4bbddba6e4529fb3a8ff1f"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a726f248f1c4bbddba6e4529fb3a8ff1f">ClarionTrinity::TrinityConf::theta</a></div><div class="ttdeci">float theta[MAX_GAGG_ID]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:38</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_af84dc5c8a0b5ef1e68832707b46b6b95"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#af84dc5c8a0b5ef1e68832707b46b6b95">ClarionTrinity::TrinityConf::phi</a></div><div class="ttdeci">float phi[MAX_GAGG_ID]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:39</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae2b64de3eb336dff159494e243c9beab" name="ae2b64de3eb336dff159494e243c9beab"></a>
@@ -225,7 +303,31 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   54</span>                                                 {</div>
+<div class="line"><span class="lineno">   55</span>    std::cout &lt;&lt; mapfile &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   56</span>    std::ifstream file(mapfile.c_str());</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">   58</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; mapfile &lt;&lt; <span class="stringliteral">&quot; not open&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   59</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
+<div class="line"><span class="lineno">   61</span>    std::string line;</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">while</span> (std::getline(file, line)) {</div>
+<div class="line"><span class="lineno">   65</span>      <span class="keywordflow">if</span> (line.size() == 0) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   66</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;#&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   67</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;;&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   68</span> </div>
+<div class="line"><span class="lineno">   69</span>      std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>      <span class="keywordtype">int</span> ring, xtl;</div>
+<div class="line"><span class="lineno">   72</span>      ss &gt;&gt; ring &gt;&gt; xtl;</div>
+<div class="line"><span class="lineno">   73</span>      ss &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a726f248f1c4bbddba6e4529fb3a8ff1f">theta</a>[ring*100 + xtl] &gt;&gt; <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#af84dc5c8a0b5ef1e68832707b46b6b95">phi</a>[ring*100 + xtl];</div>
+<div class="line"><span class="lineno">   74</span>      ++n;</div>
+<div class="line"><span class="lineno">   75</span>    }</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">return</span> n;</div>
+<div class="line"><span class="lineno">   77</span>  }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a7f3694c6d07e21172bd24943de5c8346" name="a7f3694c6d07e21172bd24943de5c8346"></a>
@@ -243,7 +345,77 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   79</span>                                                    {</div>
+<div class="line"><span class="lineno">   80</span>    std::cout &lt;&lt; paramfile &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   81</span>    std::ifstream file(paramfile.c_str());</div>
+<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><span class="lineno">   83</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Warning! &quot;</span> &lt;&lt; paramfile &lt;&lt; <span class="stringliteral">&quot; not open&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   84</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   85</span>    }</div>
+<div class="line"><span class="lineno">   86</span>    std::string line;</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">while</span> (std::getline(file, line)) {</div>
+<div class="line"><span class="lineno">   90</span>      <span class="keywordflow">if</span> (line.size() == 0) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   91</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;#&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   92</span>      <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;;&#39;</span>) { <span class="keywordflow">continue</span>; }</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>      std::stringstream ss(line);</div>
+<div class="line"><span class="lineno">   95</span> </div>
+<div class="line"><span class="lineno">   96</span>      <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">   97</span>      <span class="keywordtype">float</span> w;</div>
+<div class="line"><span class="lineno">   98</span>      std::string t;</div>
+<div class="line"><span class="lineno">   99</span>      ss &gt;&gt; i &gt;&gt; w &gt;&gt; t;</div>
+<div class="line"><span class="lineno">  100</span>      <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#afbe21c9892937e61e7e7c36ce79659e0">QDCWidth</a>[i] = w;</div>
+<div class="line"><span class="lineno">  101</span>      <span class="keywordflow">if</span> (t == <span class="stringliteral">&quot;E&quot;</span>) {</div>
+<div class="line"><span class="lineno">  102</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0ba1dbe6ecdcf1e60875fbb838ec12ce">QDCType</a>[i] = <a class="code hl_enumvalue" href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1a75875d8f396064e1c6372f35ca85e6cb">Window::kEnergy</a>;</div>
+<div class="line"><span class="lineno">  103</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a49172cdf74c371014060bf0158931598">energyWidth</a> += w;</div>
+<div class="line"><span class="lineno">  104</span>        ++n;</div>
+<div class="line"><span class="lineno">  105</span>      }</div>
+<div class="line"><span class="lineno">  106</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (t == <span class="stringliteral">&quot;P&quot;</span>) {</div>
+<div class="line"><span class="lineno">  107</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0ba1dbe6ecdcf1e60875fbb838ec12ce">QDCType</a>[i] = <a class="code hl_enumvalue" href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1aa2d86d95b9f6fc114ea83102b1d7f7a8">Window::kPeak</a>;</div>
+<div class="line"><span class="lineno">  108</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a49172cdf74c371014060bf0158931598">energyWidth</a> += w;</div>
+<div class="line"><span class="lineno">  109</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a8c19845477b64920d40d59c1918aebbe">peakWidth</a> += w;</div>
+<div class="line"><span class="lineno">  110</span>        ++n;</div>
+<div class="line"><span class="lineno">  111</span>      }</div>
+<div class="line"><span class="lineno">  112</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (t == <span class="stringliteral">&quot;T&quot;</span>) {</div>
+<div class="line"><span class="lineno">  113</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0ba1dbe6ecdcf1e60875fbb838ec12ce">QDCType</a>[i] = <a class="code hl_enumvalue" href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1aa416286e40d212a7a7593eaeac925b04">Window::kTail</a>;</div>
+<div class="line"><span class="lineno">  114</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a49172cdf74c371014060bf0158931598">energyWidth</a> += w;</div>
+<div class="line"><span class="lineno">  115</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a1c23d4a92d6e95c1fb691f0aa5300b79">tailWidth</a> += w;</div>
+<div class="line"><span class="lineno">  116</span>        ++n;</div>
+<div class="line"><span class="lineno">  117</span>      }</div>
+<div class="line"><span class="lineno">  118</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (t == <span class="stringliteral">&quot;B&quot;</span>) {</div>
+<div class="line"><span class="lineno">  119</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0ba1dbe6ecdcf1e60875fbb838ec12ce">QDCType</a>[i] = <a class="code hl_enumvalue" href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1a7c58afb43537a264dcd68e698a7b8e3b">Window::kBackground</a>;</div>
+<div class="line"><span class="lineno">  120</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a66371799a27172a0b047450633727b9b">backWidth</a> += w;</div>
+<div class="line"><span class="lineno">  121</span>        ++n;</div>
+<div class="line"><span class="lineno">  122</span>      }</div>
+<div class="line"><span class="lineno">  123</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (t == <span class="stringliteral">&quot;PB&quot;</span>) {</div>
+<div class="line"><span class="lineno">  124</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0ba1dbe6ecdcf1e60875fbb838ec12ce">QDCType</a>[i] = <a class="code hl_enumvalue" href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1a799590dc1fda632eb45117e7e24ccd28">Window::kPostBackground</a>;</div>
+<div class="line"><span class="lineno">  125</span>        ++n;</div>
+<div class="line"><span class="lineno">  126</span>      }</div>
+<div class="line"><span class="lineno">  127</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (t == <span class="stringliteral">&quot;O&quot;</span>) {</div>
+<div class="line"><span class="lineno">  128</span>        <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a0ba1dbe6ecdcf1e60875fbb838ec12ce">QDCType</a>[i] = <a class="code hl_enumvalue" href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1a341b8a8f03cf33821c46aa5c3aad4b7a">Window::kOther</a>;</div>
+<div class="line"><span class="lineno">  129</span>        ++n;</div>
+<div class="line"><span class="lineno">  130</span>      }</div>
+<div class="line"><span class="lineno">  131</span>      <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  132</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Warning - invalid QDC type&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  133</span>      }      </div>
+<div class="line"><span class="lineno">  134</span>    }</div>
+<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">return</span> n;</div>
+<div class="line"><span class="lineno">  136</span>  }</div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a0ba1dbe6ecdcf1e60875fbb838ec12ce"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a0ba1dbe6ecdcf1e60875fbb838ec12ce">ClarionTrinity::TrinityConf::QDCType</a></div><div class="ttdeci">Window QDCType[8]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:55</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a1c23d4a92d6e95c1fb691f0aa5300b79"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a1c23d4a92d6e95c1fb691f0aa5300b79">ClarionTrinity::TrinityConf::tailWidth</a></div><div class="ttdeci">float tailWidth</div><div class="ttdef"><b>Definition:</b> Trinity.hh:52</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a49172cdf74c371014060bf0158931598"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a49172cdf74c371014060bf0158931598">ClarionTrinity::TrinityConf::energyWidth</a></div><div class="ttdeci">float energyWidth</div><div class="ttdef"><b>Definition:</b> Trinity.hh:53</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a66371799a27172a0b047450633727b9b"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a66371799a27172a0b047450633727b9b">ClarionTrinity::TrinityConf::backWidth</a></div><div class="ttdeci">float backWidth</div><div class="ttdef"><b>Definition:</b> Trinity.hh:54</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_a8c19845477b64920d40d59c1918aebbe"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#a8c19845477b64920d40d59c1918aebbe">ClarionTrinity::TrinityConf::peakWidth</a></div><div class="ttdeci">float peakWidth</div><div class="ttdef"><b>Definition:</b> Trinity.hh:51</div></div>
+<div class="ttc" id="aclass_clarion_trinity_1_1_trinity_conf_html_afbe21c9892937e61e7e7c36ce79659e0"><div class="ttname"><a href="class_clarion_trinity_1_1_trinity_conf.html#afbe21c9892937e61e7e7c36ce79659e0">ClarionTrinity::TrinityConf::QDCWidth</a></div><div class="ttdeci">float QDCWidth[8]</div><div class="ttdef"><b>Definition:</b> Trinity.hh:50</div></div>
+<div class="ttc" id="anamespace_clarion_trinity_html_a5c8af5339e341db2321e8434de631fb1a341b8a8f03cf33821c46aa5c3aad4b7a"><div class="ttname"><a href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1a341b8a8f03cf33821c46aa5c3aad4b7a">ClarionTrinity::Window::kOther</a></div><div class="ttdeci">@ kOther</div></div>
+<div class="ttc" id="anamespace_clarion_trinity_html_a5c8af5339e341db2321e8434de631fb1a75875d8f396064e1c6372f35ca85e6cb"><div class="ttname"><a href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1a75875d8f396064e1c6372f35ca85e6cb">ClarionTrinity::Window::kEnergy</a></div><div class="ttdeci">@ kEnergy</div></div>
+<div class="ttc" id="anamespace_clarion_trinity_html_a5c8af5339e341db2321e8434de631fb1a799590dc1fda632eb45117e7e24ccd28"><div class="ttname"><a href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1a799590dc1fda632eb45117e7e24ccd28">ClarionTrinity::Window::kPostBackground</a></div><div class="ttdeci">@ kPostBackground</div></div>
+<div class="ttc" id="anamespace_clarion_trinity_html_a5c8af5339e341db2321e8434de631fb1a7c58afb43537a264dcd68e698a7b8e3b"><div class="ttname"><a href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1a7c58afb43537a264dcd68e698a7b8e3b">ClarionTrinity::Window::kBackground</a></div><div class="ttdeci">@ kBackground</div></div>
+<div class="ttc" id="anamespace_clarion_trinity_html_a5c8af5339e341db2321e8434de631fb1aa2d86d95b9f6fc114ea83102b1d7f7a8"><div class="ttname"><a href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1aa2d86d95b9f6fc114ea83102b1d7f7a8">ClarionTrinity::Window::kPeak</a></div><div class="ttdeci">@ kPeak</div></div>
+<div class="ttc" id="anamespace_clarion_trinity_html_a5c8af5339e341db2321e8434de631fb1aa416286e40d212a7a7593eaeac925b04"><div class="ttname"><a href="namespace_clarion_trinity.html#a5c8af5339e341db2321e8434de631fb1aa416286e40d212a7a7593eaeac925b04">ClarionTrinity::Window::kTail</a></div><div class="ttdeci">@ kTail</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a42a4de5cd586867518b4107329dd55df" name="a42a4de5cd586867518b4107329dd55df"></a>
@@ -269,7 +441,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{ <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="_definitions_8hh.html#af2033d3fa60b992e36c8241c55cd9d59">MAX_GAGG_ID</a>; ++i) {<a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a6948422a9d062877c244355e6f64489e">pidType</a>[i] = type; } }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5a02e73ee7f2fedf45fe7e79e03358fb" name="a5a02e73ee7f2fedf45fe7e79e03358fb"></a>
@@ -305,7 +478,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{ <a class="code hl_variable" href="class_clarion_trinity_1_1_trinity_conf.html#a6948422a9d062877c244355e6f64489e">pidType</a>[ID] = type; }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>

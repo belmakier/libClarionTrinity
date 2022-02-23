@@ -1,0 +1,278 @@
+\hypertarget{_clarion_8cc_source}{}\doxysection{Clarion.\+cc}
+\label{_clarion_8cc_source}\index{src/Clarion.cc@{src/Clarion.cc}}
+\mbox{\hyperlink{_clarion_8cc}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00001}00001 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00002}00002 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_clarion_8hh}{Clarion.hh}}"{}}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00006}\mbox{\hyperlink{namespace_clarion_trinity}{00006}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_clarion_trinity}{ClarionTrinity}} \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00007}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abaf27c1c05e9c1fb0f96b62a30a05f7a}{00007}}   \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a62dd4f85ff46585c8243fb10cd4c4bec}{ClarionConf::ClarionConf}}(std::string conffile) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00008}00008     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{_definitions_8hh_adec67c1f284e23b6ea07228f98950509}{CT\_MAX\_CRATES}}; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00009}00009       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{_definitions_8hh_a429274a2f511d243e784c80e797c320d}{CT\_MAX\_SLOTS\_PER\_CRATE}}; ++j) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00010}00010         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k=0; k<\mbox{\hyperlink{_definitions_8hh_abea2635728b4dc3fda3464e86797055e}{CT\_MAX\_CHANNELS\_PER\_BOARD}}; ++k) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00011}00011           \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a7909f54089c2b48dc2d270ae86de1fd2}{CloverIDMap}}[i][j][k] = -\/1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00012}00012           \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6a2f49f926889e17dd925b052b5c34d5}{CrystalMap}}[i][j][k] = -\/1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00013}00013         \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00014}00014       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00015}00015     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00017}00017     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00018}00018       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a30e31eafb194b5987de28a6fc2186b52}{pos}}[i] = 0; \textcolor{comment}{//default furthest in}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00019}00019     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00020}00020     }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00021}00021     std::cout << conffile << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00022}00022     std::ifstream file(conffile.c\_str());}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00023}00023     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00024}00024       std::cout << \textcolor{stringliteral}{"{}Warning! "{}} << conffile << \textcolor{stringliteral}{"{} not open!"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00025}00025     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00026}00026     std::string line; }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00028}00028     \textcolor{keywordtype}{int} n = 0;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00029}00029     \textcolor{keywordflow}{while} (std::getline(file, line)) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00030}00030       \textcolor{keywordflow}{if} (line.size() == 0) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00031}00031       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{'\#'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00032}00032       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{';'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00034}00034       std::stringstream ss(line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00036}00036       ss >> \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[n];}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00037}00037       ss >> \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a30e31eafb194b5987de28a6fc2186b52}{pos}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[n]];}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00038}00038       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<8; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00039}00039         ss >> \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a2ea43e18ab3c24344d8fb6193256756f}{Cr}}[n][i] >> \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9a28a3e37b33397789e7aa2816906028}{Sl}}[n][i] >> \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abf9dc073bf973ecb0bbfbf01e9141552}{Ch}}[n][i];}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00040}00040         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a7909f54089c2b48dc2d270ae86de1fd2}{CloverIDMap}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a2ea43e18ab3c24344d8fb6193256756f}{Cr}}[n][i]][\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9a28a3e37b33397789e7aa2816906028}{Sl}}[n][i]][\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abf9dc073bf973ecb0bbfbf01e9141552}{Ch}}[n][i]] = \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[n];}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00041}00041         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6a2f49f926889e17dd925b052b5c34d5}{CrystalMap}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a2ea43e18ab3c24344d8fb6193256756f}{Cr}}[n][i]][\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9a28a3e37b33397789e7aa2816906028}{Sl}}[n][i]][\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abf9dc073bf973ecb0bbfbf01e9141552}{Ch}}[n][i]] = i;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00042}00042       \} }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00044}00044       n += 1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00045}00045     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00046}00046     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a51dd393a07b2d39908ca44f8e67ddd18}{nClovers}} = n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00048}00048     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a51dd393a07b2d39908ca44f8e67ddd18}{nClovers}}; ++j) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00049}00049       \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[j];}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00050}00050       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<8; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00051}00051         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_af8e740d27419a6e936aa0658941a941a}{gain}}[id][i] = 1.0;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00052}00052         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a33e20c9a6a8dc7a9073319b579dcf340}{offset}}[id][i] = 0.0;        }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00053}00053       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00054}00054       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<4; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00055}00055         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i2=0; i2<4; ++i2) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00056}00056           \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[id][i][i2] = 0.0;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00057}00057         \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00058}00058       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00059}00059     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00060}00060   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00062}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a34479170253281a38cf401e122be4ac3}{00062}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a34479170253281a38cf401e122be4ac3}{ClarionConf::ReadCal}}(std::string calfile) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00063}00063     std::cout << calfile << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00064}00064     std::ifstream file(calfile.c\_str());}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00065}00065     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00066}00066       std::cout << \textcolor{stringliteral}{"{}Warning! "{}} << calfile << \textcolor{stringliteral}{"{} not open"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00067}00067       \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00068}00068     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00069}00069     std::string line;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00071}00071     \textcolor{keywordtype}{int} n = 0;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00072}00072     \textcolor{keywordflow}{while} (std::getline(file, line)) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00073}00073       \textcolor{keywordflow}{if} (line.size() == 0) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00074}00074       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{'\#'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00075}00075       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{';'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00077}00077       std::stringstream ss(line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00079}00079       \textcolor{keywordtype}{int} id, i;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00080}00080       ss >> \textcolor{keywordtype}{id} >> i;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00081}00081       ss >> \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a33e20c9a6a8dc7a9073319b579dcf340}{offset}}[id][i] >> \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_af8e740d27419a6e936aa0658941a941a}{gain}}[id][i];}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00082}00082       ++n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00083}00083     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00084}00084     \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00085}00085   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00087}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_ae4b07b86fb318a7532d8b14211ec75f3}{00087}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_ae4b07b86fb318a7532d8b14211ec75f3}{ClarionConf::ReadCTCal}}(std::string calfile) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00088}00088     std::cout << calfile << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00089}00089     std::ifstream file(calfile.c\_str());}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00090}00090     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00091}00091       std::cout << \textcolor{stringliteral}{"{}Warning! "{}} << calfile << \textcolor{stringliteral}{"{} not open"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00092}00092       \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00093}00093     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00094}00094     file.precision(7);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00095}00095     std::string line;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00097}00097     \textcolor{keywordtype}{int} n = 0;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00098}00098     \textcolor{keywordflow}{while} (std::getline(file, line)) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00099}00099       \textcolor{keywordflow}{if} (line.size() == 0) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00100}00100       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{'\#'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00101}00101       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{';'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00103}00103       std::stringstream ss(line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00104}00104       ss.precision(7);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00105}00105       }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00106}00106       \textcolor{keywordtype}{int} id, i, i2;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00107}00107       \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_af8e740d27419a6e936aa0658941a941a}{gain}};}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00108}00108       ss >> \textcolor{keywordtype}{id} >> i >> i2 >> \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_af8e740d27419a6e936aa0658941a941a}{gain}};}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00109}00109  }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00110}00110       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[id][i][i2] = \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_af8e740d27419a6e936aa0658941a941a}{gain}};}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00112}00112       ++n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00113}00113     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00114}00114     \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00115}00115   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00116}00116   }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00117}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9f908ee273f852dcace35bb512e816d6}{00117}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9f908ee273f852dcace35bb512e816d6}{ClarionConf::ReadAngleMap}}(std::string mapfile) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00118}00118     std::cout << mapfile << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00119}00119     std::ifstream file(mapfile.c\_str());}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00120}00120     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00121}00121       std::cout << \textcolor{stringliteral}{"{}Warning! "{}} << mapfile << \textcolor{stringliteral}{"{} not open"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00122}00122       \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00123}00123     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00124}00124     std::string line;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00126}00126     \textcolor{keywordtype}{int} n = 0;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00127}00127     \textcolor{keywordflow}{while} (std::getline(file, line)) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00128}00128       \textcolor{keywordflow}{if} (line.size() == 0) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00129}00129       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{'\#'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00130}00130       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{';'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00132}00132       std::stringstream ss(line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00133}00133 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00134}00134       \textcolor{keywordtype}{int} id, i;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00135}00135       \textcolor{keywordtype}{double} phin, phim, phif, thetan, thetam, thetaf;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00136}00136       ss >> \textcolor{keywordtype}{id} >> i >> thetan >> phin >> thetam >> phim >> thetaf >> phif;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00138}00138       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a30e31eafb194b5987de28a6fc2186b52}{pos}}[\textcolor{keywordtype}{id}] == 0) \{ \textcolor{comment}{//near}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00139}00139         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aa9290326bf8272521ab618531ea72549}{theta}}[id][i] = thetan;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00140}00140         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a407341f9fb3cfbcacf469c0f92a06aa7}{phi}}[id][i] = phin;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00141}00141         ++n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00142}00142       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00143}00143       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a30e31eafb194b5987de28a6fc2186b52}{pos}}[\textcolor{keywordtype}{id}] == 1) \{ \textcolor{comment}{//mid}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00144}00144         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aa9290326bf8272521ab618531ea72549}{theta}}[id][i] = thetam;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00145}00145         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a407341f9fb3cfbcacf469c0f92a06aa7}{phi}}[id][i] = phim;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00146}00146         ++n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00147}00147       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00148}00148       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a30e31eafb194b5987de28a6fc2186b52}{pos}}[\textcolor{keywordtype}{id}] == 2) \{ \textcolor{comment}{//far}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00149}00149         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aa9290326bf8272521ab618531ea72549}{theta}}[id][i] = thetam;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00150}00150         \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a407341f9fb3cfbcacf469c0f92a06aa7}{phi}}[id][i] = phim;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00151}00151         ++n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00152}00152       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00153}00153       \textcolor{keywordflow}{else} \{ \textcolor{comment}{//wherever you are}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00154}00154         std::cout << \textcolor{stringliteral}{"{}Error: Invalid Clover position "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a30e31eafb194b5987de28a6fc2186b52}{pos}}[id] << \textcolor{stringliteral}{"{} -\/ should be: "{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00155}00155         std::cout << \textcolor{stringliteral}{"{}    0: nearest"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00156}00156         std::cout << \textcolor{stringliteral}{"{}    1: middle"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00157}00157         std::cout << \textcolor{stringliteral}{"{}    2: furthest"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00158}00158       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00159}00159     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00160}00160     \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00161}00161   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00163}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a14dd6f6267272158e3e23fdb385be329}{00163}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a14dd6f6267272158e3e23fdb385be329}{ClarionConf::ReadEfficiencyCal}}(std::string fn) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00164}00164     std::ifstream file(fn.c\_str());}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00165}00165     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00166}00166       std::cout << \textcolor{stringliteral}{"{}Warning! "{}} << fn << \textcolor{stringliteral}{"{} not open"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00167}00167       \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00168}00168     \}    }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00169}00169     std::string line;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00170}00170     getline(file, line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00171}00171     getline(file, line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00172}00172     std::stringstream ss(line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00173}00173     std::cout << line << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00174}00174     \textcolor{keywordtype}{float} abseff, a, aerr, b, berr, c, cerr, d, derr, e, eerr, f, ferr, g, gerr;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00175}00175     ss >> abseff >> a >> aerr >> b >> berr >> c >> cerr >> d >> derr >> e >> eerr >> f >> ferr >> g >> gerr;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00176}00176     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_afd6ea49600c249835c91a37fe8a41f5d}{AbsEff}} = abseff;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00177}00177     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[0] = a;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00178}00178     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[1] = b;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00179}00179     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[2] = c;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00180}00180     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[3] = d;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00181}00181     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[4] = e;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00182}00182     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[5] = f;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00183}00183     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[6] = g;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00184}00184     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00185}00185   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00186}00186 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00187}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a8408bd6cb5275df3b9080425404682ed}{00187}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a8408bd6cb5275df3b9080425404682ed}{ClarionConf::ReadEffIDCal}}(std::string fn) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00188}00188     std::ifstream file(fn.c\_str());}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00189}00189     \textcolor{keywordflow}{if} (!file.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00190}00190       std::cout << \textcolor{stringliteral}{"{}Warning! "{}} << fn << \textcolor{stringliteral}{"{} not open"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00191}00191       \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00192}00192     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00193}00193     std::string line;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00194}00194     getline(file, line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00195}00195     \textcolor{keywordtype}{int} n = 0;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00196}00196     \textcolor{keywordflow}{while} (std::getline(file, line)) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00197}00197       \textcolor{keywordflow}{if} (line.size() == 0) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00198}00198       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{'\#'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00199}00199       \textcolor{keywordflow}{if} (line[0] == \textcolor{charliteral}{';'}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00200}00200 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00201}00201       ++n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00202}00202       std::stringstream ss(line);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00203}00203       std::cout << line << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00204}00204       \textcolor{keywordtype}{int} ID; }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00205}00205       \textcolor{keywordtype}{float} abseff, relnorm, a, aerr, b, berr, c, cerr, d, derr, e, eerr, f, ferr, g, gerr;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00206}00206       ss >> ID >> abseff >> relnorm >> a >> aerr >> b >> berr >> c >> cerr >> d >> derr >> e >> eerr >> f >> ferr >> g >> gerr;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00207}00207       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_ab9c20a58cedde4cd3352a73f7da63366}{AbsEff\_i}}[ID] = abseff;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00208}00208       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][0] = a;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00209}00209       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][1] = b;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00210}00210       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][2] = c;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00211}00211       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][3] = d;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00212}00212       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][4] = e;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00213}00213       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][5] = f;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00214}00214       \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][6] = g;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00215}00215     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00216}00216     \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00217}00217   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00218}00218 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00219}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6968fe5981637f212b8ac9040b713515}{00219}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6968fe5981637f212b8ac9040b713515}{ClarionConf::Efficiency}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&e)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00220}00220     \textcolor{keywordtype}{double} x = std::log(e/100.0);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00221}00221     \textcolor{keywordtype}{double} y = std::log(e/1000.0);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00222}00222     \textcolor{keywordtype}{float} eff = std::pow((\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[0] + \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[1]*x + \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[2]*x*x), -\/\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[6]) +}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00223}00223       std::pow((\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[3] + \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[4]*y + \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[5]*y*y), -\/\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[6]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00224}00224     eff = std::pow(eff, -\/1.0/\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abba3a15c85b3491739f25846f9ee7d24}{EfficiencyCal}}[6]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00225}00225     eff = \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_afd6ea49600c249835c91a37fe8a41f5d}{AbsEff}}*std::exp(eff);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00226}00226     \textcolor{keywordflow}{return} eff;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00227}00227   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00228}00228 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00229}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aec8d8d6d47371b1a100cc32964f2f9cb}{00229}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6968fe5981637f212b8ac9040b713515}{ClarionConf::Efficiency}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&e, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&ID)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00230}00230     \textcolor{keywordtype}{double} x = std::log(e/100.0);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00231}00231     \textcolor{keywordtype}{double} y = std::log(e/1000.0);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00232}00232     \textcolor{keywordtype}{float} eff = std::pow((\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][0] + \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][1]*x + \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][2]*x*x), -\/\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][6]) +}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00233}00233       std::pow((\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][3] + \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][4]*y + \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][5]*y*y), -\/\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][6]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00234}00234     eff = std::pow(eff, -\/1.0/\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a76b5d5ebce850a1513fcd6671f613b94}{EffCal\_i}}[ID][6]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00235}00235     eff = \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_ab9c20a58cedde4cd3352a73f7da63366}{AbsEff\_i}}[ID]*std::exp(eff);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00236}00236     \textcolor{keywordflow}{return} eff;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00237}00237   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00238}00238 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00239}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aeb3ea889acdaaa023d1bbb98189c350d}{00239}}   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aeb3ea889acdaaa023d1bbb98189c350d}{ClarionConf::Print}}() \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00240}00240     std::cout << \textcolor{stringliteral}{"{}Clarion configuration: "{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00241}00241     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a51dd393a07b2d39908ca44f8e67ddd18}{nClovers}}; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00242}00242       printf(\textcolor{stringliteral}{"{}\%i   "{}}, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00243}00243       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<8; ++j) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00244}00244         printf(\textcolor{stringliteral}{"{}\%i.\%i.\%i   "{}}, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a2ea43e18ab3c24344d8fb6193256756f}{Cr}}[i][j],\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a9a28a3e37b33397789e7aa2816906028}{Sl}}[i][j],\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abf9dc073bf973ecb0bbfbf01e9141552}{Ch}}[i][j]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00245}00245       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00246}00246       printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00247}00247     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00248}00248     std::cout << \textcolor{stringliteral}{"{}Clarion calibration: "{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00249}00249     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a51dd393a07b2d39908ca44f8e67ddd18}{nClovers}}; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00250}00250       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<8; ++j) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00251}00251         printf(\textcolor{stringliteral}{"{}\%i  \%i     \%5.4f    \%5.4f\(\backslash\)n"{}}, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i], j, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a33e20c9a6a8dc7a9073319b579dcf340}{offset}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][j], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_af8e740d27419a6e936aa0658941a941a}{gain}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][j]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00252}00252       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00253}00253     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00254}00254     std::cout << \textcolor{stringliteral}{"{}Clarion CT correction: "{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00255}00255     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a51dd393a07b2d39908ca44f8e67ddd18}{nClovers}}; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00256}00256       std::cout << \textcolor{stringliteral}{"{}Clover "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i] << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00257}00257       printf(\textcolor{stringliteral}{"{}( 1.0000   \%6.5f   \%6.5f   \%6.5f )\(\backslash\)n"{}}, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][0][1], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][0][2], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][0][3]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00258}00258       printf(\textcolor{stringliteral}{"{}( \%6.5f   1.0000   \%6.5f   \%6.5f )\(\backslash\)n"{}}, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][1][0], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][1][2], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][1][3]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00259}00259       printf(\textcolor{stringliteral}{"{}( \%6.5f   \%6.5f   1.0000   \%6.5f )\(\backslash\)n"{}}, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][2][0], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][2][1], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][2][3]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00260}00260       printf(\textcolor{stringliteral}{"{}( \%6.5f   \%6.5f   \%6.5f  1.0000 )\(\backslash\)n"{}}, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][3][0], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][3][1], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][3][2]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00261}00261     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00262}00262     std::cout << \textcolor{stringliteral}{"{}Clarion angles: "{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00263}00263     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a51dd393a07b2d39908ca44f8e67ddd18}{nClovers}}; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00264}00264       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<5; ++j) \{}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00265}00265         printf(\textcolor{stringliteral}{"{}\%i  \%i     \%5.4f    \%5.4f\(\backslash\)n"{}}, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i], j, \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_aa9290326bf8272521ab618531ea72549}{theta}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][j], \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a407341f9fb3cfbcacf469c0f92a06aa7}{phi}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a32b4c8998d428c03e31c6d863e3c0bf5}{CloverID}}[i]][j]);}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00266}00266       \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00267}00267     \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00268}00268     }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00269}00269   \}}
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00270}00270 }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00271}00271   }
+\DoxyCodeLine{\Hypertarget{_clarion_8cc_source_l00272}00272 \}}
+
+\end{DoxyCode}

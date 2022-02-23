@@ -1,0 +1,118 @@
+\hypertarget{_clover_8cc_source}{}\doxysection{Clover.\+cc}
+\label{_clover_8cc_source}\index{src/Clover.cc@{src/Clover.cc}}
+\mbox{\hyperlink{_clover_8cc}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_clover_8hh}{Clover.hh}}"{}}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_clarion_8hh}{Clarion.hh}}"{}}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00004}00004 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_clarion_trinity}{ClarionTrinity}} \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00005}\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a5d4cafdf67823a83ac32b23f7f20cee2}{00005}}   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a5d4cafdf67823a83ac32b23f7f20cee2}{Clover::MakeGammas}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} \&conf) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00006}00006     \textcolor{comment}{//gammas.clear();}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00007}00007     \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}} = 0;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00008}00008     \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a63aef441b557adc2c0971b4342e6f5c7}{nPileUp}} = 0;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00009}00009     \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a39885c4c0c7821c7338a2291a0cbfd46}{nNonPrompt}} = 0;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00010}00010     \mbox{\hyperlink{class_clarion_trinity_1_1_clover_ab101d8234f62c0bf211e6e01b95d02da}{nSuppress}} = 0;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00011}00011     \mbox{\hyperlink{class_clarion_trinity_1_1_gamma}{Gamma}} *gam;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00012}00012     \textcolor{keywordtype}{float} xtl\_ens[4]; \textcolor{comment}{//local copy for cross-\/talk correction}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00013}00013     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} xtl = 0; xtl<4; ++xtl) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00014}00014       xtl\_ens[xtl] = 0.0;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00015}00015     \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00017}00017     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}}; ++i) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00018}00018       \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} hitt = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}}; }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00019}00019       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a4660c20376e843e2c920faadb4d3a5f5}{nBGOs}}; ++j) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00020}00020         \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} bgot = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a74d3ebb98dd65cd7145acd5c7dd9be00}{bgos}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00021}00021         \textcolor{keywordtype}{double} tdiff = (hitt-\/bgot)/3276.8; \textcolor{comment}{//ns}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00022}00022         \textcolor{keywordflow}{if} (abs(tdiff) < conf.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a5db3210e24dbb26f20440edb75f0f9f2}{BGOVetoTime}}) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00023}00023           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a74d3ebb98dd65cd7145acd5c7dd9be00}{bgos}}[j].PileUp == 1) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00024}00024             \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd9d4896d554a3b}{Suppress}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00025}00025             \mbox{\hyperlink{class_clarion_trinity_1_1_clover_ab101d8234f62c0bf211e6e01b95d02da}{nSuppress}} += 1;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00026}00026             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00027}00027           \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00028}00028           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a74d3ebb98dd65cd7145acd5c7dd9be00}{bgos}}[j].RawEnergy > conf.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a3399a8752988129da60f556fa64414b9}{RawBGOThresh}} \&\& \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a74d3ebb98dd65cd7145acd5c7dd9be00}{bgos}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} < conf.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abedb83b0c0b2e71f07f4cc219b6beaac}{RawUpThresh}}) \{          }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00029}00029             \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd9d4896d554a3b}{Suppress}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00030}00030             \mbox{\hyperlink{class_clarion_trinity_1_1_clover_ab101d8234f62c0bf211e6e01b95d02da}{nSuppress}} += 1;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00031}00031           \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00032}00032         \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00033}00033       \}    }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00035}00035       \textcolor{comment}{//probably increment some counter here}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00036}00036       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].Suppress == \textcolor{keyword}{true}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00037}00037       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].PileUp == 1 ) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00038}00038         \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a63aef441b557adc2c0971b4342e6f5c7}{nPileUp}} += 1;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00039}00039         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00040}00040       \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00041}00041       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].OutOfRange == 1) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00042}00042       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].CFDForce == 1) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00044}00044       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].Energy > conf.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6dd0eeb6586b02b23102adbe4ea0f77c}{EnThresh}} \&\& \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} < conf.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_abedb83b0c0b2e71f07f4cc219b6beaac}{RawUpThresh}}) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00045}00045         xtl\_ens[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}}] = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00046}00046         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}} == 0) \{ \textcolor{comment}{//if the first hit to get this far, make gamma based off it}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00047}00047           \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a05146299af61abeb23d20f7150b5559b}{gammas}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}}].\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a07bda1b4975182830bcced723986fba5}{Set}}(\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i], i);}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00048}00048           ++\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00049}00049           gam = \&(\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a05146299af61abeb23d20f7150b5559b}{gammas}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}}-\/1]);}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00050}00050         \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00051}00051         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00052}00052           \textcolor{keywordtype}{double} tdiff = (double)abs((\textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int})gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a808dea395a5dae850e92c06cdab60f80}{timestamp}} -\/ (\textcolor{keywordtype}{long} \textcolor{keywordtype}{long} int)\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].timestamp)/3276.8;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00053}00053           \textcolor{keywordflow}{if} (gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a808dea395a5dae850e92c06cdab60f80}{timestamp}} == 0 || tdiff < conf.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a46e30562bd0f1d599803ad01000539e6}{AddBackTDiff}}) \{  \textcolor{comment}{// if inside the time window, }}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00054}00054             gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a0863cd2cab96882f42a7528d37071152}{Energy}} += \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}};                         \textcolor{comment}{// add to existing gamma}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00055}00055             gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_aeaf24169382ff279b8ba0170f6e1183a}{nHits}}] = i;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00056}00056             ++gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_aeaf24169382ff279b8ba0170f6e1183a}{nHits}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00057}00057             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].Energy > gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a7cca15123772e32a58a9ce9264ce8c80}{MaxEn}}) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00058}00058               gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a7cca15123772e32a58a9ce9264ce8c80}{MaxEn}} = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00059}00059               gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a6b9108d7b62885b34c39a53f5da760e7}{MaxEnInd}} = i;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00060}00060               gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a808dea395a5dae850e92c06cdab60f80}{timestamp}} = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00061}00061               gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_aad7fbef56b549968d74acd9d66dac38e}{ctimestamp}} = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00062}00062             \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00063}00063           \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00064}00064           \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00065}00065             \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a39885c4c0c7821c7338a2291a0cbfd46}{nNonPrompt}} += 1;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00066}00066             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}} >= \mbox{\hyperlink{_definitions_8hh_a77429ef606473711c61865d8891110ce}{MAX\_GAMMAS}}) \{ }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00067}00067               std::cout << \textcolor{stringliteral}{"{}Warning! More than "{}} << \mbox{\hyperlink{_definitions_8hh_a77429ef606473711c61865d8891110ce}{MAX\_GAMMAS}} << \textcolor{stringliteral}{"{} gammas"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00068}00068               \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00069}00069             \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00070}00070             \textcolor{comment}{//old gamma is finished, apply correction}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00072}00072             gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a0863cd2cab96882f42a7528d37071152}{Energy}} = 0;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00073}00073             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} hit\_i=0; hit\_i<gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_aeaf24169382ff279b8ba0170f6e1183a}{nHits}}; ++hit\_i) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00074}00074               \textcolor{keywordflow}{if} (xtl\_ens[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[hit\_i]].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}}] > 0.0) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00075}00075                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} xtlj=0; xtlj<4; ++xtlj) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00076}00076                   \textcolor{keywordtype}{int} xtl = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[hit\_i]].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00077}00077                   \textcolor{keywordflow}{if} (xtl == xtlj) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00078}00078                   \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[hit\_i]].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}} += conf.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_af38181501c56ac727350125cc3a795e4}{CloverID}}][xtl][xtlj]*xtl\_ens[xtlj];}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00079}00079                 \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00080}00080                 gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a0863cd2cab96882f42a7528d37071152}{Energy}} += \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[hit\_i]].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00081}00081               \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00082}00082             \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00083}00083             }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00084}00084             \textcolor{comment}{//new gamma}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00085}00085             \mbox{\hyperlink{class_clarion_trinity_1_1_clover_a05146299af61abeb23d20f7150b5559b}{gammas}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}}].\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a07bda1b4975182830bcced723986fba5}{Set}}(\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i], i);}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00086}00086             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} xtl = 0; xtl<4; ++xtl) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00087}00087               xtl\_ens[xtl] = 0.0;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00088}00088             \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00089}00089             xtl\_ens[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}}] = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[i].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00090}00090             ++\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00091}00091             gam = \&(\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a05146299af61abeb23d20f7150b5559b}{gammas}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}}-\/1]);}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00092}00092           \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00093}00093         \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00094}00094       \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00095}00095     \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00096}00096     \textcolor{comment}{//final gamma finished,}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00098}00098     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a011308a92b15fd4efbbde202fb1c2b52}{nGammas}} > 0) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00099}00099       gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a0863cd2cab96882f42a7528d37071152}{Energy}} = 0;}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00100}00100       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} hit\_i=0; hit\_i<gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_aeaf24169382ff279b8ba0170f6e1183a}{nHits}}; ++hit\_i) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00101}00101         \textcolor{keywordflow}{if} (xtl\_ens[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[hit\_i]].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}}] > 0.0) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00102}00102           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} xtlj=0; xtlj<4; ++xtlj) \{}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00103}00103             \textcolor{keywordtype}{int} xtl = \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[hit\_i]].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00104}00104             \textcolor{keywordflow}{if} (xtl == xtlj) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00105}00105             \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[hit\_i]].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}} += conf.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a01efb76d46e6e3e653595befe10aa2fd}{ct\_cal}}[\mbox{\hyperlink{class_clarion_trinity_1_1_clover_af38181501c56ac727350125cc3a795e4}{CloverID}}][xtl][xtlj]*xtl\_ens[xtlj];}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00106}00106           \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00107}00107           gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a0863cd2cab96882f42a7528d37071152}{Energy}} += \mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[gam-\/>\mbox{\hyperlink{class_clarion_trinity_1_1_gamma_a66b5cdb435996faf637b947cd933c651}{HitInds}}[hit\_i]].\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}};}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00108}00108         \}                }
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00109}00109       \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00110}00110     \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00111}00111   \}}
+\DoxyCodeLine{\Hypertarget{_clover_8cc_source_l00112}00112 \}}
+
+\end{DoxyCode}

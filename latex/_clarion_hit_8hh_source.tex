@@ -2,44 +2,44 @@
 \label{_clarion_hit_8hh_source}\index{src/ClarionHit.hh@{src/ClarionHit.hh}}
 \mbox{\hyperlink{_clarion_hit_8hh}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CLARION\_TRINITY\_CLARIONHIT\_HH}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CLARION\_TRINITY\_CLARIONHIT\_HH}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <libpixie/measurement.hh>}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_clarion_trinity}{ClarionTrinity}} \{}
-\DoxyCodeLine{7   \textcolor{keyword}{class }ClarionConf;}
-\DoxyCodeLine{8   }
-\DoxyCodeLine{9   \textcolor{keyword}{class }\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit}{ClarionHit}} \{}
-\DoxyCodeLine{10   \textcolor{keyword}{public}:}
-\DoxyCodeLine{11     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a032ab3809375524bd99403ee6c14df01}{CloverID}};}
-\DoxyCodeLine{12     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}};}
-\DoxyCodeLine{13     }
-\DoxyCodeLine{14     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}};}
-\DoxyCodeLine{15     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}};}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}};}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a3fad5645b9df15722632600fb7431eed}{PileUp}};}
-\DoxyCodeLine{20     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a1699e46a3a65f442e476238fa20375d3}{CFDForce}};}
-\DoxyCodeLine{21     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_ac412c71b94e038cd1637517017519dde}{OutOfRange}};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd9d4896d554a3b}{Suppress}};}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a6798b38ec6bdf74a37dcf4b1245faee3}{ClarionHit}}() \{\};}
-\DoxyCodeLine{26     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a6798b38ec6bdf74a37dcf4b1245faee3}{ClarionHit}}(\textcolor{keyword}{const} PIXIE::Measurement \&meas, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{int} cryst, \textcolor{keyword}{const} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} \&conf);}
-\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a2d87f05cb6693ffc60d8ef1eb628f563}{Set}}(\textcolor{keyword}{const} PIXIE::Measurement \&meas, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{int} cryst, \textcolor{keyword}{const} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} \&conf);}
-\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a02343707c334e26e1224906cc719f289}{Print}}() \{ }
-\DoxyCodeLine{29       std::cout << \textcolor{stringliteral}{"{}Clover ID: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a032ab3809375524bd99403ee6c14df01}{CloverID}} << std::endl;}
-\DoxyCodeLine{30       std::cout << \textcolor{stringliteral}{"{}Crystal ID: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}} << std::endl;}
-\DoxyCodeLine{31       std::cout << \textcolor{stringliteral}{"{}Raw Energy: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} << std::endl;}
-\DoxyCodeLine{32       std::cout << \textcolor{stringliteral}{"{}Timestamp: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}} << std::endl;}
-\DoxyCodeLine{33       std::cout << \textcolor{stringliteral}{"{}Pileup: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a3fad5645b9df15722632600fb7431eed}{PileUp}} << std::endl;}
-\DoxyCodeLine{34       std::cout << \textcolor{stringliteral}{"{}Out of Range: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_ac412c71b94e038cd1637517017519dde}{OutOfRange}} << std::endl;}
-\DoxyCodeLine{35     \} }
-\DoxyCodeLine{36   \};}
-\DoxyCodeLine{37 \}}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00001}00001 \textcolor{preprocessor}{\#ifndef CLARION\_TRINITY\_CLARIONHIT\_HH}}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00002}00002 \textcolor{preprocessor}{\#define CLARION\_TRINITY\_CLARIONHIT\_HH}}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00004}00004 \textcolor{preprocessor}{\#include <libpixie/measurement.hh>}}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00006}00006 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_clarion_trinity}{ClarionTrinity}} \{}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00007}00007   \textcolor{keyword}{class }ClarionConf;}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00008}00008   }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00009}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit}{00009}}   \textcolor{keyword}{class }\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit}{ClarionHit}} \{}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00010}00010   \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00011}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a032ab3809375524bd99403ee6c14df01}{00011}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a032ab3809375524bd99403ee6c14df01}{CloverID}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00012}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{00012}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00013}00013     }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00014}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{00014}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00015}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{00015}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4ce159d141f12d34d9d794992267c358}{Energy}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00017}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{00017}}     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00019}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a3fad5645b9df15722632600fb7431eed}{00019}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a3fad5645b9df15722632600fb7431eed}{PileUp}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00020}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a1699e46a3a65f442e476238fa20375d3}{00020}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a1699e46a3a65f442e476238fa20375d3}{CFDForce}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00021}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_ac412c71b94e038cd1637517017519dde}{00021}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_ac412c71b94e038cd1637517017519dde}{OutOfRange}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00023}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd9d4896d554a3b}{00023}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4a93588a3deee9fcebd9d4896d554a3b}{Suppress}};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00025}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a6798b38ec6bdf74a37dcf4b1245faee3}{00025}}     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a6798b38ec6bdf74a37dcf4b1245faee3}{ClarionHit}}() \{\};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00026}00026     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a6798b38ec6bdf74a37dcf4b1245faee3}{ClarionHit}}(\textcolor{keyword}{const} PIXIE::Measurement \&meas, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{int} cryst, \textcolor{keyword}{const} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} \&conf);}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00027}00027     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a2d87f05cb6693ffc60d8ef1eb628f563}{Set}}(\textcolor{keyword}{const} PIXIE::Measurement \&meas, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{int} cryst, \textcolor{keyword}{const} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} \&conf);}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00028}\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a02343707c334e26e1224906cc719f289}{00028}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a02343707c334e26e1224906cc719f289}{Print}}() \{ }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00029}00029       std::cout << \textcolor{stringliteral}{"{}Clover ID: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a032ab3809375524bd99403ee6c14df01}{CloverID}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00030}00030       std::cout << \textcolor{stringliteral}{"{}Crystal ID: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a60eaf082b4267a2f8a81a17ceddae74f}{CrystalID}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00031}00031       std::cout << \textcolor{stringliteral}{"{}Raw Energy: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_afbfaf6f8cfbeb7145a7805b62a29627c}{RawEnergy}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00032}00032       std::cout << \textcolor{stringliteral}{"{}Timestamp: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a4afbb6165b23e9ee7c362e2c6170004c}{timestamp}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00033}00033       std::cout << \textcolor{stringliteral}{"{}Pileup: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_a3fad5645b9df15722632600fb7431eed}{PileUp}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00034}00034       std::cout << \textcolor{stringliteral}{"{}Out of Range: "{}} << \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit_ac412c71b94e038cd1637517017519dde}{OutOfRange}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00035}00035     \} }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00036}00036   \};}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00037}00037 \}}
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_clarion_hit_8hh_source_l00039}00039 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

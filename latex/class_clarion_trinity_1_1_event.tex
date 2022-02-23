@@ -20,6 +20,13 @@ const PIXIE\+::\+Event \& \mbox{\hyperlink{class_clarion_trinity_1_1_event_ac755
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_event_8hh_source_l00011}{11}} of file \mbox{\hyperlink{_event_8hh_source}{Event.\+hh}}.
+
+
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_clarion_trinity_1_1_event_a190ef64475ce1cd7d3da3fffbf85eeb8}\label{class_clarion_trinity_1_1_event_a190ef64475ce1cd7d3da3fffbf85eeb8}} 
 \index{ClarionTrinity::Event@{ClarionTrinity::Event}!Event@{Event}}
@@ -28,8 +35,12 @@ const PIXIE\+::\+Event \& \mbox{\hyperlink{class_clarion_trinity_1_1_event_ac755
 {\footnotesize\ttfamily Clarion\+Trinity\+::\+Event\+::\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_clarion_trinity_1_1_clarion}{Clarion}}}]{c,  }\item[{\mbox{\hyperlink{class_clarion_trinity_1_1_trinity}{Trinity}}}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
+
+Definition at line \mbox{\hyperlink{_event_8hh_source_l00016}{16}} of file \mbox{\hyperlink{_event_8hh_source}{Event.\+hh}}.
+
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{16 \{ \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}} = c; \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}} = t; \};}
+\DoxyCodeLine{00016 \{ \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}} = c; \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}} = t; \};}
 
 \end{DoxyCode}
 
@@ -42,112 +53,116 @@ const PIXIE\+::\+Event \& \mbox{\hyperlink{class_clarion_trinity_1_1_event_ac755
 {\footnotesize\ttfamily const PIXIE\+::\+Event \& Clarion\+Trinity\+::\+Event\+::\+Set (\begin{DoxyParamCaption}\item[{const PIXIE\+::\+Reader \&}]{reader,  }\item[{int}]{event\+Ind }\end{DoxyParamCaption})}
 
 
+
+Definition at line \mbox{\hyperlink{_event_8cc_source_l00007}{7}} of file \mbox{\hyperlink{_event_8cc_source}{Event.\+cc}}.
+
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{7                                                                       \{}
-\DoxyCodeLine{8     \textcolor{keyword}{const} PIXIE::Event \&e = reader.events[eventInd];}
-\DoxyCodeLine{9     \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}} = 0;}
-\DoxyCodeLine{10     \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}} = 0;}
-\DoxyCodeLine{11     \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}} = 0;}
-\DoxyCodeLine{12     }
-\DoxyCodeLine{13     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<e.nMeas; ++i) \{}
-\DoxyCodeLine{14       \textcolor{keyword}{const} PIXIE::Measurement \&meas = reader.measurements[e.fMeasurements[i]];}
-\DoxyCodeLine{16       \textcolor{comment}{// TRINITY PROCESSING //}}
-\DoxyCodeLine{18 \textcolor{comment}{}}
-\DoxyCodeLine{19       \textcolor{comment}{//for each measurement, check if it's part of Trinity}}
-\DoxyCodeLine{20       \textcolor{keywordtype}{int} GaggID = \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_conf_a0f17347ac111807f29b1b8e2d032e3ef}{GaggIDMap}}[meas.crateID][meas.slotID][meas.channelNumber];}
-\DoxyCodeLine{21       \textcolor{keywordtype}{int} Sensor = \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_conf_a7091acef6941879396d1ff6cd3bfe9e3}{GaggSensorMap}}[meas.crateID][meas.slotID][meas.channelNumber];}
-\DoxyCodeLine{22       }
-\DoxyCodeLine{23       \textcolor{keywordflow}{if} (GaggID != -\/1) \{}
-\DoxyCodeLine{24         \textcolor{keywordtype}{int} exists = 0;}
-\DoxyCodeLine{25         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}; ++j) \{ \textcolor{comment}{//iterate through existing GAGG objects}}
-\DoxyCodeLine{26           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}} == GaggID) \{}
-\DoxyCodeLine{27             \textcolor{keywordflow}{if} (Sensor == 1) \{}
-\DoxyCodeLine{28               \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a47a4025e30e7beaa6038f2a64caab68d}{Set1}}(meas, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
-\DoxyCodeLine{29           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a711d8a528e43828188102138f3bac0ac}{iMeas1}} = i;}
-\DoxyCodeLine{30               exists = 1;}
-\DoxyCodeLine{31               \textcolor{keywordflow}{break}; \textcolor{comment}{//found it}}
-\DoxyCodeLine{32             \}}
-\DoxyCodeLine{33             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Sensor == 2) \{}
-\DoxyCodeLine{34               \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ab658d52a95a519cd3ac8b65631ad0666}{Set2}}(meas, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
-\DoxyCodeLine{35           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_acf2a686e435e2d11060758815d9927e2}{iMeas2}} = i;}
-\DoxyCodeLine{36               exists = 1;}
-\DoxyCodeLine{37               \textcolor{keywordflow}{break}; \textcolor{comment}{//found it}}
-\DoxyCodeLine{38             \}}
-\DoxyCodeLine{39           \}}
-\DoxyCodeLine{40         \}}
-\DoxyCodeLine{41         \textcolor{keywordflow}{if} (exists == 0) \{ \textcolor{comment}{//make new}}
-\DoxyCodeLine{42           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}} == \mbox{\hyperlink{_definitions_8hh_a475b713ef9152701a2e860ed0ab9a791}{MAX\_GAGG\_CRYSTALS}}) \{ std::cout << \textcolor{stringliteral}{"{}WARNING, too many GaGG crystals in a single event, increase MAX\_GAGG\_CRYSTALS?"{}} << std::endl;}
-\DoxyCodeLine{43             \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{44           \}}
-\DoxyCodeLine{45           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a146068e3288a7b2a52c15b39163949bf}{Reset}}(GaggID);}
-\DoxyCodeLine{46           ++\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}};}
-\DoxyCodeLine{47           \textcolor{keywordflow}{if} (Sensor == 1) \{}
-\DoxyCodeLine{48             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a47a4025e30e7beaa6038f2a64caab68d}{Set1}}(meas, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
-\DoxyCodeLine{49         \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a711d8a528e43828188102138f3bac0ac}{iMeas1}} = i;}
-\DoxyCodeLine{50           \}}
-\DoxyCodeLine{51           \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Sensor == 2) \{}
-\DoxyCodeLine{52             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ab658d52a95a519cd3ac8b65631ad0666}{Set2}}(meas, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
-\DoxyCodeLine{53         \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_acf2a686e435e2d11060758815d9927e2}{iMeas2}} = i;}
-\DoxyCodeLine{54           \}}
-\DoxyCodeLine{55         \}}
-\DoxyCodeLine{56       \}}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{59       \textcolor{comment}{// CLARION PROCESSING //}}
-\DoxyCodeLine{61 \textcolor{comment}{}      \textcolor{comment}{//for each measurement, check if it's part of Clover}}
-\DoxyCodeLine{62       \textcolor{keywordtype}{int} cloverID = \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a7909f54089c2b48dc2d270ae86de1fd2}{CloverIDMap}}[meas.crateID][meas.slotID][meas.channelNumber];}
-\DoxyCodeLine{63       \textcolor{keywordtype}{int} crystal = \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6a2f49f926889e17dd925b052b5c34d5}{CrystalMap}}[meas.crateID][meas.slotID][meas.channelNumber];}
-\DoxyCodeLine{64       \textcolor{keywordflow}{if} (cloverID != -\/1) \{}
-\DoxyCodeLine{65         \textcolor{keywordtype}{int} exists = 0;}
-\DoxyCodeLine{66         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k=0; k<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}; ++k) \{ \textcolor{comment}{//iterate through existing Clovers}}
-\DoxyCodeLine{67           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[k].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_af38181501c56ac727350125cc3a795e4}{CloverID}} == cloverID) \{}
-\DoxyCodeLine{68             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[k].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_ac1ef494250a7a1e2b7a3ad4ee3c7e13b}{AddHit}}(meas, crystal, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}});}
-\DoxyCodeLine{69             \textcolor{keywordflow}{if} (crystal <= 3) \{ \textcolor{comment}{//only for crystals, no side channels or bgos}}
-\DoxyCodeLine{70               \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a6cf5301ed2fd82fd9ee3494383c30bc9}{hits}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}}] = \&\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[k].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[k].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}}-\/1];}
-\DoxyCodeLine{71               \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}} += 1;}
-\DoxyCodeLine{72             \}}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{74             exists = 1;}
-\DoxyCodeLine{75             \textcolor{keywordflow}{break}; \textcolor{comment}{//found it}}
-\DoxyCodeLine{76           \}}
-\DoxyCodeLine{77         \}}
-\DoxyCodeLine{78         \textcolor{keywordflow}{if} (exists == 0) \{ \textcolor{comment}{//make new}}
-\DoxyCodeLine{79           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}} == \mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}) \{ std::cout << \textcolor{stringliteral}{"{}WARNING, too many Clovers in a single event, increase MAX\_CLOVERS?"{}} << std::endl;}
-\DoxyCodeLine{80             \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{81           \}}
-\DoxyCodeLine{82           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_af512d52113fa894294e550b81d839e8a}{Reset}}(cloverID);}
-\DoxyCodeLine{83           ++\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}};}
-\DoxyCodeLine{84           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_ac1ef494250a7a1e2b7a3ad4ee3c7e13b}{AddHit}}(meas, crystal, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}});}
-\DoxyCodeLine{85           \textcolor{keywordflow}{if} (crystal <= 3) \{ \textcolor{comment}{//only for crystals, no side channels or bgos}}
-\DoxyCodeLine{86             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a6cf5301ed2fd82fd9ee3494383c30bc9}{hits}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}}] = \&\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}}-\/1];}
-\DoxyCodeLine{87             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}} += 1;}
-\DoxyCodeLine{88           \}}
-\DoxyCodeLine{89         \}}
-\DoxyCodeLine{90       \}}
-\DoxyCodeLine{91     \}}
-\DoxyCodeLine{92     \textcolor{comment}{//measurements finished processing}}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{94     }
-\DoxyCodeLine{95     \textcolor{comment}{//validate GAGGs with both SiPM fired}}
-\DoxyCodeLine{96     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}; ++j) \{}
-\DoxyCodeLine{97       \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a7ba07f3e790a1f041bed0e51d6fb782e}{Set}}(\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
-\DoxyCodeLine{98       \textcolor{comment}{// if (trinity.parts[j].valid) \{}}
-\DoxyCodeLine{99       \textcolor{comment}{//   trinity.valid\_parts[trinity.nValidParts].push\_back(trinity.parts[j]);}}
-\DoxyCodeLine{100       \textcolor{comment}{// \}}}
-\DoxyCodeLine{101     \}}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{103     \textcolor{comment}{//Process Hits -\/> Gammas (addback) here}}
-\DoxyCodeLine{104     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}; ++j) \{}
-\DoxyCodeLine{105       \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a5d4cafdf67823a83ac32b23f7f20cee2}{MakeGammas}}(\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}});}
-\DoxyCodeLine{106       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}} == \mbox{\hyperlink{_definitions_8hh_a35cbe6ff6279f557840cb94f017e38cf}{MAX\_HITS\_PER\_CLOVER}}) \{}
-\DoxyCodeLine{107         std::cout << \textcolor{stringliteral}{"{}Warning! More than "{}} << \mbox{\hyperlink{_definitions_8hh_a35cbe6ff6279f557840cb94f017e38cf}{MAX\_HITS\_PER\_CLOVER}} << \textcolor{stringliteral}{"{} hits in a single Clover"{}} << std::endl;}
-\DoxyCodeLine{108         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k=0; k<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}}; ++k) \{}
-\DoxyCodeLine{109           \textcolor{comment}{//clarion.clovers[j].hits[k].Print();}}
-\DoxyCodeLine{110         \}}
-\DoxyCodeLine{111       \}}
-\DoxyCodeLine{112     \}}
-\DoxyCodeLine{113 }
-\DoxyCodeLine{114     \textcolor{keywordflow}{return} e;}
-\DoxyCodeLine{115   \}  }
+\DoxyCodeLine{00007                                                                       \{}
+\DoxyCodeLine{00008     \textcolor{keyword}{const} PIXIE::Event \&e = reader.events[eventInd];}
+\DoxyCodeLine{00009     \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}} = 0;}
+\DoxyCodeLine{00010     \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}} = 0;}
+\DoxyCodeLine{00011     \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}} = 0;}
+\DoxyCodeLine{00012     }
+\DoxyCodeLine{00013     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<e.nMeas; ++i) \{}
+\DoxyCodeLine{00014       \textcolor{keyword}{const} PIXIE::Measurement \&meas = reader.measurements[e.fMeasurements[i]];}
+\DoxyCodeLine{00016       \textcolor{comment}{// TRINITY PROCESSING //}}
+\DoxyCodeLine{00018 \textcolor{comment}{}}
+\DoxyCodeLine{00019       \textcolor{comment}{//for each measurement, check if it's part of Trinity}}
+\DoxyCodeLine{00020       \textcolor{keywordtype}{int} GaggID = \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_conf_a0f17347ac111807f29b1b8e2d032e3ef}{GaggIDMap}}[meas.crateID][meas.slotID][meas.channelNumber];}
+\DoxyCodeLine{00021       \textcolor{keywordtype}{int} Sensor = \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_conf_a7091acef6941879396d1ff6cd3bfe9e3}{GaggSensorMap}}[meas.crateID][meas.slotID][meas.channelNumber];}
+\DoxyCodeLine{00022       }
+\DoxyCodeLine{00023       \textcolor{keywordflow}{if} (GaggID != -\/1) \{}
+\DoxyCodeLine{00024         \textcolor{keywordtype}{int} exists = 0;}
+\DoxyCodeLine{00025         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}; ++j) \{ \textcolor{comment}{//iterate through existing GAGG objects}}
+\DoxyCodeLine{00026           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a4a6f06d0f57eaacac0c7cc3903318946}{GaggID}} == GaggID) \{}
+\DoxyCodeLine{00027             \textcolor{keywordflow}{if} (Sensor == 1) \{}
+\DoxyCodeLine{00028               \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a47a4025e30e7beaa6038f2a64caab68d}{Set1}}(meas, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
+\DoxyCodeLine{00029           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a711d8a528e43828188102138f3bac0ac}{iMeas1}} = i;}
+\DoxyCodeLine{00030               exists = 1;}
+\DoxyCodeLine{00031               \textcolor{keywordflow}{break}; \textcolor{comment}{//found it}}
+\DoxyCodeLine{00032             \}}
+\DoxyCodeLine{00033             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Sensor == 2) \{}
+\DoxyCodeLine{00034               \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ab658d52a95a519cd3ac8b65631ad0666}{Set2}}(meas, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
+\DoxyCodeLine{00035           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_acf2a686e435e2d11060758815d9927e2}{iMeas2}} = i;}
+\DoxyCodeLine{00036               exists = 1;}
+\DoxyCodeLine{00037               \textcolor{keywordflow}{break}; \textcolor{comment}{//found it}}
+\DoxyCodeLine{00038             \}}
+\DoxyCodeLine{00039           \}}
+\DoxyCodeLine{00040         \}}
+\DoxyCodeLine{00041         \textcolor{keywordflow}{if} (exists == 0) \{ \textcolor{comment}{//make new}}
+\DoxyCodeLine{00042           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}} == \mbox{\hyperlink{_definitions_8hh_a475b713ef9152701a2e860ed0ab9a791}{MAX\_GAGG\_CRYSTALS}}) \{ std::cout << \textcolor{stringliteral}{"{}WARNING, too many GaGG crystals in a single event, increase MAX\_GAGG\_CRYSTALS?"{}} << std::endl;}
+\DoxyCodeLine{00043             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00044           \}}
+\DoxyCodeLine{00045           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a146068e3288a7b2a52c15b39163949bf}{Reset}}(GaggID);}
+\DoxyCodeLine{00046           ++\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}};}
+\DoxyCodeLine{00047           \textcolor{keywordflow}{if} (Sensor == 1) \{}
+\DoxyCodeLine{00048             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a47a4025e30e7beaa6038f2a64caab68d}{Set1}}(meas, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
+\DoxyCodeLine{00049         \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a711d8a528e43828188102138f3bac0ac}{iMeas1}} = i;}
+\DoxyCodeLine{00050           \}}
+\DoxyCodeLine{00051           \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Sensor == 2) \{}
+\DoxyCodeLine{00052             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_ab658d52a95a519cd3ac8b65631ad0666}{Set2}}(meas, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
+\DoxyCodeLine{00053         \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_acf2a686e435e2d11060758815d9927e2}{iMeas2}} = i;}
+\DoxyCodeLine{00054           \}}
+\DoxyCodeLine{00055         \}}
+\DoxyCodeLine{00056       \}}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{00059       \textcolor{comment}{// CLARION PROCESSING //}}
+\DoxyCodeLine{00061 \textcolor{comment}{}      \textcolor{comment}{//for each measurement, check if it's part of Clover}}
+\DoxyCodeLine{00062       \textcolor{keywordtype}{int} cloverID = \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a7909f54089c2b48dc2d270ae86de1fd2}{CloverIDMap}}[meas.crateID][meas.slotID][meas.channelNumber];}
+\DoxyCodeLine{00063       \textcolor{keywordtype}{int} crystal = \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf_a6a2f49f926889e17dd925b052b5c34d5}{CrystalMap}}[meas.crateID][meas.slotID][meas.channelNumber];}
+\DoxyCodeLine{00064       \textcolor{keywordflow}{if} (cloverID != -\/1) \{}
+\DoxyCodeLine{00065         \textcolor{keywordtype}{int} exists = 0;}
+\DoxyCodeLine{00066         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k=0; k<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}; ++k) \{ \textcolor{comment}{//iterate through existing Clovers}}
+\DoxyCodeLine{00067           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[k].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_af38181501c56ac727350125cc3a795e4}{CloverID}} == cloverID) \{}
+\DoxyCodeLine{00068             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[k].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_ac1ef494250a7a1e2b7a3ad4ee3c7e13b}{AddHit}}(meas, crystal, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}});}
+\DoxyCodeLine{00069             \textcolor{keywordflow}{if} (crystal <= 3) \{ \textcolor{comment}{//only for crystals, no side channels or bgos}}
+\DoxyCodeLine{00070               \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a6cf5301ed2fd82fd9ee3494383c30bc9}{hits}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}}] = \&\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[k].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[k].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}}-\/1];}
+\DoxyCodeLine{00071               \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}} += 1;}
+\DoxyCodeLine{00072             \}}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074             exists = 1;}
+\DoxyCodeLine{00075             \textcolor{keywordflow}{break}; \textcolor{comment}{//found it}}
+\DoxyCodeLine{00076           \}}
+\DoxyCodeLine{00077         \}}
+\DoxyCodeLine{00078         \textcolor{keywordflow}{if} (exists == 0) \{ \textcolor{comment}{//make new}}
+\DoxyCodeLine{00079           \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}} == \mbox{\hyperlink{_definitions_8hh_a16d292a7f1b7d5db34673f0746f37920}{MAX\_CLOVERS}}) \{ std::cout << \textcolor{stringliteral}{"{}WARNING, too many Clovers in a single event, increase MAX\_CLOVERS?"{}} << std::endl;}
+\DoxyCodeLine{00080             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00081           \}}
+\DoxyCodeLine{00082           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_af512d52113fa894294e550b81d839e8a}{Reset}}(cloverID);}
+\DoxyCodeLine{00083           ++\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}};}
+\DoxyCodeLine{00084           \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_ac1ef494250a7a1e2b7a3ad4ee3c7e13b}{AddHit}}(meas, crystal, \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}});}
+\DoxyCodeLine{00085           \textcolor{keywordflow}{if} (crystal <= 3) \{ \textcolor{comment}{//only for crystals, no side channels or bgos}}
+\DoxyCodeLine{00086             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a6cf5301ed2fd82fd9ee3494383c30bc9}{hits}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}}] = \&\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_aacf73a3248488084f37a22b74ceeef07}{hits}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}-\/1].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}}-\/1];}
+\DoxyCodeLine{00087             \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a8f4ae5c2b2b3794c44210efb0ec4788d}{nHits}} += 1;}
+\DoxyCodeLine{00088           \}}
+\DoxyCodeLine{00089         \}}
+\DoxyCodeLine{00090       \}}
+\DoxyCodeLine{00091     \}}
+\DoxyCodeLine{00092     \textcolor{comment}{//measurements finished processing}}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094     }
+\DoxyCodeLine{00095     \textcolor{comment}{//validate GAGGs with both SiPM fired}}
+\DoxyCodeLine{00096     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ab9394c75eab78165536e44cf083a2a69}{nParts}}; ++j) \{}
+\DoxyCodeLine{00097       \mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_ac98ddae6b5d4b229f59fece3e6136c5c}{parts}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_g_a_g_g_a7ba07f3e790a1f041bed0e51d6fb782e}{Set}}(\mbox{\hyperlink{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}{trinity}}.\mbox{\hyperlink{class_clarion_trinity_1_1_trinity_aeb4eac5ae101e8649bd70a01b86b3b7d}{conf}});}
+\DoxyCodeLine{00098       \textcolor{comment}{// if (trinity.parts[j].valid) \{}}
+\DoxyCodeLine{00099       \textcolor{comment}{//   trinity.valid\_parts[trinity.nValidParts].push\_back(trinity.parts[j]);}}
+\DoxyCodeLine{00100       \textcolor{comment}{// \}}}
+\DoxyCodeLine{00101     \}}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103     \textcolor{comment}{//Process Hits -\/> Gammas (addback) here}}
+\DoxyCodeLine{00104     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a902d3a8595ea8dac6b34f62c1b71f9e2}{nClovers}}; ++j) \{}
+\DoxyCodeLine{00105       \mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a5d4cafdf67823a83ac32b23f7f20cee2}{MakeGammas}}(\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_a953e30c44b912bffa17c77f1d30472e1}{conf}});}
+\DoxyCodeLine{00106       \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}} == \mbox{\hyperlink{_definitions_8hh_a35cbe6ff6279f557840cb94f017e38cf}{MAX\_HITS\_PER\_CLOVER}}) \{}
+\DoxyCodeLine{00107         std::cout << \textcolor{stringliteral}{"{}Warning! More than "{}} << \mbox{\hyperlink{_definitions_8hh_a35cbe6ff6279f557840cb94f017e38cf}{MAX\_HITS\_PER\_CLOVER}} << \textcolor{stringliteral}{"{} hits in a single Clover"{}} << std::endl;}
+\DoxyCodeLine{00108         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k=0; k<\mbox{\hyperlink{class_clarion_trinity_1_1_event_a6720d9c9e1c5b96299ef1e336d037796}{clarion}}.\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_afe5fb595d088748d6ffbb40c9a23b98a}{clovers}}[j].\mbox{\hyperlink{class_clarion_trinity_1_1_clover_a0216f6e2d941d3aa1aecfc7e48acd469}{nHits}}; ++k) \{}
+\DoxyCodeLine{00109           \textcolor{comment}{//clarion.clovers[j].hits[k].Print();}}
+\DoxyCodeLine{00110         \}}
+\DoxyCodeLine{00111       \}}
+\DoxyCodeLine{00112     \}}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114     \textcolor{keywordflow}{return} e;}
+\DoxyCodeLine{00115   \}  }
 
 \end{DoxyCode}
 
@@ -159,11 +174,19 @@ const PIXIE\+::\+Event \& \mbox{\hyperlink{class_clarion_trinity_1_1_event_ac755
 \doxysubsubsection{\texorpdfstring{clarion}{clarion}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_clarion_trinity_1_1_clarion}{Clarion}} Clarion\+Trinity\+::\+Event\+::clarion}
 
+
+
+Definition at line \mbox{\hyperlink{_event_8hh_source_l00013}{13}} of file \mbox{\hyperlink{_event_8hh_source}{Event.\+hh}}.
+
 \mbox{\Hypertarget{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}\label{class_clarion_trinity_1_1_event_a172b834c203efe23df802f69a4ca5702}} 
 \index{ClarionTrinity::Event@{ClarionTrinity::Event}!trinity@{trinity}}
 \index{trinity@{trinity}!ClarionTrinity::Event@{ClarionTrinity::Event}}
 \doxysubsubsection{\texorpdfstring{trinity}{trinity}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_clarion_trinity_1_1_trinity}{Trinity}} Clarion\+Trinity\+::\+Event\+::trinity}
+
+
+
+Definition at line \mbox{\hyperlink{_event_8hh_source_l00014}{14}} of file \mbox{\hyperlink{_event_8hh_source}{Event.\+hh}}.
 
 
 

@@ -1,0 +1,81 @@
+\hypertarget{_clarion_8hh_source}{}\doxysection{Clarion.\+hh}
+\label{_clarion_8hh_source}\index{src/Clarion.hh@{src/Clarion.hh}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CLARION\_TRINITY\_CLARION\_HH}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CLARION\_TRINITY\_CLARION\_HH}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Clover.hh"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Definitions.hh"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }ClarionTrinity \{}
+\DoxyCodeLine{8   \textcolor{keyword}{class }\mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} \{}
+\DoxyCodeLine{9   \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} nClovers; \textcolor{comment}{//number of clovers}}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} CloverID[MAX\_CLOVERS * 4]; \textcolor{comment}{//don't know how big this should be: crystal ID's}}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} Cr[MAX\_CLOVERS][8]; \textcolor{comment}{//crate ID    -\/ these are all indexed by }}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} Sl[MAX\_CLOVERS][8]; \textcolor{comment}{//slot IDs    -\/ 0-\/3: crystals, 4-\/6: side channels, 7 : BGO}}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} Ch[MAX\_CLOVERS][8]; \textcolor{comment}{//channel IDs}}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} pos[MAX\_CLOVERS];}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} CloverIDMap[CT\_MAX\_CRATES][CT\_MAX\_SLOTS\_PER\_CRATE][CT\_MAX\_CHANNELS\_PER\_BOARD];}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} CrystalMap[CT\_MAX\_CRATES][CT\_MAX\_SLOTS\_PER\_CRATE][CT\_MAX\_CHANNELS\_PER\_BOARD];}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{double} offset[MAX\_CLOVERS * 4][8];}
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} gain[MAX\_CLOVERS * 4][8];}
+\DoxyCodeLine{22     }
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} ct\_cal[MAX\_CLOVERS][4][4];    \textcolor{comment}{//when addback occurs}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{double} theta[MAX\_CLOVERS][5];}
+\DoxyCodeLine{26     \textcolor{keywordtype}{double} phi[MAX\_CLOVERS][5];}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} AddBack = \textcolor{keyword}{true};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{double} BGOVetoTime = 500; \textcolor{comment}{//in ns}}
+\DoxyCodeLine{30     \textcolor{keywordtype}{double} EnThresh = 30; \textcolor{comment}{//keV}}
+\DoxyCodeLine{31     \textcolor{keywordtype}{double} RawUpThresh = 60000; \textcolor{comment}{//ADC units}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{double} RawBGOThresh = 20; \textcolor{comment}{//ADC units}}
+\DoxyCodeLine{33     \textcolor{keywordtype}{double} AddBackTDiff = 500; \textcolor{comment}{//in ns}}
+\DoxyCodeLine{34     }
+\DoxyCodeLine{35     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}}() \{\};}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}}(std::string conffile);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} ReadCal(std::string calfile);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} ReadCTCal(std::string calfile);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} ReadAngleMap(std::string mapfile);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{float} AbsEff;}
+\DoxyCodeLine{43     \textcolor{keywordtype}{float} EfficiencyCal[7];}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{float} AbsEff\_i[MAX\_CLOVERS+1];}
+\DoxyCodeLine{46     \textcolor{keywordtype}{float} EffCal\_i[MAX\_CLOVERS+1][7]; \textcolor{comment}{//per detector}}
+\DoxyCodeLine{47     }
+\DoxyCodeLine{48     \textcolor{keywordtype}{float} Efficiency(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&e) \textcolor{keyword}{const};}
+\DoxyCodeLine{49     \textcolor{keywordtype}{float} Efficiency(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&e, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \&ID) \textcolor{keyword}{const};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{int} ReadEfficiencyCal(std::string calfile);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} ReadEffIDCal(std::string calfile);}
+\DoxyCodeLine{53       }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} Print();}
+\DoxyCodeLine{55   \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57   \textcolor{keyword}{class }\mbox{\hyperlink{class_clarion_trinity_1_1_clarion}{Clarion}} \{}
+\DoxyCodeLine{58   \textcolor{keyword}{public}:}
+\DoxyCodeLine{59     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_conf}{ClarionConf}} conf;}
+\DoxyCodeLine{60     }
+\DoxyCodeLine{61     \textcolor{comment}{//std::vector<Clover> clovers;}}
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} nClovers;}
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} nHits;}
+\DoxyCodeLine{64     \mbox{\hyperlink{class_clarion_trinity_1_1_clover}{Clover}} clovers[MAX\_CLOVERS];}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit}{ClarionHit}} *hits[MAX\_HITS\_PER\_CLOVER*MAX\_CLOVERS];}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion}{Clarion}}() \{\};}
+\DoxyCodeLine{68     \mbox{\hyperlink{class_clarion_trinity_1_1_clarion}{Clarion}}(std::string conffile) : conf(conffile) \{\};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} ReadAngleMap(std::string mapfile) \{ \textcolor{keywordflow}{return} conf.ReadAngleMap(mapfile); \}}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} PrintConf() \{ conf.Print(); \}}
+\DoxyCodeLine{72   \};}
+\DoxyCodeLine{73 \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

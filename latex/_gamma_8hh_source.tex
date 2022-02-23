@@ -1,0 +1,39 @@
+\hypertarget{_gamma_8hh_source}{}\doxysection{Gamma.\+hh}
+\label{_gamma_8hh_source}\index{src/Gamma.hh@{src/Gamma.hh}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CLARION\_TRINITY\_GAMMA\_HH}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CLARION\_TRINITY\_GAMMA\_HH}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}ClarionHit.hh"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Definitions.hh"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }ClarionTrinity \{}
+\DoxyCodeLine{10   \textcolor{keyword}{class }\mbox{\hyperlink{class_clarion_trinity_1_1_gamma}{Gamma}} \{}
+\DoxyCodeLine{11   \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \textcolor{keywordtype}{double} Energy;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{double} MaxEn;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} MaxEnInd;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} timestamp;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} ctimestamp;}
+\DoxyCodeLine{18     }
+\DoxyCodeLine{19     \textcolor{comment}{//std::vector<int> HitInds;}}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} HitInds[MAX\_HITS\_PER\_CLOVER];}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} nHits;}
+\DoxyCodeLine{22     }
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} Theta;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{double} Phi;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_clarion_trinity_1_1_gamma}{Gamma}}() \{\};}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_clarion_trinity_1_1_gamma}{Gamma}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit}{ClarionHit}} \&hit, \textcolor{keywordtype}{int} ind);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} Set(\textcolor{keyword}{const} \mbox{\hyperlink{class_clarion_trinity_1_1_clarion_hit}{ClarionHit}} \&hit, \textcolor{keywordtype}{int} ind);}
+\DoxyCodeLine{30   \};}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

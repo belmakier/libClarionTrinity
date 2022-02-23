@@ -4,7 +4,7 @@
 
 libClarionTrinity is a C++ library designed to help processing data
 from the CLARION2 and TRINITY HPGe and charged-particle arrays. It is
-designed to interface with [libpixie](github.com/belmakier/libpixie), which handles the raw data format
+designed to interface with <a href="https://github.com/belmakier/libpixie">libpixie</a>, which handles the raw data format
 and event-building. libClarionTrinity processes the libpixie events
 into detectors and groups of detectors - doing BGO supression, Clover
 addback, requiring both signals from a single GAGG crystal etc. etc.

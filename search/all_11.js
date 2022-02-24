@@ -10,5 +10,5 @@ var searchData=
   ['sl2_7',['Sl2',['../class_clarion_trinity_1_1_trinity_conf.html#a87ae6bf8e66187fb2656774695b61797',1,'ClarionTrinity::TrinityConf']]],
   ['slot1_8',['slot1',['../class_clarion_trinity_1_1_g_a_g_g.html#a37d089a16651235d2da4f2b49b90f282',1,'ClarionTrinity::GAGG']]],
   ['slot2_9',['slot2',['../class_clarion_trinity_1_1_g_a_g_g.html#a21ebec9d4b263c3455124a58fd73b657',1,'ClarionTrinity::GAGG']]],
-  ['suppress_10',['Suppress',['../class_clarion_trinity_1_1_clarion_hit.html#a4a93588a3deee9fcebd9d4896d554a3b',1,'ClarionTrinity::ClarionHit']]]
+  ['suppress_10',['Suppress',['../class_clarion_trinity_1_1_clarion_conf.html#ae61c2eca595f7b0eaecff1e2c4fbc090',1,'ClarionTrinity::ClarionConf::Suppress()'],['../class_clarion_trinity_1_1_clarion_hit.html#a4a93588a3deee9fcebd9d4896d554a3b',1,'ClarionTrinity::ClarionHit::Suppress()']]]
 ];

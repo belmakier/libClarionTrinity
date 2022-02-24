@@ -26,6 +26,7 @@ namespace ClarionTrinity {
     double phi[MAX_CLOVERS][5];
 
     bool AddBack = true;
+    bool Suppress = true;
     double BGOVetoTime = 500; //in ns
     double EnThresh = 30; //keV
     double RawUpThresh = 60000; //ADC units

@@ -33,7 +33,9 @@ namespace ClarionTrinity {
       }    
 
       //probably increment some counter here
-      if (hits[i].Suppress == true) { continue; }
+      if (conf.Suppress == true) {
+        if (hits[i].Suppress == true) { continue; }
+      }
       if (hits[i].PileUp == 1 ) {
         nPileUp += 1;
         continue;

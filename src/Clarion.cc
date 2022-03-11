@@ -49,7 +49,8 @@ namespace ClarionTrinity {
       int id = CloverID[j];
       for (int i=0; i<8; ++i) {
         gain[id][i] = 1.0;
-        offset[id][i] = 0.0;        
+        offset[id][i] = 0.0;
+        toff[id][i] = 0.0;        
       }
       for (int i=0; i<4; ++i) {
         for (int i2=0; i2<4; ++i2) {
@@ -78,7 +79,7 @@ namespace ClarionTrinity {
 
       int id, i;
       ss >> id >> i;
-      ss >> offset[id][i] >> gain[id][i];
+      ss >> offset[id][i] >> gain[id][i] >> toff[id][i];
       ++n;
     }
     return n;

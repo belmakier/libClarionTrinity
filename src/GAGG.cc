@@ -43,7 +43,7 @@ namespace ClarionTrinity {
       peak1 = peak1 - conf.peakWidth/conf.backWidth * background1;
       tail1 = tail1 - conf.tailWidth/conf.backWidth * background1;            
     }
-    time1 = meas.eventTime;
+    time1 = meas.eventTime + conf.toff[GaggID]*3276.8;
     traceLength1 = meas.traceLength;
     pu1 = meas.finishCode;
     oor1 = meas.outOfRange;
@@ -90,7 +90,7 @@ namespace ClarionTrinity {
       peak2 = peak2 - conf.peakWidth/conf.backWidth * background2;
       tail2 = tail2 - conf.tailWidth/conf.backWidth * background2;            
     }
-    time2 = meas.eventTime;
+    time2 = meas.eventTime + conf.toff[GaggID]*3276.8;
     traceLength2 = meas.traceLength;
     pu2 = meas.finishCode;
     oor2 = meas.outOfRange;

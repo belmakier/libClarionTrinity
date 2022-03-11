@@ -38,7 +38,8 @@ namespace ClarionTrinity {
       std::stringstream ss(line);
 
       ss >> GaggID[nCrystals] >> Cr1[nCrystals] >> Sl1[nCrystals] >> Ch1[nCrystals] >>
-        Cr2[nCrystals] >> Sl2[nCrystals] >> Ch2[nCrystals] >> gain[GaggID[nCrystals]];
+        Cr2[nCrystals] >> Sl2[nCrystals] >> Ch2[nCrystals] >> gain[GaggID[nCrystals]] >>
+        toff[GaggID[nCrystals]];
       GaggIDMap[Cr1[nCrystals]][Sl1[nCrystals]][Ch1[nCrystals]] = GaggID[nCrystals];
       GaggIDMap[Cr2[nCrystals]][Sl2[nCrystals]][Ch2[nCrystals]] = GaggID[nCrystals];
       GaggSensorMap[Cr1[nCrystals]][Sl1[nCrystals]][Ch1[nCrystals]] = 1;

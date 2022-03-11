@@ -19,6 +19,7 @@ namespace ClarionTrinity {
 
     double offset[MAX_CLOVERS * 4][8];
     double gain[MAX_CLOVERS * 4][8];
+    double toff[MAX_CLOVERS * 4][8];
     
     double ct_cal[MAX_CLOVERS][4][4];    //when addback occurs
 

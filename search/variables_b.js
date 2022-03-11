@@ -7,14 +7,13 @@ var searchData=
   ['peak2_5fcal_4',['peak2_cal',['../class_clarion_trinity_1_1_g_a_g_g.html#a978b591c1b0c335aa9b7759334c49535',1,'ClarionTrinity::GAGG']]],
   ['peaksimilarity_5',['peakSimilarity',['../class_clarion_trinity_1_1_trinity_conf.html#a523ff26ba1e83b4c7e879a1b5751553a',1,'ClarionTrinity::TrinityConf']]],
   ['peakwidth_6',['peakWidth',['../class_clarion_trinity_1_1_trinity_conf.html#a8c19845477b64920d40d59c1918aebbe',1,'ClarionTrinity::TrinityConf']]],
-  ['phi_7',['phi',['../class_clarion_trinity_1_1_trinity_conf.html#af84dc5c8a0b5ef1e68832707b46b6b95',1,'ClarionTrinity::TrinityConf']]],
+  ['phi_7',['phi',['../class_clarion_trinity_1_1_clarion_conf.html#a407341f9fb3cfbcacf469c0f92a06aa7',1,'ClarionTrinity::ClarionConf::phi()'],['../class_clarion_trinity_1_1_trinity_conf.html#af84dc5c8a0b5ef1e68832707b46b6b95',1,'ClarionTrinity::TrinityConf::phi()']]],
   ['phi_8',['Phi',['../class_clarion_trinity_1_1_gamma.html#a0cb9c5925fb394563159bdd2b3df4ec7',1,'ClarionTrinity::Gamma']]],
-  ['phi_9',['phi',['../class_clarion_trinity_1_1_clarion_conf.html#a407341f9fb3cfbcacf469c0f92a06aa7',1,'ClarionTrinity::ClarionConf']]],
-  ['pidtype_10',['pidType',['../class_clarion_trinity_1_1_trinity_conf.html#a6948422a9d062877c244355e6f64489e',1,'ClarionTrinity::TrinityConf']]],
-  ['pileup_11',['PileUp',['../class_clarion_trinity_1_1_clarion_hit.html#a3fad5645b9df15722632600fb7431eed',1,'ClarionTrinity::ClarionHit']]],
-  ['pos_12',['pos',['../class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52',1,'ClarionTrinity::ClarionConf']]],
-  ['postbackground1_13',['postbackground1',['../class_clarion_trinity_1_1_g_a_g_g.html#ac3bac204c7b884c048f8fb5ec299cb64',1,'ClarionTrinity::GAGG']]],
-  ['postbackground2_14',['postbackground2',['../class_clarion_trinity_1_1_g_a_g_g.html#af56dae658f8575d443ac37b692597392',1,'ClarionTrinity::GAGG']]],
-  ['pu1_15',['pu1',['../class_clarion_trinity_1_1_g_a_g_g.html#a64e7d629b22a138ab1797a0bc51e94c7',1,'ClarionTrinity::GAGG']]],
-  ['pu2_16',['pu2',['../class_clarion_trinity_1_1_g_a_g_g.html#afd3bc1069faab75401a91616c552f25a',1,'ClarionTrinity::GAGG']]]
+  ['pidtype_9',['pidType',['../class_clarion_trinity_1_1_trinity_conf.html#a6948422a9d062877c244355e6f64489e',1,'ClarionTrinity::TrinityConf']]],
+  ['pileup_10',['PileUp',['../class_clarion_trinity_1_1_clarion_hit.html#a3fad5645b9df15722632600fb7431eed',1,'ClarionTrinity::ClarionHit']]],
+  ['pos_11',['pos',['../class_clarion_trinity_1_1_clarion_conf.html#a30e31eafb194b5987de28a6fc2186b52',1,'ClarionTrinity::ClarionConf']]],
+  ['postbackground1_12',['postbackground1',['../class_clarion_trinity_1_1_g_a_g_g.html#ac3bac204c7b884c048f8fb5ec299cb64',1,'ClarionTrinity::GAGG']]],
+  ['postbackground2_13',['postbackground2',['../class_clarion_trinity_1_1_g_a_g_g.html#af56dae658f8575d443ac37b692597392',1,'ClarionTrinity::GAGG']]],
+  ['pu1_14',['pu1',['../class_clarion_trinity_1_1_g_a_g_g.html#a64e7d629b22a138ab1797a0bc51e94c7',1,'ClarionTrinity::GAGG']]],
+  ['pu2_15',['pu2',['../class_clarion_trinity_1_1_g_a_g_g.html#afd3bc1069faab75401a91616c552f25a',1,'ClarionTrinity::GAGG']]]
 ];

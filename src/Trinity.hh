@@ -34,6 +34,7 @@ namespace ClarionTrinity {
     int GaggSensorMap[CT_MAX_CRATES][CT_MAX_SLOTS_PER_CRATE][CT_MAX_CHANNELS_PER_BOARD];    
 
     float gain[MAX_GAGG_ID]; //this is indexed by GaggID
+    float toff[MAX_GAGG_ID]; //this is indexed by GaggID
 
     float theta[MAX_GAGG_ID];
     float phi[MAX_GAGG_ID];
